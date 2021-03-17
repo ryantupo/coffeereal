@@ -1,0 +1,143 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28-Feb-2021, 16:47:49
+    Author     : Ryan
+*/
+
+
+
+//color codes
+//lightest to darkest
+//#EDE0D4
+//#E6CCB2
+//#DDB892
+//#B08968
+//#7F5539
+//#9C6644
+
+html{
+    background-color: black;
+}
+
+body{
+    background-color: #9C6644;
+}
+
+.titletext{
+    background-color: lightslategrey;
+    text-align: center;
+    margin: auto;
+    width: 100%;
+    padding-top: 0px;
+    color: red;
+}
+
+
+
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: #B08968;
+    overflow: hidden;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+
+
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #E6CCB2;
+    color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+    background-color: #7F5539;
+    color: white;
+}
+
+
+.registerblock{
+    width: 300px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+}
+
+
+.Button{
+    margin-top:10px;
+    margin-left: 50px;
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 10px;
+    border: 4px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+}
+
+.Button:hover {
+color: #ffffff !important;
+background: #DDB892;
+border-color: #7F5539 !important;
+transition: all 0.4s ease 0s;
+}
+
+.errors1{
+    display: inline-block;
+    color: red;
+
+
+}
+
+
+
+
+.logoutbutton{
+    line-height: 30px;
+    margin-left: 10px;
+    white-space: nowrap;
+    margin-top: -35px;
+    margin-right: 5%;
+    text-align: right;
+    float: right;
+    background:none;
+    border:none;
+    cursor: pointer;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+
+.welcomemessage{
+    white-space: nowrap;
+    line-height: 10px;
+    margin-top: 10px;
+    margin-right: 45%;
+    margin-left: 60%;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+
+}
+
+

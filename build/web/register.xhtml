@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>REGISTER FORM</title>
+        <link rel="stylesheet" href="resources/css/homepagestylesheet.css"/>
+    </h:head>
+    <h:body>
+
+
+
+        <div class="topnav">
+            <a class="active" href="/login/faces/index.xhtml">Home</a>
+            <a href="register.xhtml">Register</a>
+            <a href="loginpage.xhtml">Log in</a>
+        </div>
+
+
+        <h1>register account</h1>
+        
+        <div class="p-field p-grid">
+
+            <h:form>
+
+
+                <h:outputLabel value = "Username:"/>
+                <div class="p-col">
+                    <p:inputText id="UserNameInputText" required="true"
+                                 requiredMessage="Please enter a valid Username"
+                                 value="#{Registerbean.userName}" maxlength="30">
+                    </p:inputText>
+                    <h:message for="UserNameInputText" styleClass="error"/><br/>
+                </div>
+
+                <h:outputLabel value = "Password:"/>
+
+                <div class="p-col">
+                    <p:inputText id="passwordInputText" required="true"
+                                 requiredMessage="Please enter your password"
+                                 value="#{Registerbean.password}" maxlength="150">
+                    </p:inputText>
+                    <h:message for="passwordInputText" styleClass="error"/><br/>
+
+                </div>
+
+
+
+                <h:outputLabel value = "First Name:"/>
+                <div class="p-col">
+                    <p:inputText id="firstNameInputText" required="true"
+                                 requiredMessage="Please enter first name"
+                                 value="#{Registerbean.firstName}" maxlength="30">
+                    </p:inputText>
+                    <h:message for="firstNameInputText" styleClass="error"/><br/>
+                </div>
+
+
+
+                <h:outputLabel value = "Last Name:"/>
+                <div class="p-col">
+                    <p:inputText id="lastNameInputText" required="true"
+                                 requiredMessage="Please enter last name"
+                                 value="#{Registerbean.lastName}" maxlength="30">
+                    </p:inputText>
+                    <h:message for="lastNameInputText" styleClass="error"/><br/>
+                </div>
+
+
+
+                <h:outputLabel value = "EmailAddress:"/>
+                <div class="p-col">
+                    <p:inputText id="emailInputText" required="true"
+                                 requiredMessage="Please enter a valid EmailAddress"
+                                 value="#{Registerbean.emailAddress}" maxlength="320">
+                    </p:inputText>
+                    <h:message for="emailInputText" styleClass="error"/><br/>
+                </div>
+
+
+
+
+
+
+
+
+                <h:commandButton class="Button" value="Register"
+                                 action="#{Registerbean.save}"/>
+
+                <div id="errorblock1" class="errors1">
+
+                    <h:outputText value="#{Registerbean.error1}"/>
+                </div>
+
+            </h:form>
+
+
+        </div>
+
+
+
+
+        <!--<div class="p-field p-grid">
+            <label for="firstname" class="p-col-fixed" style="width:100px">Firstname</label>
+            <div class="p-col">
+                <p:inputText id="firstname" type="text" />
+            </div>
+        </div>
+        <div class="p-field p-grid">
+            <label for="lastname" class="p-col-fixed" style="width:100px">Lastname</label>
+            <div class="p-col">
+                <p:inputText id="lastname" type="text" />
+            </div>
+        </div>-->
+
+
+
+
+
+    </h:body>
+</html>
+

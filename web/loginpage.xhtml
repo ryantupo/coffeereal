@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <head>
+        <title>TODO supply a title</title>
+        <link rel="stylesheet" href="resources/css/homepagestylesheet.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+
+        <div class="topnav">
+            <a class="active" href="/login/faces/index.xhtml">Home</a>
+            <a href="register.xhtml">Register</a>
+            <a href="loginpage.xhtml">Log in</a>
+        </div>
+
+        <div>login stuff later</div>
+
+        <h1>LOG IN</h1>
+        <div class="registerblock">
+
+            <h:form>
+                <h:panelGrid columns="1">
+
+
+
+                    <h:outputLabel value = "Username:"/>
+                    <h:inputText id="UserNameInputText" required="true"
+                                 requiredMessage="Please enter a valid Username"
+                                 value="#{loginbean.userName}" maxlength="30">
+                    </h:inputText>
+                    <h:message for="UserNameInputText" styleClass="error"/><br/>
+
+                    <h:outputLabel value = "Password:"/>
+                    <h:inputText id="passwordInputText" required="true"
+                                 requiredMessage="Please enter your password"
+                                 value="#{loginbean.userPassword}" maxlength="150">
+                    </h:inputText>
+                    <h:message for="passwordInputText" styleClass="error"/><br/>
+
+
+                </h:panelGrid>
+
+                <h:commandButton class="Button" value="Register"
+                                 action="#{loginbean.SuccesfulLogin()}"/>
+
+
+
+            </h:form>
+
+        </div>
+
+    </body>
+</html>
+
+
