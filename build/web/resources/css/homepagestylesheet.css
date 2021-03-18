@@ -25,6 +25,7 @@ html{
 
 body{
     background-color: #9C6644;
+    color: white;
 }
 
 .titletext{
@@ -84,8 +85,7 @@ body{
 
 
 .Button{
-    margin-top:10px;
-    margin-left: 50px;
+
     color: #494949 !important;
     text-transform: uppercase;
     text-decoration: none;
@@ -97,6 +97,7 @@ body{
 }
 
 .Button:hover {
+
 color: #ffffff !important;
 background: #DDB892;
 border-color: #7F5539 !important;
@@ -114,7 +115,10 @@ transition: all 0.4s ease 0s;
 
 
 .logoutbutton{
-    line-height: 30px;
+    font-size: 18px;
+    color: white;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    line-height: 25px;
     margin-left: 10px;
     white-space: nowrap;
     margin-top: -35px;
@@ -140,4 +144,48 @@ transition: all 0.4s ease 0s;
 
 }
 
+.paddinginput{
+    margin-bottom: 30px;
+}
 
+h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+          font-size: 18px;
+}
+
+
+.center{
+    text-align: center;
+}
+
+
+
+.divlogin{
+    
+  text-align: center;
+  width: 30%;
+  height: 250px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+.divregister{
+  margin-top:80px;
+  text-align: center;
+  width: 30%;
+  height: 470px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+
+.divlogin {
+  padding: 10px;
+}
+
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}

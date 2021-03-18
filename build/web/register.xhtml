@@ -3,6 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
+    
     <h:head>
         <title>REGISTER FORM</title>
         <link rel="stylesheet" href="resources/css/homepagestylesheet.css"/>
@@ -18,15 +19,15 @@
         </div>
 
 
-        <h1>register account</h1>
+        <h1 class="center">Register Account</h1>
         
-        <div class="p-field p-grid">
+        <div class="divregister p-field p-grid registerblock">
 
             <h:form>
 
 
                 <h:outputLabel value = "Username:"/>
-                <div class="p-col">
+                <div class="p-col paddinginput">
                     <p:inputText id="UserNameInputText" required="true"
                                  requiredMessage="Please enter a valid Username"
                                  value="#{Registerbean.userName}" maxlength="30">
@@ -36,7 +37,7 @@
 
                 <h:outputLabel value = "Password:"/>
 
-                <div class="p-col">
+                <div class="p-col paddinginput">
                     <p:inputText id="passwordInputText" required="true"
                                  requiredMessage="Please enter your password"
                                  value="#{Registerbean.password}" maxlength="150">
@@ -48,7 +49,7 @@
 
 
                 <h:outputLabel value = "First Name:"/>
-                <div class="p-col">
+                <div class="p-col paddinginput">
                     <p:inputText id="firstNameInputText" required="true"
                                  requiredMessage="Please enter first name"
                                  value="#{Registerbean.firstName}" maxlength="30">
@@ -59,7 +60,7 @@
 
 
                 <h:outputLabel value = "Last Name:"/>
-                <div class="p-col">
+                <div class="p-col paddinginput">
                     <p:inputText id="lastNameInputText" required="true"
                                  requiredMessage="Please enter last name"
                                  value="#{Registerbean.lastName}" maxlength="30">
@@ -70,7 +71,7 @@
 
 
                 <h:outputLabel value = "EmailAddress:"/>
-                <div class="p-col">
+                <div class="p-col paddinginput">
                     <p:inputText id="emailInputText" required="true"
                                  requiredMessage="Please enter a valid EmailAddress"
                                  value="#{Registerbean.emailAddress}" maxlength="320">
