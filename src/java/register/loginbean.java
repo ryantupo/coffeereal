@@ -5,8 +5,8 @@
  */
 package register;
 
-import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.connect;
-import static com.sun.jmx.remote.internal.IIOPHelper.connect;
+//import static com.sun.corba.se.spi.presentation.rmi.StubAdapter.connect;
+//import static com.sun.jmx.remote.internal.IIOPHelper.connect;
 import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Connection;
@@ -21,7 +21,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import static javax.management.remote.JMXConnectorFactory.connect;
 import static javax.management.remote.JMXConnectorFactory.connect;
-import static javax.rmi.PortableRemoteObject.connect;
+//import static javax.rmi.PortableRemoteObject.connect;
 import javax.servlet.http.*;
 import javax.sql.DataSource;
 import sessions.GetSession;

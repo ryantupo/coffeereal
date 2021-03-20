@@ -98,10 +98,10 @@ body{
 
 .Button:hover {
 
-color: #ffffff !important;
-background: #DDB892;
-border-color: #7F5539 !important;
-transition: all 0.4s ease 0s;
+    color: #ffffff !important;
+    background: #DDB892;
+    border-color: #7F5539 !important;
+    transition: all 0.4s ease 0s;
 }
 
 .errors1{
@@ -160,32 +160,34 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 
 
 .divlogin{
-    
-  text-align: center;
-  width: 30%;
-  height: 250px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
+    min-width: 250px;
+    text-align: center;
+    width: 20%;
+    height: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
 }
 
 .divregister{
-  margin-top:80px;
-  text-align: center;
-  width: 30%;
-  height: 470px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-align: center;
+    min-width: 350px;
+    margin-top:80px;
+    text-align: center;
+    width: 20%;
+    height: 470px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
 }
 
 
 .divlogin {
-  padding: 10px;
+    padding: 10px;
 }
 
 
 .center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
 }
+

@@ -8,7 +8,7 @@ package user;
 import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.sql.DataSource;
-import static com.sun.jmx.remote.internal.IIOPHelper.connect;
+//import static com.sun.jmx.remote.internal.IIOPHelper.connect;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

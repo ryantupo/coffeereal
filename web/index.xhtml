@@ -7,10 +7,12 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
 
-    <head>
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <title>HomePage</title>
         <link rel="stylesheet" type="text/css" href="/login/faces/jsfcrud.css" />
 
@@ -18,7 +20,7 @@ and open the template in the editor.
         <link rel="stylesheet" href="resources/css/homepagestylesheet.css"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    </head>
+    </h:head>
     <body>
 
         <div class="topnav">
@@ -28,6 +30,80 @@ and open the template in the editor.
                 <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
             </h:form>
         </div>
+
+        <br/>
+
+<!--                <div class="card ui-fluid ">
+                    <h:form>
+        
+                        <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
+                                //prime faces autcomplete
+        
+                        <div class="p-field p-col-12 p-md-4">
+                            <p:outputLabel value="Select Event" for="@next"/>
+                            <p:autoComplete id="event" value="{autoCompleteView.txt8}"
+                                            completeMethod="{autoCompleteView.completeText}" scrollHeight="250">
+                                <p:ajax event="itemSelect" listener="{autoCompleteView.onItemSelect}" update="msgs"/>
+                            </p:autoComplete>
+                        </div>
+        
+        
+                    </h:form>
+                </div>-->
+
+        <br/>
+
+        <h:form>
+            <div class="brandtable">
+                <p:dataTable var="ricardo" value="#{thisbean.brands}">
+                    <p:column headerText="Brand Name">
+                        <h:outputText value="#{ricardo.brand_Name}" />
+                    </p:column>
+
+                    <p:column headerText="Country">
+                        <h:outputText value="#{ricardo.country}" />
+                    </p:column>
+
+                    <p:column headerText="est">
+                        <h:outputText value="#{ricardo.established}" />
+                    </p:column>
+
+                </p:dataTable>
+            </div>
+        </h:form>
+
+
+        <br/>
+
+        <div class="card ui-fluid ">
+            <h:form>
+                <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
+
+                <h5 class="p-mt-0">Single</h5>
+                <div class="p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-4">
+                        <p:outputLabel value="Simple" for="@next"/>
+                        <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
+                    </div>
+
+                </div>
+
+            </h:form>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     </body>

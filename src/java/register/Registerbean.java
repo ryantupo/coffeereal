@@ -10,7 +10,7 @@
  */
 package register;
 
-import static com.sun.jmx.remote.internal.IIOPHelper.connect;
+//import static com.sun.jmx.remote.internal.IIOPHelper.connect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
