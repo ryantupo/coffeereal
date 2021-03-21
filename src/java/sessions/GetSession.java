@@ -18,8 +18,9 @@ import javax.servlet.http.HttpSession;
  *
  * @author Ryan
  */
-@ManagedBean(name ="getsession")
-
+//@ManagedBean(name ="getsession")
+@Named("getsession")
+@ViewScoped
 public class GetSession implements Serializable {
     
     public static HttpSession getSession() {

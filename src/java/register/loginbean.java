@@ -113,7 +113,7 @@ public class loginbean implements Serializable {
                 System.out.println("inside next" + userName);
                 session.setAttribute("USERNAME", userName);
 
-                CurrentUser currentUser = new CurrentUser(set.getString("USERID"), set.getString("USERNAME"), set.getString("PASSWORD"), set.getString("FIRSTNAME"), set.getString("LASTNAME"), set.getString("EMAILADDRESS"));
+                CurrentUser currentUser = new CurrentUser(set.getString("USER_ID"), set.getString("USERNAME"), set.getString("PASSWORD"), set.getString("FIRSTNAME"), set.getString("LASTNAME"), set.getString("EMAILADDRESS"));
                 setUserName(((String) session.getAttribute("USERNAME")));
                 FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
                 System.out.println("bsdfmbs");

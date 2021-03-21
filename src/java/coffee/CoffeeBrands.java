@@ -10,25 +10,23 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
-import javax.inject.Inject;
+import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 import javax.sql.DataSource;
 
 /**
  *
  * @author Ryan
  */
-@ManagedBean(name="thisbean")
+
+@Named("thisbean")
 @RequestScoped
 public class CoffeeBrands implements Serializable {
-
-    private static final long serialVersionUID = 1L;
 
     private List<coffeeBrand> brands;
     @Resource(name = "jdbc/loginpool")
@@ -57,7 +55,7 @@ public class CoffeeBrands implements Serializable {
                 /////// add to the list in here /////////
 //            coffeeBrand b1 = new coffeeBrand(results.getString("brand_name"),results.getString("country"),results.getInt("est"));
 //            
-                brands.add(new coffeeBrand(results.getString("brand_name"), results.getString("country_origin"), results.getInt("est")));
+                brands.add(new coffeeBrand(results.getString("brand_name"), results.getString("country_name"), results.getInt("est")));
                 //names.add(results.getString("brand_name"));
             }
 
