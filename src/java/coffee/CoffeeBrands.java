@@ -88,7 +88,7 @@ public class CoffeeBrands implements Serializable {
     
 //   
 
-    String txt1;
+    static String txt1;
     public String getTxt1() {
         return txt1;
     }

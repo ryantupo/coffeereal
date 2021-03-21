@@ -29,6 +29,19 @@ and open the template in the editor.
             <h:form>
                 <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
             </h:form>
+            
+            <h:form class="searchbar">
+                <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
+                
+            </h:form>
+            <h:form>
+                <h:commandButton action="brandpage.redirectToShow" />search
+                
+            </h:form>
+            
+            <!--<a href="show.xhtml?brandname{thisbean.txt1}">search</a>-->
+            <!--need a command button -> when clicked retrieve txt value then redirect using ^^^ this--> 
+           
         </div>
 
         <br/>
@@ -75,7 +88,7 @@ and open the template in the editor.
 
         <br/>
 
-        <div class="card ui-fluid ">
+<!--        <div class="card ui-fluid ">
             <h:form>
                 <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
 
@@ -83,25 +96,13 @@ and open the template in the editor.
                 <div class="p-formgrid p-grid">
                     <div class="p-field p-col-12 p-md-4">
                         <p:outputLabel value="Simple" for="@next"/>
-                        <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
+                        <p:autoComplete id="acSimple" value="{thisbean.txt1}" completeMethod="{thisbean.completeText}" scrollHeight="250"/>
                     </div>
 
                 </div>
 
             </h:form>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>-->
 
 
 
