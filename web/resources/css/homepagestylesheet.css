@@ -37,12 +37,31 @@ body{
     color: red;
 }
 
+.searchbar{
+    margin-top:8px;
+    margin-left: 3px;
+    position: relative;
+
+}
+
+.searchButton{
+    margin-left:275px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: absolute;
+
+}
 
 
 /* Add a black background color to the top navigation */
 .topnav {
+
+
     background-color: #B08968;
     overflow: hidden;
+    white-space:nowrap;
     border-radius: 7px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
@@ -90,7 +109,7 @@ body{
     text-transform: uppercase;
     text-decoration: none;
     background: #ffffff;
-    padding: 10px;
+    padding: 6px;
     border: 4px solid #494949 !important;
     display: inline-block;
     transition: all 0.4s ease 0s;
@@ -148,6 +167,10 @@ body{
     margin-bottom: 30px;
 }
 
+.paddinginput2{
+    margin-top: 40px;
+}
+
 h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
           font-size: 18px;
 }
@@ -160,20 +183,22 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 
 
 .divlogin{
-    min-width: 250px;
+    min-width: 300px;
+    min-height:300px;
+    height:auto;
     text-align: center;
     width: 20%;
-    height: 250px;
+
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
 }
 
 .divregister{
-    min-width: 350px;
+    max-width: 300px;
     margin-top:80px;
     text-align: center;
-    width: 20%;
-    height: 470px;
+    min-height: 520px;
+    height:auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
 }
@@ -191,25 +216,69 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
     height: 200px;
 }
 
-.searchbar{
-    margin-top:5px;
-    line-height: 25px;
-    margin-left: 20px;
+.center2{
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+
+}
 
 
+.infoDiv{
+    margin: auto;
+    height:100%;
+    width:90%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color:#7F5539;
+
+}
+
+
+
+.LogoImage{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width:250px;
+    height:250px;
+}
+
+
+
+.title{
+    margin-top:200px;
+    font-size:40px;
+}
+
+.registertitle{
+    font-size:40px;
+}
+
+.subtitles{
+    font-size: clamp(8px, 4vw, 22px);
+    margin:30px;
     
-    .searchButton{
-        
-    }
+    text-align:center;
+}
 
 
+.subtitlesdiv{
+    background-color:#B08968;
+    margin-left:10%;
+    width:80%;
+    height:50px;
+}
 
 
+.infotext{
+    margin:auto;
+    width:65%;
+}
 
 
-
-
-
+.registerbutton{
+    margin-bottom:40px;
+}
 
 
 

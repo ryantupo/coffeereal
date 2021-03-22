@@ -33,6 +33,20 @@ public class BrandPage implements Serializable {
     String Bname;
     String Bcountry;
     int BEst;
+    
+    //brand ID
+    int Brand_id;
+    
+    
+    
+    //brand info
+    
+    String Brand_Info;
+    String Brand_Origin_Info;
+    String Brand_Logo_file_Name;
+    
+    
+    
 
     public BrandPage() {
 
@@ -51,11 +65,25 @@ public class BrandPage implements Serializable {
             compareUser2.execute();
             ResultSet results2 = compareUser2.getResultSet();
             while (results2.next()) {
+                setBrandid(results2.getInt("BRAND_ID"));
                 setBCountry(results2.getString("COUNTRY_NAME"));
                 setBEst(results2.getInt("EST"));
 
             }
+            
+            
+            PreparedStatement compare_Id = connection.prepareStatement("select * from BRANDINFO where BRAND_ID = ? ");
+            compare_Id.setInt(1, Brand_id);
+            compare_Id.execute();
+            ResultSet results3 = compare_Id.getResultSet();
+            while (results3.next()) {
+                setBInfo(results3.getString("BRAND_INFO"));
+                setBOrigin(results3.getString("ORIGIN_INFO"));
+                setBLogo(results3.getString("BRAND_LOGO_FILE_NAME"));
 
+            }
+            
+            connection.close();
         } catch (SQLException e) {
             System.out.println("bad boy sql");
             System.out.println(e);
@@ -86,5 +114,52 @@ public class BrandPage implements Serializable {
     public void setBEst(int newBEst) {
         this.BEst = newBEst;
     }
+    
+    
+    //brand information
+    
+    public String getBrand_info() {
+        return Brand_Info;
+    }
+
+    public String getBrand_Origin() {
+        return Brand_Origin_Info;
+    }
+
+    public String getBrand_Logo() {
+        return Brand_Logo_file_Name;
+    }
+
+    public void setBInfo(String newBInfo) {
+        this.Brand_Info = newBInfo;
+    }
+
+    public void setBOrigin(String newBOrigin) {
+        this.Brand_Origin_Info = newBOrigin;
+    }
+
+    public void setBLogo(String newBLogo) {
+        this.Brand_Logo_file_Name = newBLogo;
+    }
+    
+    //brand id
+    
+      public int getBrandId() {
+        return Brand_id;
+    }
+      
+    public void setBrandid(int newId){
+        this.Brand_id = newId;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
 }

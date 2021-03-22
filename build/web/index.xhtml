@@ -25,41 +25,25 @@ and open the template in the editor.
 
         <div class="topnav">
             <h:outputText value="#{navbar.navBar}" escape="false" />
+            
 
             <h:form>
                 <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
             </h:form>
             
-            <div class="searchbar">
-            <h:form>
-                <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
-                
-                <h:commandButton class="searchButton" action="#{thisbean.setSearchResult(thisbean.txt1)}" />search
-                
-            </h:form>
-            </div>
+
    
         </div>
+                    <div class="searchbar">
+                <h:form>
+                    <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
+
+                    <h:commandButton value="Search" class="searchButton Button" action="#{thisbean.setSearchResult(thisbean.txt1)}" />
+
+                </h:form>
+            </div>
 
         <br/>
-
-<!--                <div class="card ui-fluid ">
-                    <h:form>
-        
-                        <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
-                                //prime faces autcomplete
-        
-                        <div class="p-field p-col-12 p-md-4">
-                            <p:outputLabel value="Select Event" for="@next"/>
-                            <p:autoComplete id="event" value="{autoCompleteView.txt8}"
-                                            completeMethod="{autoCompleteView.completeText}" scrollHeight="250">
-                                <p:ajax event="itemSelect" listener="{autoCompleteView.onItemSelect}" update="msgs"/>
-                            </p:autoComplete>
-                        </div>
-        
-        
-                    </h:form>
-                </div>-->
 
         <br/>
 
@@ -84,23 +68,6 @@ and open the template in the editor.
 
 
         <br/>
-
-<!--        <div class="card ui-fluid ">
-            <h:form>
-                <p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true"/>
-
-                <h5 class="p-mt-0">Single</h5>
-                <div class="p-formgrid p-grid">
-                    <div class="p-field p-col-12 p-md-4">
-                        <p:outputLabel value="Simple" for="@next"/>
-                        <p:autoComplete id="acSimple" value="{thisbean.txt1}" completeMethod="{thisbean.completeText}" scrollHeight="250"/>
-                    </div>
-
-                </div>
-
-            </h:form>
-        </div>-->
-
 
 
 

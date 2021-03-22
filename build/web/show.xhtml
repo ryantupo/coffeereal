@@ -28,34 +28,53 @@ and open the template in the editor.
         <div class="topnav">
             <h:outputText value="#{navbar.navBar}" escape="false" />
 
+
             <h:form>
                 <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
             </h:form>
 
-            <h:form class="searchbar">
-                <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
-
-                <h:commandButton action="#{thisbean.setSearchResult(thisbean.txt1)}" />search
-
-            </h:form>
 
 
         </div>
+        <div class="searchbar">
+            <h:form>
+                <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
+
+                <h:commandButton value="Search" class="searchButton Button" action="#{thisbean.setSearchResult(thisbean.txt1)}" />
+
+            </h:form>
+        </div>
 
 
-        <div>TODO write conten your on tyhe showt</div>
 
-        <div>
-            here is the outputs
+        <br/>
+
+        <div class="infoDiv">
             <br/>
-            <h:outputText value="#{thisbean.searchResult}"/> brand name
+            <img class="LogoImage" src="/login/faces/resources/images/logos/#{brandpage.brand_Logo}" alt="Logo"/>
+
+
+
+
+            <h:outputText class="title center" value="#{thisbean.searchResult}"/> 
             <br/>
-            <h:outputText value="#{brandpage.bcountry}"/> country origin  
-            <br/>
-            <h:outputText value="#{brandpage.BEst}"/> year established
+
+            <div class="center infoDiv subtitlesdiv">
+
+                <h:outputText class="subtitles" value="Country Of Origin : #{brandpage.bcountry}"/> 
+
+                <h:outputText class="subtitles" value="Established : #{brandpage.BEst}"/> 
+
+            </div>
 
 
+            <div>
+                <br/>
+                <h:outputText class="center infotext" value="#{brandpage.brand_info}"/> 
+                <br/>
+                <h:outputText class="center infotext" value="#{brandpage.brand_Origin}"/> 
 
+            </div>
 
 
 
