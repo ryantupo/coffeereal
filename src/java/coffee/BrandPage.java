@@ -25,49 +25,66 @@ import javax.sql.DataSource;
  */
 @Named("brandpage")
 @ViewScoped
-public class BrandPage implements Serializable{
+public class BrandPage implements Serializable {
 
     @Resource(name = "jdbc/loginpool")
     DataSource dataSource;
-    
-    
-    
-    public BrandPage(){
-        
-    }
-    
 
-    public void compareUser() {
-        
-//        String BrandName = CoffeeBrands.txt1;
-           String BrandName = "Costa Coffee";
+    String Bname;
+    String Bcountry;
+    int BEst;
+
+    public BrandPage() {
+
+    }
+
+    
+    public void dothething(String url) {
+
+        String BrandName = url;
+
         try {
             Connection connection = dataSource.getConnection();
-            PreparedStatement compareUser2 = connection.prepareStatement("select * as from COFFEEBRANDS where BRAND_NAME = '" + BrandName + "' ");
 
-            ResultSet results2 = compareUser2.executeQuery();
-            coffeeBrand currentCoffeeBrand = new coffeeBrand(results2.getString("Brand_name"), results2.getString("Country_name"), results2.getInt("EST"));
-                    
-                
-            
+            PreparedStatement compareUser2 = connection.prepareStatement("select * from COFFEEBRANDS where BRAND_NAME = ? ");
+            compareUser2.setString(1, BrandName);
+            compareUser2.execute();
+            ResultSet results2 = compareUser2.getResultSet();
+            while (results2.next()) {
+                setBCountry(results2.getString("COUNTRY_NAME"));
+                setBEst(results2.getInt("EST"));
+
+            }
+
         } catch (SQLException e) {
             System.out.println("bad boy sql");
             System.out.println(e);
         }
-       
+
     }
-    
-    
-    public String redirectToShow(){
-        return "show.xhtml?brandname=#{thisbean.txt1}";
-        
+
+    public String getBname() {
+        return Bname;
     }
-    
-    
-    
-    
-    
-    
-    
-    
+
+    public String getBcountry() {
+        return Bcountry;
+    }
+
+    public int getBEst() {
+        return BEst;
+    }
+
+    public void setBname(String newBname) {
+        this.Bname = newBname;
+    }
+
+    public void setBCountry(String newBCountry) {
+        this.Bcountry = newBCountry;
+    }
+
+    public void setBEst(int newBEst) {
+        this.BEst = newBEst;
+    }
+
 }

@@ -30,18 +30,15 @@ and open the template in the editor.
                 <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
             </h:form>
             
-            <h:form class="searchbar">
+            <div class="searchbar">
+            <h:form>
                 <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
                 
-            </h:form>
-            <h:form>
-                <h:commandButton action="brandpage.redirectToShow" />search
+                <h:commandButton class="searchButton" action="#{thisbean.setSearchResult(thisbean.txt1)}" />search
                 
             </h:form>
-            
-            <!--<a href="show.xhtml?brandname{thisbean.txt1}">search</a>-->
-            <!--need a command button -> when clicked retrieve txt value then redirect using ^^^ this--> 
-           
+            </div>
+   
         </div>
 
         <br/>

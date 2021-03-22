@@ -23,7 +23,6 @@ import javax.sql.DataSource;
  *
  * @author Ryan
  */
-
 @Named("thisbean")
 @RequestScoped
 public class CoffeeBrands implements Serializable {
@@ -32,6 +31,7 @@ public class CoffeeBrands implements Serializable {
     @Resource(name = "jdbc/loginpool")
     DataSource dataSource;
 
+    String searchResult;
 
     @PostConstruct
     public void init() {
@@ -71,29 +71,60 @@ public class CoffeeBrands implements Serializable {
     public List<coffeeBrand> getBrands() {
         return brands;
     }
-    
-    
 
     public List<String> completeText(String query) {
         String queryLowerCase = query.toLowerCase();
         List<String> brandname = new ArrayList<>();
         List<coffeeBrand> brandNames = getBrands();
-        
-        for(coffeeBrand brand : brandNames) {
+
+        for (coffeeBrand brand : brandNames) {
             brandname.add(brand.getBrand_Name());
         }
         //return brandname;
-        return brandname.stream().filter(t->t.toLowerCase().startsWith(queryLowerCase)).collect(Collectors.toList());
-    }
-    
-//   
+        System.out.println("here!!!vvvvvvvvvvvvvvvvvvvvvvvv");
+        System.out.println(txt1);
 
-    static String txt1;
+        setTxt1(query);
+        System.out.println("second try");
+        System.out.println(txt1);
+        System.out.println(printTxt1());
+        return brandname.stream().filter(t -> t.toLowerCase().startsWith(queryLowerCase)).collect(Collectors.toList());
+    }
+
+//   
+    String txt1;
+
     public String getTxt1() {
         return txt1;
     }
+
     public void setTxt1(String txt1) {
         this.txt1 = txt1;
     }
 
+    public String printTxt1() {
+        return txt1;
+    }
+
+    public String getSearchResult() {
+        return String.valueOf(searchResult);
+    }
+
+    public String setSearchResult(String newResult) {
+        this.searchResult = newResult;
+        return redirectToShow();
+    }
+
+    public String redirectToShow() {
+        return "show.xhtml?brandname=#{\'thisbean.getSearchResult()\'}";
+
+    }
+
 }
+
+
+
+
+
+
+
