@@ -283,11 +283,19 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 
 
 
+.tablebuttonleft{
+    margin-top:35px;
+    float:left;
+}
 
+.tablebutton{
+    margin-top:10px;
+}
 
-
-
-
+.coffeetableadmin{
+    margin-left:20%;
+    margin-right:20%;
+}
 
 
 
