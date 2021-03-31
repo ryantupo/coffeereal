@@ -48,23 +48,27 @@ and open the template in the editor.
 
 
 
-                <p:dataTable var="ricardo" value="#{thisbean.brands}">
+                <p:dataTable var="Brand" value="#{thisbean.brands}">
 
                     <p:column headerText="Update">
                         <h:commandButton  value="update"/>
-                        <h:commandButton  value="Delete"/>
+                        <h:commandButton action="#{thisbean.deleteBrand(Brand.brand_Id)}" value="Delete"/>
+                    </p:column>
+
+                    <p:column headerText="Brand ID">
+                        <h:outputText value="#{Brand.brand_Id}" />
                     </p:column>
 
                     <p:column headerText="Brand Name">
-                        <h:outputText value="#{ricardo.brand_Name}" />
+                        <h:outputText value="#{Brand.brand_Name}" />
                     </p:column>
 
                     <p:column headerText="Country">
-                        <h:outputText value="#{ricardo.country}" />
+                        <h:outputText value="#{Brand.country}" />
                     </p:column>
 
                     <p:column headerText="est">
-                        <h:outputText value="#{ricardo.established}" />
+                        <h:outputText value="#{Brand.established}" />
                     </p:column>
 
                 </p:dataTable>

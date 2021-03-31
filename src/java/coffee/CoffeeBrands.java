@@ -5,6 +5,7 @@
  */
 package coffee;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +17,7 @@ import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.sql.DataSource;
 
@@ -55,7 +57,7 @@ public class CoffeeBrands implements Serializable {
                 /////// add to the list in here /////////
 //            coffeeBrand b1 = new coffeeBrand(results.getString("brand_name"),results.getString("country"),results.getInt("est"));
 //            
-                brands.add(new coffeeBrand(results.getString("brand_name"), results.getString("country_name"), results.getInt("est")));
+                brands.add(new coffeeBrand(results.getInt("brand_id"), results.getString("brand_name"), results.getString("country_name"), results.getInt("est")));
                 //names.add(results.getString("brand_name"));
             }
 
@@ -91,6 +93,39 @@ public class CoffeeBrands implements Serializable {
         return brandname.stream().filter(t -> t.toLowerCase().startsWith(queryLowerCase)).collect(Collectors.toList());
     }
 
+    public void deleteBrand(String Brand_Id_To_Delete) throws IOException{
+
+        try {
+            Connection connection = dataSource.getConnection();
+
+//            DELETE FROM Customer_Coupon WHERE COUPON_ID IN (
+//                SELECT COUPON_ID FROM Customer_Coupon INNER JOIN Company_Coupon ON
+//                Customer_Coupon.COUPON_Id = Company_Coupon.COUPON_Id WHERE COMP_Id = 123
+//            );
+        //"DELETE FROM customer_coupon WHERE coupon_id IN (SELECT company_coupon.coupon_Id FROM company_coupon WHERE company_coupon.company_id = ";
+        //"DELETE FROM coffeebrand WHERE brand_id IN (SELECT brandinfo.brand_id FROM brandinfo WHERE brandinfo.brand_id = ";
+//            
+//            PreparedStatement DeleteUser = connection.prepareStatement("DELETE FROM coffeebrands WHERE brand_id IN (SELECT brandinfo.brand_id FROM brandinfo WHERE brandinfo.brand_id = ? )");
+//             
+            
+            PreparedStatement DeleteUser = connection.prepareStatement("DELETE FROM coffeebrands where Brand_Id = ? ");
+            PreparedStatement DeleteUserInfo = connection.prepareStatement("DELETE FROM brandinfo where Brand_Id = ? ");
+
+            DeleteUser.setString(1, Brand_Id_To_Delete);
+            DeleteUserInfo.setString(1, Brand_Id_To_Delete);
+
+            
+            
+            DeleteUserInfo.executeUpdate();
+            DeleteUser.executeUpdate();
+            
+        } catch (SQLException e) {
+            System.out.println("bad boy sql");
+            System.out.println(e);
+        }
+        FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/adminpage.xhtml");
+    }
+
 //   
     String txt1;
 
@@ -121,10 +156,3 @@ public class CoffeeBrands implements Serializable {
     }
 
 }
-
-
-
-
-
-
-

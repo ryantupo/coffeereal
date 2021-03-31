@@ -16,18 +16,17 @@ import javax.faces.bean.RequestScoped;
 @RequestScoped
 public class coffeeBrand {
 
+    int brand_Id;
     String brand_name;
     String country;
     int established;
-    
-    
-    
-    public coffeeBrand(){
-        
+
+    public coffeeBrand() {
+
     }
-    
-    
-    public coffeeBrand(String bName,String cName, int estab){
+
+    public coffeeBrand(int b_Id, String bName, String cName, int estab) {
+        this.brand_Id = b_Id;
         this.brand_name = bName;
         this.country = cName;
         this.established = estab;
@@ -45,6 +44,10 @@ public class coffeeBrand {
         return this.established;
     }
 
+    public int getBrand_Id() {
+        return this.brand_Id;
+    }
+
     public void setBrand_Name(String newName) {
         brand_name = newName;
     }
@@ -55,6 +58,10 @@ public class coffeeBrand {
 
     public void setEstablished(int newEst) {
         established = newEst;
+    }
+
+    public void setBrand_Id(int newId) {
+        brand_Id = newId;
     }
 
 }
