@@ -2,19 +2,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-    
+
     <h:head>
-        <title>REGISTER FORM</title>
+        <title>Edit Form</title>
         <link rel="stylesheet" href="resources/css/homepagestylesheet.css"/>
     </h:head>
     <h:body>
 
+        <f:metadata>
+            <f:viewParam name="playernameparam" value="#{brandpage.bname}"/>           
+        </f:metadata>
+
+
+    #{brandpage.dothething(thisbean.searchResultEdit)}
 
 
         <div class="topnav">
             <h:outputText value="#{navbar.navBar}" escape="false" />
-            
+
 
             <h:form>
                 <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
@@ -22,9 +29,19 @@
         </div>
 
 
-        <h1 class="center registertitle">Register Brand</h1>
+        <h1 class="center registertitle">Edit Brand</h1>
         
-        <div class="divregister p-field p-grid registerblock">
+<!--        herre
+        <h:outputText value="#{thisbean.searchResultEdit}"/><br/>
+        <h:outputText value="#{brandpage.brandId}"/><br/>
+        <h:outputText value="#{brandpage.bcountry}"/><br/>
+        <h:outputText value="#{brandpage.brand_Origin}"/><br/><br/>
+        <h:outputText value="#{brandpage.brand_info}"/><br/>
+
+        there-->
+        
+
+        <div class="divEdit p-field p-grid ">
 
             <h:form class="paddinginput2">
 
@@ -33,7 +50,7 @@
                 <div class="p-col paddinginput">
                     <p:inputText id="BrandNameInputText" required="true"
                                  requiredMessage="Please enter a valid BrandName"
-                                 value="#{brandbean.brand_Name}" maxlength="30">
+                                 value="#{thisbean.searchResultEdit}" maxlength="30">
                     </p:inputText>
                     <h:message for="BrandNameInputText" styleClass="error"/><br/>
                 </div>
@@ -43,12 +60,12 @@
                 <div class="p-col paddinginput">
                     <p:inputText id="CountryInputText" required="true"
                                  requiredMessage="Please enter your Brands Country"
-                                 value="#{brandbean.country}" maxlength="150">
+                                 value="#{brandpage.bcountry}" maxlength="150">
                     </p:inputText>
                     <h:message for="CountryInputText" styleClass="error"/><br/>
 
                 </div> 
-<!--//some error with country???-->
+                <!--//some error with country???-->
 
 
                 <h:outputLabel value = "Established Year:"/>
@@ -56,7 +73,7 @@
                     <p:inputText id="EstablishedInputText" required="true"
                                  converterMessage="Please enter digits only."
                                  requiredMessage="Please enter the Brands Established Year"
-                                 value="#{brandbean.established}" maxlength="30">
+                                 value="#{brandpage.BEst}" maxlength="30">
                     </p:inputText>
                     <h:message for="EstablishedInputText" styleClass="error"/><br/>
                 </div>
@@ -65,10 +82,12 @@
 
                 <h:outputLabel value = "Brand Information:"/>
                 <div class="p-col paddinginput">
-                    <p:inputText id="BrandInfoInputText" required="true"
+                    <p:inputTextarea id="BrandInfoInputText" required="true"
+                                 class="inputTextarea"
+                                 autoResize="false"
                                  requiredMessage="Please enter some Brand Info"
-                                 value="#{brandbean.brand_Info}" maxlength="400">
-                    </p:inputText>
+                                 value="#{brandpage.brand_info}" maxlength="400">
+                    </p:inputTextarea>
                     <h:message for="BrandInfoInputText" styleClass="error"/><br/>
                 </div>
 
@@ -76,10 +95,12 @@
 
                 <h:outputLabel value = "Brand Origins Information"/>
                 <div class="p-col paddinginput">
-                    <p:inputText id="OriginsInputText" required="true"
+                    <p:inputTextarea id="OriginsInputText" required="true"
+                                 class="inputTextarea"
+                                 autoResize="false"
                                  requiredMessage="Please enter some Brand Origins Info"
-                                 value="#{brandbean.origin_Info}" maxlength="320">
-                    </p:inputText>
+                                 value="#{brandpage.brand_Origin}" maxlength="320">
+                    </p:inputTextarea>
                     <h:message for="OriginsInputText" styleClass="error"/><br/>
                 </div>
 
@@ -90,7 +111,7 @@
 
 
 
-                <h:commandButton class="Button registerbutton" value="Register"
+                <h:commandButton class="Button registerbutton" value="Update"
                                  action="#{brandbean.save()}"/>
 
                 <div id="errorblock1" class="errors1">
@@ -103,21 +124,6 @@
 
         </div>
 
-
-
-
-        <!--<div class="p-field p-grid">
-            <label for="firstname" class="p-col-fixed" style="width:100px">Firstname</label>
-            <div class="p-col">
-                <p:inputText id="firstname" type="text" />
-            </div>
-        </div>
-        <div class="p-field p-grid">
-            <label for="lastname" class="p-col-fixed" style="width:100px">Lastname</label>
-            <div class="p-col">
-                <p:inputText id="lastname" type="text" />
-            </div>
-        </div>-->
 
 
 

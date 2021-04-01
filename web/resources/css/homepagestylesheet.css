@@ -94,7 +94,7 @@ body{
 
 .registerblock{
     width: 300px;
-    height: 100px;
+    max-height: 75%;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -164,6 +164,8 @@ body{
 }
 
 .paddinginput{
+    padding-left:30px;
+    padding-right:30px;
     margin-bottom: 30px;
 }
 
@@ -202,6 +204,23 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
 }
+
+.divEdit{
+    width: 500px;
+    max-height: 75%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    max-width: 500px;
+    margin-top:80px;
+    text-align: center;
+    min-height: 520px;
+    height:auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
 
 
 .divlogin {
@@ -257,7 +276,7 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 .subtitles{
     font-size: clamp(8px, 4vw, 22px);
     margin:30px;
-    
+
     text-align:center;
 }
 
@@ -298,7 +317,20 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 }
 
 
+.infobox{
+    width:300px;
+    height:200px;
+}
 
+.inputTextarea{
+    overflow:scroll;
+    height:150px;
+    display: block;
+    width: 100%;
+    resize: none;
+    min-height: 40px;
+    line-height: 20px;
 
+}
 
 

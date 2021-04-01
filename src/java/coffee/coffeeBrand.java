@@ -222,7 +222,7 @@ public class coffeeBrand {
                     
                     setBrand_Id(results.getInt("brand_id"));
 
-                }
+                
 
                 PreparedStatement addEntry2
                         = connection.prepareStatement("INSERT INTO APP.brandinfo"
@@ -233,9 +233,10 @@ public class coffeeBrand {
                 addEntry2.setInt(1, getBrand_Id());
                 addEntry2.setString(2, getBrand_Info());
                 addEntry2.setString(3, getOrigin_Info());
+                
 
                 addEntry2.executeUpdate(); // insert the entry
-
+                }
             }// end try
         }
         connection.close(); // return this connection to pool

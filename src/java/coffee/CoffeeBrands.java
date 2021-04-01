@@ -34,6 +34,7 @@ public class CoffeeBrands implements Serializable {
     DataSource dataSource;
 
     String searchResult;
+    String searchResultEdit;
 
     @PostConstruct
     public void init() {
@@ -93,7 +94,7 @@ public class CoffeeBrands implements Serializable {
         return brandname.stream().filter(t -> t.toLowerCase().startsWith(queryLowerCase)).collect(Collectors.toList());
     }
 
-    public void deleteBrand(String Brand_Id_To_Delete) throws IOException{
+    public void deleteBrand(String Brand_Id_To_Delete) throws IOException {
 
         try {
             Connection connection = dataSource.getConnection();
@@ -102,23 +103,20 @@ public class CoffeeBrands implements Serializable {
 //                SELECT COUPON_ID FROM Customer_Coupon INNER JOIN Company_Coupon ON
 //                Customer_Coupon.COUPON_Id = Company_Coupon.COUPON_Id WHERE COMP_Id = 123
 //            );
-        //"DELETE FROM customer_coupon WHERE coupon_id IN (SELECT company_coupon.coupon_Id FROM company_coupon WHERE company_coupon.company_id = ";
-        //"DELETE FROM coffeebrand WHERE brand_id IN (SELECT brandinfo.brand_id FROM brandinfo WHERE brandinfo.brand_id = ";
+            //"DELETE FROM customer_coupon WHERE coupon_id IN (SELECT company_coupon.coupon_Id FROM company_coupon WHERE company_coupon.company_id = ";
+            //"DELETE FROM coffeebrand WHERE brand_id IN (SELECT brandinfo.brand_id FROM brandinfo WHERE brandinfo.brand_id = ";
 //            
 //            PreparedStatement DeleteUser = connection.prepareStatement("DELETE FROM coffeebrands WHERE brand_id IN (SELECT brandinfo.brand_id FROM brandinfo WHERE brandinfo.brand_id = ? )");
 //             
-            
             PreparedStatement DeleteUser = connection.prepareStatement("DELETE FROM coffeebrands where Brand_Id = ? ");
             PreparedStatement DeleteUserInfo = connection.prepareStatement("DELETE FROM brandinfo where Brand_Id = ? ");
 
             DeleteUser.setString(1, Brand_Id_To_Delete);
             DeleteUserInfo.setString(1, Brand_Id_To_Delete);
 
-            
-            
             DeleteUserInfo.executeUpdate();
             DeleteUser.executeUpdate();
-            
+
         } catch (SQLException e) {
             System.out.println("bad boy sql");
             System.out.println(e);
@@ -150,8 +148,22 @@ public class CoffeeBrands implements Serializable {
         return redirectToShow();
     }
 
+    public String getSearchResultEdit() {
+        return String.valueOf(searchResultEdit);
+    }
+
+    public String setSearchResultEdit(String newResult) {
+        this.searchResultEdit = newResult;
+        return redirectToEdit();
+    }
+
     public String redirectToShow() {
         return "show.xhtml?brandname=#{\'thisbean.getSearchResult()\'}";
+
+    }
+
+    public String redirectToEdit() {
+        return "editBrand.xhtml?brandname=#{\'thisbean.getSearchResultEdit()\'}";
 
     }
 
