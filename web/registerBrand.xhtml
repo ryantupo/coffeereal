@@ -13,70 +13,77 @@
 
 
         <div class="topnav">
-            <a class="active" href="/login/faces/index.xhtml">Home</a>
-            <a href="register.xhtml">Register</a>
-            <a href="loginpage.xhtml">Log in</a>
+            <h:outputText value="#{navbar.navBar}" escape="false" />
+            
+
+            <h:form>
+                <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
+            </h:form>
+            
+
+   
         </div>
 
 
-        <h1 class="center registertitle">Register Account</h1>
+        <h1 class="center registertitle">Register Brand</h1>
         
         <div class="divregister p-field p-grid registerblock">
 
             <h:form class="paddinginput2">
 
 
-                <h:outputLabel value = "Username:"/>
+                <h:outputLabel value = "Brand Name:"/>
                 <div class="p-col paddinginput">
                     <p:inputText id="BrandNameInputText" required="true"
                                  requiredMessage="Please enter a valid BrandName"
-                                 value="#{Registerbean.userName}" maxlength="30">
+                                 value="#{brandbean.brand_Name}" maxlength="30">
                     </p:inputText>
-                    <h:message for="UserNameInputText" styleClass="error"/><br/>
+                    <h:message for="BrandNameInputText" styleClass="error"/><br/>
                 </div>
 
-                <h:outputLabel value = "Password:"/>
+                <h:outputLabel value = "Country:"/>
 
                 <div class="p-col paddinginput">
-                    <p:inputText id="passwordInputText" required="true"
-                                 requiredMessage="Please enter your password"
-                                 value="#{Registerbean.password}" maxlength="150">
+                    <p:inputText id="CountryInputText" required="true"
+                                 requiredMessage="Please enter your Brands Country"
+                                 value="#{brandbean.country}" maxlength="150">
                     </p:inputText>
-                    <h:message for="passwordInputText" styleClass="error"/><br/>
+                    <h:message for="CountryInputText" styleClass="error"/><br/>
 
-                </div>
+                </div> 
+<!--//some error with country???-->
 
 
-
-                <h:outputLabel value = "First Name:"/>
+                <h:outputLabel value = "Established Year:"/>
                 <div class="p-col paddinginput">
-                    <p:inputText id="firstNameInputText" required="true"
-                                 requiredMessage="Please enter first name"
-                                 value="#{Registerbean.firstName}" maxlength="30">
+                    <p:inputText id="EstablishedInputText" required="true"
+                                 converterMessage="Please enter digits only."
+                                 requiredMessage="Please enter the Brands Established Year"
+                                 value="#{brandbean.established}" maxlength="30">
                     </p:inputText>
-                    <h:message for="firstNameInputText" styleClass="error"/><br/>
-                </div>
-
-
-
-                <h:outputLabel value = "Last Name:"/>
-                <div class="p-col paddinginput">
-                    <p:inputText id="lastNameInputText" required="true"
-                                 requiredMessage="Please enter last name"
-                                 value="#{Registerbean.lastName}" maxlength="30">
-                    </p:inputText>
-                    <h:message for="lastNameInputText" styleClass="error"/><br/>
+                    <h:message for="EstablishedInputText" styleClass="error"/><br/>
                 </div>
 
 
 
-                <h:outputLabel value = "EmailAddress:"/>
+                <h:outputLabel value = "Brand Information:"/>
                 <div class="p-col paddinginput">
-                    <p:inputText id="emailInputText" required="true"
-                                 requiredMessage="Please enter a valid EmailAddress"
-                                 value="#{Registerbean.emailAddress}" maxlength="320">
+                    <p:inputText id="BrandInfoInputText" required="true"
+                                 requiredMessage="Please enter some Brand Info"
+                                 value="#{brandbean.brand_Info}" maxlength="400">
                     </p:inputText>
-                    <h:message for="emailInputText" styleClass="error"/><br/>
+                    <h:message for="BrandInfoInputText" styleClass="error"/><br/>
+                </div>
+
+
+
+                <h:outputLabel value = "Brand Origins Information"/>
+                <div class="p-col paddinginput">
+                    <p:inputText id="OriginsInputText" required="true"
+                                 requiredMessage="Please enter some Brand Origins Info"
+                                 value="#{brandbean.origin_Info}" maxlength="320">
+                    </p:inputText>
+                    <h:message for="OriginsInputText" styleClass="error"/><br/>
                 </div>
 
 
@@ -87,11 +94,11 @@
 
 
                 <h:commandButton class="Button registerbutton" value="Register"
-                                 action="#{Registerbean.save}"/>
+                                 action="#{brandbean.save()}"/>
 
                 <div id="errorblock1" class="errors1">
 
-                    <h:outputText value="#{Registerbean.error1}"/>
+                    <h:outputText value="#{brandbean.error1}"/>
                 </div>
 
             </h:form>

@@ -16,9 +16,12 @@ and open the template in the editor.
     <body>
 
         <div class="topnav">
-            <a class="active" href="/login/faces/index.xhtml">Home</a>
-            <a href="register.xhtml">Register</a>
-            <a href="loginpage.xhtml">Log in</a>
+            <h:outputText value="#{navbar.navBar}" escape="false" />
+            
+
+            <h:form>
+                <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
+            </h:form>
         </div>
 
 

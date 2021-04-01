@@ -26,7 +26,7 @@ public class coffeeBrand {
     int brand_Id;
     String brand_name;
     String country;
-    int established;
+    Integer established;
 
     String brand_Info;
     String origin_Info;
@@ -40,7 +40,7 @@ public class coffeeBrand {
 
     }
 
-    public coffeeBrand(int b_Id, String bName, String cName, int estab) {
+    public coffeeBrand(int b_Id, String bName, String cName, Integer estab) {
         this.brand_Id = b_Id;
         this.brand_name = bName;
         this.country = cName;
@@ -55,7 +55,7 @@ public class coffeeBrand {
         return this.country;
     }
 
-    public int getEstablished() {
+    public Integer getEstablished() {
         return this.established;
     }
 
@@ -79,7 +79,7 @@ public class coffeeBrand {
         country = newCountry;
     }
 
-    public void setEstablished(int newEst) {
+    public void setEstablished(Integer newEst) {
         established = newEst;
     }
 
@@ -103,19 +103,20 @@ public class coffeeBrand {
         this.error1 = newError;
     }
 
-    public boolean checkInputs(String Bname, String Cname, int Est, String B_Info, String BO_Info) {
+    public boolean checkInputs(String Bname, String Cname, Integer Est, String B_Info, String BO_Info) {
 
         String errorOutput = "";
 
         final Pattern noSpecialpattern = Pattern.compile("^[a-zA-Z0-9_.-]*$");
+        final Pattern noSpecialPattern2 = Pattern.compile("/^[0-9]*$/");
         if (!noSpecialpattern.matcher(Bname).matches()) {
-            errorOutput += ("Error code 002 :First name cannot contain special Characters\n");
+            errorOutput += ("Error code 001 :Brand Name cannot contain special Characters\n");
         }
         if (!noSpecialpattern.matcher(Cname).matches()) {
-            errorOutput += ("Error code 003 :Last name cannot contain special Characters\n");
+            errorOutput += ("Error code 002 :Country Name cannot contain special Characters\n");
         }
-        if (!noSpecialpattern.matcher(String.valueOf(Est)).matches()) {
-            errorOutput += ("Error code 004 :Username cannot contain special Characters\n");
+        if (noSpecialPattern2.matcher(String.valueOf(Est)).matches()) {
+            errorOutput += ("Error code 004 :Year of establishment can only be an Integer\n");
         }
 
         final Pattern Passwordpattern = Pattern.compile("(.*?)");
@@ -164,7 +165,7 @@ public class coffeeBrand {
     public void clear() {
         setBrand_Name(null);
         setCountry(null);
-        setEstablished(0);
+        setEstablished(null);
         setBrand_Info(null);
         setOrigin_Info(null);
 
@@ -201,8 +202,8 @@ public class coffeeBrand {
 
                 // create a PreparedStatement to insert a new login entry
                 PreparedStatement addEntry
-                        = connection.prepareStatement("INSERT INTO APP.coffeebeans"
-                                + "(brand_name,country,est)"
+                        = connection.prepareStatement("INSERT INTO APP.coffeebrands"
+                                + "(brand_name,country_name,est)"
                                 + "VALUES ( ?, ?, ? )");
 
                 // specify the PreparedStatement's arguments
@@ -211,6 +212,17 @@ public class coffeeBrand {
                 addEntry.setInt(3, getEstablished());
 
                 addEntry.executeUpdate(); // insert the entry
+
+                PreparedStatement getNewId = connection.prepareStatement("SELECT brand_id FROM coffeebrands ORDER BY brand_id DESC OFFSET 0 ROWS FETCH FIRST 1 ROW ONLY");
+
+//                getNewId.setString(1, getBrand_Name());
+                try (ResultSet results = getNewId.executeQuery()) {
+
+                    results.next();
+                    
+                    setBrand_Id(results.getInt("brand_id"));
+
+                }
 
                 PreparedStatement addEntry2
                         = connection.prepareStatement("INSERT INTO APP.brandinfo"
