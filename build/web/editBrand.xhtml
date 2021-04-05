@@ -94,6 +94,10 @@
                                  value="#{brandpage.brand_Origin}" maxlength="320">
                     </p:inputTextarea>
                     <h:message for="OriginsInputText" styleClass="error"/><br/>
+                    
+                    
+                <h:commandButton class="Button registerbutton" value="Update"
+                                 action="#{brandpage.updateBrand()}"/>
                 </div>
 
 
@@ -103,8 +107,6 @@
 
 
 
-                <h:commandButton class="Button registerbutton" value="Update"
-                                 action="#{brandpage.updateBrand()}"/>
 
                 <div id="errorblock1" class="errors1">
 

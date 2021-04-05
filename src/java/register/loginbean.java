@@ -118,26 +118,6 @@ public class loginbean implements Serializable {
                 FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
                 System.out.println("bsdfmbs");
             }
-//dsfdsf
-//            if ("".equals(Uname)) {
-//                session.invalidate();
-//            } else if ("".equals(Pword)) {
-//                session.invalidate();
-//            } else {
-
-//                clear();
-                if (GetSession.isLoggedIn()) {
-                    //GetSession.doLoginRedirect();
-                    
-                    System.out.println("sdfsdfsdsd");
-                    
-                    
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
-                    setUserName(((String) session.getAttribute("USERNAME")));
-                    System.out.println(userName);
-                } else {
-                    //failed session log in
-                }
 
 //            }
 
