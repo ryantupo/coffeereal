@@ -36,6 +36,10 @@ public class CoffeeBrands implements Serializable {
     String searchResult;
     String searchResultEdit;
 
+    int brand_id;
+    
+    
+
     @PostConstruct
     public void init() {
 
@@ -99,15 +103,6 @@ public class CoffeeBrands implements Serializable {
         try {
             Connection connection = dataSource.getConnection();
 
-//            DELETE FROM Customer_Coupon WHERE COUPON_ID IN (
-//                SELECT COUPON_ID FROM Customer_Coupon INNER JOIN Company_Coupon ON
-//                Customer_Coupon.COUPON_Id = Company_Coupon.COUPON_Id WHERE COMP_Id = 123
-//            );
-            //"DELETE FROM customer_coupon WHERE coupon_id IN (SELECT company_coupon.coupon_Id FROM company_coupon WHERE company_coupon.company_id = ";
-            //"DELETE FROM coffeebrand WHERE brand_id IN (SELECT brandinfo.brand_id FROM brandinfo WHERE brandinfo.brand_id = ";
-//            
-//            PreparedStatement DeleteUser = connection.prepareStatement("DELETE FROM coffeebrands WHERE brand_id IN (SELECT brandinfo.brand_id FROM brandinfo WHERE brandinfo.brand_id = ? )");
-//             
             PreparedStatement DeleteUser = connection.prepareStatement("DELETE FROM coffeebrands where Brand_Id = ? ");
             PreparedStatement DeleteUserInfo = connection.prepareStatement("DELETE FROM brandinfo where Brand_Id = ? ");
 
@@ -127,6 +122,14 @@ public class CoffeeBrands implements Serializable {
 //   
     String txt1;
 
+    public void setBrand_Id(int newid) {
+        this.brand_id = newid;
+    }
+
+    public int getBrand_Id() {
+        return brand_id;
+    }
+
     public String getTxt1() {
         return txt1;
     }
@@ -140,7 +143,7 @@ public class CoffeeBrands implements Serializable {
     }
 
     public String getSearchResult() {
-        return String.valueOf(searchResult);
+        return searchResult;
     }
 
     public String setSearchResult(String newResult) {
@@ -149,12 +152,11 @@ public class CoffeeBrands implements Serializable {
     }
 
     public String getSearchResultEdit() {
-        return String.valueOf(searchResultEdit);
+        return searchResultEdit;
     }
 
-    public String setSearchResultEdit(String newResult) {
-        this.searchResultEdit = newResult;
-        return redirectToEdit();
+    public void setSearchResultEdit(String searchResultEdit) {
+        this.searchResultEdit = searchResultEdit;
     }
 
     public String redirectToShow() {
@@ -162,7 +164,8 @@ public class CoffeeBrands implements Serializable {
 
     }
 
-    public String redirectToEdit() {
+    public String redirectToEdit(String newResult) {
+        setSearchResultEdit(newResult);
         return "editBrand.xhtml?brandname=#{\'thisbean.getSearchResultEdit()\'}";
 
     }

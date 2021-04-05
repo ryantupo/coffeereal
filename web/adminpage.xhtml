@@ -51,7 +51,7 @@ and open the template in the editor.
                 <p:dataTable var="Brand" value="#{thisbean.brands}">
 
                     <p:column headerText="Update">
-                        <h:commandButton action="#{thisbean.setSearchResultEdit(Brand.brand_Name)}" value="update"/>
+                        <h:commandButton action="#{thisbean.redirectToEdit(Brand.brand_Name)}" value="update"/>
                         <h:commandButton action="#{thisbean.deleteBrand(Brand.brand_Id)}" value="Delete"/>
                     </p:column>
 
