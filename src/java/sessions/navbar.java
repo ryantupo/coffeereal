@@ -78,9 +78,9 @@ public class navbar implements Serializable {
                 return navBar;
             } else {
                 navBar = "<a class=\"active\" href=\"/login/faces/index.xhtml\">Home</a>"
-                        + "<div class=\"welcomemessage\"><p>Welcome, " + navbar() + "</p></div>"
                         + "<a href=\"/login/faces/adminpage.xhtml\">admin page</a>"
-                        + "<a href=\"/login/faces/registerBrand.xhtml\">register brand</a>";
+                        + "<a href=\"/login/faces/registerBrand.xhtml\">register brand</a>"
+                        + "<div class=\"welcomemessage\"><p>Welcome, " + navbar() + "</p></div>";
 
                 System.out.println(username);
 
