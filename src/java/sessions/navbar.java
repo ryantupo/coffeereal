@@ -80,6 +80,7 @@ public class navbar implements Serializable {
                 navBar = "<a class=\"active\" href=\"/login/faces/index.xhtml\">Home</a>"
                         + "<a href=\"/login/faces/adminpage.xhtml\">admin page</a>"
                         + "<a href=\"/login/faces/registerBrand.xhtml\">register brand</a>"
+                        + "<a href=\"/login/faces/userProfile.xhtml\">Profile</a>"
                         + "<div class=\"welcomemessage\"><p>Welcome, " + navbar() + "</p></div>";
 
                 System.out.println(username);
@@ -97,6 +98,7 @@ public class navbar implements Serializable {
                 return navBar;
             } else {
                 navBar = "<a class=\"active\" href=\"/login/faces/index.xhtml\">Home</a>"
+                        + "<a href=\"/login/faces/userProfile.xhtml\">Profile</a>"
                         + "<div class=\"welcomemessage\"><p>Welcome, " + navbar() + "</p></div>";
 
                 System.out.println(username);

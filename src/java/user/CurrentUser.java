@@ -38,8 +38,9 @@ public class CurrentUser implements Serializable{
     public String lastName;
     public String emailAddress;
     public boolean AdminAuthentication;
+    public String ProfilePic;
     
-    public CurrentUser(String UserId ,String Uname, String Pword, String Fname, String Lname, String Email, boolean adminAuth) {
+    public CurrentUser(String UserId ,String Uname, String Pword, String Fname, String Lname, String Email, boolean adminAuth, String profilePic) {
         this.userId = UserId;
         this.userName = Uname;
         this.password = Pword;
@@ -47,6 +48,7 @@ public class CurrentUser implements Serializable{
         this.lastName = Lname;
         this.emailAddress = Email;
         this.AdminAuthentication = adminAuth;
+        this.ProfilePic = profilePic;
     }
 
     @Resource(name = "jdbc/loginpool")
@@ -107,6 +109,16 @@ public class CurrentUser implements Serializable{
     public void setAdminAuthentication(boolean AdminAuthentication) {
         this.AdminAuthentication = AdminAuthentication;
     }
+
+    public String getProfilePic() {
+        return ProfilePic;
+    }
+
+    public void setProfilePic(String ProfilePic) {
+        this.ProfilePic = ProfilePic;
+    }
+    
+    
     
      
 

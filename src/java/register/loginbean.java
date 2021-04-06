@@ -41,6 +41,7 @@ public class loginbean implements Serializable {
 
     public static String userName;
     public String userPassword;
+    public String profilePic;
     public static ArrayList<String> currentData = new ArrayList<String>();
 
     public String getUserName() {
@@ -57,6 +58,14 @@ public class loginbean implements Serializable {
 
     public void setUserPassword(String inputPassword) {
         this.userPassword = inputPassword;
+    }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
     }
 
     public void clear() {
@@ -91,10 +100,9 @@ public class loginbean implements Serializable {
     }
 
     public void SuccesfulLogin() throws SQLException, IOException {
-     
-        
+
         Connection connection = dataSource.getConnection();
-        
+
         if (connection.equals(null)) {
             throw new SQLException("Failure to connect to the database");
         }
@@ -104,23 +112,21 @@ public class loginbean implements Serializable {
 
         if (AttemptLogin(userName, userPassword)) {
 
-            System.out.println("connection :" + connection);
             PreparedStatement compareUser = connection.prepareStatement("select * from LOGINDETAILS where UserName = '" + userName + "' and Password = '" + userPassword + "' ");
-            System.out.println("compare User tables : " + compareUser);
 
             ResultSet set = compareUser.executeQuery();
             if (set.next()) {
-                System.out.println("inside next" + userName);
+
                 session.setAttribute("USERNAME", userName);
 
-                CurrentUser currentUser = new CurrentUser(set.getString("USER_ID"), set.getString("USERNAME"), set.getString("PASSWORD"), set.getString("FIRSTNAME"), set.getString("LASTNAME"), set.getString("EMAILADDRESS"),set.getBoolean("admin"));
+                CurrentUser currentUser = new CurrentUser(set.getString("USER_ID"), set.getString("USERNAME"), set.getString("PASSWORD"), set.getString("FIRSTNAME"), set.getString("LASTNAME"), set.getString("EMAILADDRESS"), set.getBoolean("admin"), set.getString("profile_pic"));
+                setProfilePic(currentUser.ProfilePic);
                 setUserName(((String) session.getAttribute("USERNAME")));
                 FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
-                System.out.println("bsdfmbs");
+
             }
 
 //            }
-
         } else {
             session.invalidate();
             System.out.println("oooga booga smnalll caveman brain");
@@ -136,5 +142,17 @@ public class loginbean implements Serializable {
         HttpSession session = GetSession.getSession();
         session.invalidate();
         setUserName(null);
+    }
+
+    public String srcProfilePicGetter() {
+        
+        if (getProfilePic()==null){
+         return "<img class=\"LogoImage\" src=\"" + "https://associatestimes.com/wp-content/uploads/2021/01/202002020449273339_Frantic-search-on-for-3-Chinese-missing-in-Vellore_SECVPF.jpg" + "\" alt= \"Logo\" />";
+        }else if (getProfilePic().contains("https")) {
+            return "<img class=\"LogoImage\" src=\"" + profilePic + "\" alt= \"Logo\" />";
+        } else {
+            return "<img class=\"LogoImage\" src=\"" + "/login/faces/resources/images/logos/" + profilePic + "\" alt=\"Logo\" />";
+        }
+
     }
 }

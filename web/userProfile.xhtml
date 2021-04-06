@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" type="text/css" href="/login/faces/jsfcrud.css" />
+        <link rel="stylesheet" href="resources/css/homepagestylesheet.css"/>
+
+    </h:head>
+    <body>
+        <f:metadata>
+            <f:viewParam name="playernameparam" value="#{brandpage.bname}"/>           
+        </f:metadata>
+
+
+
+
+        <div class="topnav">
+            <h:outputText value="#{navbar.navBar}" escape="false" />
+
+
+            <h:form>
+                <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
+            </h:form>
+
+
+
+        </div>
+        <div class="searchbar">
+            <h:form>
+                <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
+
+                <h:commandButton value="Search" class="searchButton Button" action="#{thisbean.setSearchResult(thisbean.txt1)}" />
+
+            </h:form>
+        </div>
+
+
+
+        <br/>
+
+        <div class="infoDiv">
+            <br/>
+
+            <h:outputText value="#{loginbean.srcProfilePicGetter()}" escape="false" />
+                        
+
+
+
+
+            <h:outputText class="title center" value="#{loginbean.userName}"/> 
+            <br/>
+
+            <div class="center infoDiv subtitlesdiv">
+
+                <h:outputText class="subtitles" value="Country Of Origin : #{brandpage.bcountry}"/> 
+
+                <h:outputText class="subtitles" value="Established : #{brandpage.bEst}"/> 
+
+            </div>
+
+
+            <div>
+                <br/>
+                <h:outputText class="center infotext" value="#{brandpage.brand_Info}"/> 
+                <br/>
+                <h:outputText class="center infotext" value="#{brandpage.brand_Origin}"/> 
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+    </body>
+</html>
