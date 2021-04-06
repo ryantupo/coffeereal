@@ -37,8 +37,9 @@ public class CurrentUser implements Serializable{
     public String firstName;
     public String lastName;
     public String emailAddress;
-
-    public CurrentUser(String UserId ,String Uname, String Pword, String Fname, String Lname, String Email) {
+    public boolean AdminAuthentication;
+    
+    public CurrentUser(String UserId ,String Uname, String Pword, String Fname, String Lname, String Email, boolean adminAuth) {
         this.userId = UserId;
         this.userName = Uname;
         this.password = Pword;
@@ -97,5 +98,15 @@ public class CurrentUser implements Serializable{
     public void setEmailAddress(String inputEmailAddress) {
         this.emailAddress = inputEmailAddress;
     }
+
+    public boolean isAdminAuthentication() {
+        return AdminAuthentication;
+    }
+
+    public void setAdminAuthentication(boolean AdminAuthentication) {
+        this.AdminAuthentication = AdminAuthentication;
+    }
+    
+     
 
 }

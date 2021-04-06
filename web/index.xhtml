@@ -25,23 +25,23 @@ and open the template in the editor.
 
         <div class="topnav">
             <h:outputText value="#{navbar.navBar}" escape="false" />
-            
+
 
             <h:form>
                 <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
             </h:form>
-            
 
-   
+
+
         </div>
-                    <div class="searchbar">
-                <h:form>
-                    <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
+        <div class="searchbar">
+            <h:form>
+                <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
 
-                    <h:commandButton value="Search" class="searchButton Button" action="#{thisbean.setSearchResult(thisbean.txt1)}" />
+                <h:commandButton value="Search" class="searchButton Button" action="#{thisbean.setSearchResult(thisbean.txt1)}" />
 
-                </h:form>
-            </div>
+            </h:form>
+        </div>
 
         <br/>
 
@@ -49,17 +49,17 @@ and open the template in the editor.
 
         <h:form>
             <div class="brandtable coffeetableadmin">
-                <p:dataTable var="ricardo" value="#{thisbean.brands}">
+                <p:dataTable var="item" value="#{thisbean.brands}">
                     <p:column headerText="Brand Name">
-                        <h:outputText value="#{ricardo.brand_Name}" />
+                        <h:outputText value="#{item.brand_Name}" />
                     </p:column>
 
                     <p:column headerText="Country">
-                        <h:outputText value="#{ricardo.country}" />
+                        <h:outputText value="#{item.country}" />
                     </p:column>
 
                     <p:column headerText="est">
-                        <h:outputText value="#{ricardo.established}" />
+                        <h:outputText value="#{item.established}" />
                     </p:column>
 
                 </p:dataTable>
@@ -68,6 +68,42 @@ and open the template in the editor.
 
 
         <br/>
+
+
+        <h:form>
+            <div class="brandtable coffeetableadmin">
+                <p:dataTable var="user" value="#{thisbean.users}">
+                    <p:column headerText="User Id">
+                        <h:outputText value="#{user.userId}" />
+                    </p:column>
+
+                    <p:column headerText="Username">
+                        <h:outputText value="#{user.userName}" />
+                    </p:column>
+
+                    <p:column headerText="Password">
+                        <h:outputText value="#{user.password}" />
+                    </p:column>
+
+                    <p:column headerText="Firstname">
+                        <h:outputText value="#{user.firstName}" />
+                    </p:column>
+
+                    <p:column headerText="Lastname">
+                        <h:outputText value="#{user.lastName}" />
+                    </p:column>
+
+                    <p:column headerText="EmailAddress">
+                        <h:outputText value="#{user.emailAddress}" />
+                    </p:column>
+
+                    <p:column headerText="AdminClearence">
+                        <h:outputText value="#{user.adminAuthentication}" />
+                    </p:column>
+
+                </p:dataTable>
+            </div>
+        </h:form>
 
 
 

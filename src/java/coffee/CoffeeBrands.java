@@ -20,6 +20,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.sql.DataSource;
+import user.CurrentUser;
 
 /**
  *
@@ -30,6 +31,7 @@ import javax.sql.DataSource;
 public class CoffeeBrands implements Serializable {
 
     private List<coffeeBrand> brands;
+    private List<CurrentUser> users;
     @Resource(name = "jdbc/loginpool")
     DataSource dataSource;
 
@@ -37,36 +39,46 @@ public class CoffeeBrands implements Serializable {
     String searchResultEdit;
 
     int brand_id;
-    
-    
 
     @PostConstruct
     public void init() {
 
-        System.out.println("outsaidesdjbfsdlfjsdbfldsnfdsnfds");
-
         try {
             Connection connection = dataSource.getConnection();
-
             PreparedStatement compareUser = connection.prepareStatement("select * from coffeebrands ");
-
             compareUser.executeQuery();
-
             ResultSet results = compareUser.getResultSet();
-
             brands = new ArrayList<>();
 
             ///////// initiate a list here /////////
             while (results.next()) {
 
-                /////// add to the list in here /////////
-//            coffeeBrand b1 = new coffeeBrand(results.getString("brand_name"),results.getString("country"),results.getInt("est"));
-//            
                 brands.add(new coffeeBrand(results.getInt("brand_id"), results.getString("brand_name"), results.getString("country_name"), results.getInt("est")));
-                //names.add(results.getString("brand_name"));
+
             }
 
-            System.out.println(brands);
+            connection.close();
+
+        } catch (SQLException e) {
+            System.out.println("bad boy sql");
+            System.out.println(e);
+        }
+
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement compareUser = connection.prepareStatement("select * from logindetails ");
+            compareUser.executeQuery();
+            ResultSet results = compareUser.getResultSet();
+            users = new ArrayList<>();
+
+            ///////// initiate a list here /////////
+            while (results.next()) {
+
+                users.add(new CurrentUser(results.getString("user_id"), results.getString("username"), results.getString("password"), results.getString("firstname"), results.getString("lastname"), results.getString("emailaddress"), results.getBoolean("admin")));
+
+            }
+
+            connection.close();
 
         } catch (SQLException e) {
             System.out.println("bad boy sql");
@@ -169,5 +181,15 @@ public class CoffeeBrands implements Serializable {
         return "editBrand.xhtml?brandname=#{\'thisbean.getSearchResultEdit()\'}";
 
     }
+
+    public List<CurrentUser> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<CurrentUser> users) {
+        this.users = users;
+    }
+    
+    
 
 }
