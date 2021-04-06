@@ -35,6 +35,7 @@ public class userPage implements Serializable {
     String lastName;
     String emailAddress;
     boolean AdminAuthentication;
+    String profilePic;
     
     String origionalName;
 
@@ -61,6 +62,7 @@ public class userPage implements Serializable {
                 setLastName(results2.getString("lastname"));
                 setEmailAddress(results2.getString("emailaddress"));
                 setAdminAuthentication(results2.getBoolean("admin"));
+                setProfilePic(results2.getString("profile_pic"));
             }
             connection.close();
         } catch (SQLException e) {
@@ -84,7 +86,7 @@ public class userPage implements Serializable {
 
             }
 
-            PreparedStatement EditBrand = connection.prepareStatement("UPDATE logindetails SET username = ? , password = ? , firstname = ? , lastname = ? , emailaddress = ? , admin = ? WHERE username = ? ");
+            PreparedStatement EditBrand = connection.prepareStatement("UPDATE logindetails SET username = ? , password = ? , firstname = ? , lastname = ? , emailaddress = ? , admin = ? , profile_pic = ? WHERE username = ? ");
 
             EditBrand.setString(1, getUserName());
             EditBrand.setString(2, getPassword());
@@ -92,7 +94,8 @@ public class userPage implements Serializable {
             EditBrand.setString(4, getLastName());
             EditBrand.setString(5, getEmailAddress());
             EditBrand.setBoolean(6, isAdminAuthentication());
-            EditBrand.setString(7, getOrigionalName());
+            EditBrand.setString(7, getProfilePic());
+            EditBrand.setString(8, getOrigionalName());
 
             EditBrand.executeUpdate();
 
@@ -175,6 +178,16 @@ public class userPage implements Serializable {
     public void setOrigionalName(String origionalName) {
         this.origionalName = origionalName;
     }
+
+    public String getProfilePic() {
+        return profilePic;
+    }
+
+    public void setProfilePic(String profilePic) {
+        this.profilePic = profilePic;
+    }
+    
+    
     
     
 

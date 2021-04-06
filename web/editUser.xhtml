@@ -92,6 +92,15 @@
                     <h:message for="AdminInputText" styleClass="error"/><br/>
                 </div>
 
+                <h:outputLabel value = "Profile Pic:"/>
+                <div class="p-col paddinginput">
+                    <p:inputText id="picInputText" required="true"
+                                 requiredMessage="Please enter a valid picture link or dir"
+                                 value="#{userPage.profilePic}" maxlength="1000">
+                    </p:inputText>
+                    <h:message for="picInputText" styleClass="error"/><br/>
+                </div>
+
 
 
 

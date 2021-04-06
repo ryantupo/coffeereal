@@ -120,7 +120,9 @@ public class loginbean implements Serializable {
                 session.setAttribute("USERNAME", userName);
 
                 CurrentUser currentUser = new CurrentUser(set.getString("USER_ID"), set.getString("USERNAME"), set.getString("PASSWORD"), set.getString("FIRSTNAME"), set.getString("LASTNAME"), set.getString("EMAILADDRESS"), set.getBoolean("admin"), set.getString("profile_pic"));
-                setProfilePic(currentUser.ProfilePic);
+                setProfilePic(set.getString("profile_pic"));
+                System.out.println("yoooooooooooooooooo");
+                System.out.println(set.getString("profile_pic"));
                 setUserName(((String) session.getAttribute("USERNAME")));
                 FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
 
@@ -146,9 +148,13 @@ public class loginbean implements Serializable {
 
     public String srcProfilePicGetter() {
         
-        if (getProfilePic()==null){
+        System.out.println("HEREEEE");
+        System.out.println(getProfilePic());
+        
+        
+        if (profilePic==null){
          return "<img class=\"LogoImage\" src=\"" + "https://associatestimes.com/wp-content/uploads/2021/01/202002020449273339_Frantic-search-on-for-3-Chinese-missing-in-Vellore_SECVPF.jpg" + "\" alt= \"Logo\" />";
-        }else if (getProfilePic().contains("https")) {
+        }else if (profilePic.contains("https")) {
             return "<img class=\"LogoImage\" src=\"" + profilePic + "\" alt= \"Logo\" />";
         } else {
             return "<img class=\"LogoImage\" src=\"" + "/login/faces/resources/images/logos/" + profilePic + "\" alt=\"Logo\" />";

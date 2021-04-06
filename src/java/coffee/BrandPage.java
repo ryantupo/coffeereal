@@ -126,13 +126,6 @@ public class BrandPage implements Serializable {
 //                        + "<a href=\"/login/faces/loginpage.xhtml\">Log in</a>";
     
     public String srcLogoGetter(){
-        System.out.println("HEREBFBFBFBBFBFBFBBFBFB");
-        System.out.println(getBrand_Logo_file_Name());
-        System.out.println("FALSE OR TRUE MOTHERFUCER");
-        System.out.println(getBrand_Logo_file_Name().contains(".jpg"));
-        System.out.println(getBrand_Logo_file_Name().contains(".png"));
-        
-        
         
         if (getBrand_Logo_file_Name().contains("https") ){
             return "<img class=\"LogoImage\" src=\"" + brand_Logo_file_Name + "\" alt= \"Logo\" />";
