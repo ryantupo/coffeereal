@@ -30,6 +30,7 @@ public class coffeeBrand {
 
     String brand_Info;
     String origin_Info;
+    String logoLink;
 
     private String error1;
 
@@ -45,6 +46,7 @@ public class coffeeBrand {
         this.brand_name = bName;
         this.country = cName;
         this.established = estab;
+
     }
 
     public String getBrand_Name() {
@@ -103,6 +105,16 @@ public class coffeeBrand {
         this.error1 = newError;
     }
 
+    public String getLogoLink() {
+        return logoLink;
+    }
+
+    public void setLogoLink(String logoLink) {
+        this.logoLink = logoLink;
+    }
+
+    
+    
     public boolean checkInputs(String Bname, String Cname, Integer Est, String B_Info, String BO_Info) {
 
         String errorOutput = "";
@@ -226,13 +238,14 @@ public class coffeeBrand {
 
                 PreparedStatement addEntry2
                         = connection.prepareStatement("INSERT INTO APP.brandinfo"
-                                + "(brand_id,brand_info,origin_info)"
-                                + "VALUES ( ?, ?, ? )");
+                                + "(brand_id,brand_info,origin_info,brand_logo_file_name)"
+                                + "VALUES ( ?, ?, ? , ? )");
 
                 // specify the PreparedStatement's arguments
                 addEntry2.setInt(1, getBrand_Id());
                 addEntry2.setString(2, getBrand_Info());
                 addEntry2.setString(3, getOrigin_Info());
+                addEntry2.setString(4, getLogoLink());
                 
 
                 addEntry2.executeUpdate(); // insert the entry

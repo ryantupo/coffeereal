@@ -94,6 +94,20 @@
                                  value="#{brandpage.brand_Origin}" maxlength="320">
                     </p:inputTextarea>
                     <h:message for="OriginsInputText" styleClass="error"/><br/>
+                </div>
+
+                <h:outputLabel value = "Logo Link"/>
+                <div class="p-col paddinginput">
+                    <p:inputTextarea id="LogoInputText" required="true"
+                                 class="inputTextarea"
+                                 autoResize="false"
+                                 requiredMessage="Please enter a Logo Link"
+                                 value="#{brandpage.brand_Logo_file_Name}" maxlength="320">
+                    </p:inputTextarea>
+                    <h:message for="LogoInputText" styleClass="error"/><br/>
+
+
+
                     
                     
                 <h:commandButton class="Button registerbutton" value="Update"
@@ -112,6 +126,7 @@
 
                     <h:outputText value="#{brandbean.error1}"/>
                 </div>
+                
 
             </h:form>
 

@@ -51,7 +51,10 @@ and open the template in the editor.
 
         <div class="infoDiv">
             <br/>
-            <img class="LogoImage" src="/login/faces/resources/images/logos/#{brandpage.brand_Logo}" alt="Logo"/>
+            
+            <h:outputText value="#{brandpage.srcLogoGetter()}" escape="false" />
+            
+<!--            <img class="LogoImage" src="{brandpage.srcLogoGetter()}" alt="Logo"/>-->
 
 
 
@@ -63,14 +66,14 @@ and open the template in the editor.
 
                 <h:outputText class="subtitles" value="Country Of Origin : #{brandpage.bcountry}"/> 
 
-                <h:outputText class="subtitles" value="Established : #{brandpage.BEst}"/> 
+                <h:outputText class="subtitles" value="Established : #{brandpage.bEst}"/> 
 
             </div>
 
 
             <div>
                 <br/>
-                <h:outputText class="center infotext" value="#{brandpage.brand_info}"/> 
+                <h:outputText class="center infotext" value="#{brandpage.brand_Info}"/> 
                 <br/>
                 <h:outputText class="center infotext" value="#{brandpage.brand_Origin}"/> 
 

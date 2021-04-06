@@ -68,6 +68,9 @@ public class BrandPage implements Serializable {
                 setBrand_Info(results3.getString("BRAND_INFO"));
                 setBrand_Origin(results3.getString("ORIGIN_INFO"));
                 setBrand_Logo_file_Name(results3.getString("BRAND_LOGO_FILE_NAME"));
+                
+                System.out.println("DO YOU HAVE A LOGO!!");
+                System.out.println(results3.getString("BRAND_LOGO_FILE_NAME"));
 
             }
             connection.close();
@@ -93,7 +96,7 @@ public class BrandPage implements Serializable {
             }
 
             PreparedStatement EditBrand = connection.prepareStatement("UPDATE coffeebrands SET brand_name = ? , country_name = ? , Est = ? WHERE brand_name = ? ");
-            PreparedStatement EditBrandInfo = connection.prepareStatement("UPDATE brandinfo SET brand_id = ? , brand_info = ? , origin_info = ? WHERE brand_id = ? ");
+            PreparedStatement EditBrandInfo = connection.prepareStatement("UPDATE brandinfo SET brand_id = ? , brand_info = ? , origin_info = ? , brand_logo_file_name = ? WHERE brand_id = ? ");
 
             EditBrand.setString(1, getBname());
             EditBrand.setString(2, getBcountry());
@@ -103,7 +106,8 @@ public class BrandPage implements Serializable {
             EditBrandInfo.setInt(1, getBrand_id());
             EditBrandInfo.setString(2, getBrand_Info());
             EditBrandInfo.setString(3, getBrand_Origin());
-            EditBrandInfo.setInt(4, getBrand_id());
+            EditBrandInfo.setString(4, getBrand_Logo_file_Name());
+            EditBrandInfo.setInt(5, getBrand_id());
 
             EditBrandInfo.executeUpdate();
             EditBrand.executeUpdate();
@@ -115,6 +119,37 @@ public class BrandPage implements Serializable {
         }
         FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/adminpage.xhtml");
     }
+    
+//    
+//                    navBar = "<a class=\"active\" href=\"/login/faces/index.xhtml\">Home</a>"
+//                        + "<a href=\"/login/faces/register.xhtml\">Register</a>"
+//                        + "<a href=\"/login/faces/loginpage.xhtml\">Log in</a>";
+    
+    public String srcLogoGetter(){
+        System.out.println("HEREBFBFBFBBFBFBFBBFBFB");
+        System.out.println(getBrand_Logo_file_Name());
+        System.out.println("FALSE OR TRUE MOTHERFUCER");
+        System.out.println(getBrand_Logo_file_Name().contains(".jpg"));
+        System.out.println(getBrand_Logo_file_Name().contains(".png"));
+        
+        
+        
+        if (getBrand_Logo_file_Name().contains("https") ){
+            return "<img class=\"LogoImage\" src=\"" + brand_Logo_file_Name + "\" alt= \"Logo\" />";
+        }else{
+            return  "<img class=\"LogoImage\" src=\"" + "/login/faces/resources/images/logos/" + brand_Logo_file_Name + "\" alt=\"Logo\" />" ;
+        }
+       
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 
     public DataSource getDataSource() {
         return dataSource;
@@ -147,6 +182,7 @@ public class BrandPage implements Serializable {
     public void setbEst(int bEst) {
         this.bEst = bEst;
     }
+
 
     public int getBrand_id() {
         return brand_id;
