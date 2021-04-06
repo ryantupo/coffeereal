@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Edit Form</title>
+        <link rel="stylesheet" href="resources/css/homepagestylesheet.css"/>
+    </h:head>
+    <h:body>
+
+        <f:metadata>
+            <f:viewParam name="playernameparam" value="#{brandpage.bname}"/>           
+        </f:metadata>
+
+
+        #{userPage.dothething(thisbean.editRedirect)}
+
+
+        <div class="topnav">
+            <h:outputText value="#{navbar.navBar}" escape="false" />
+
+
+            <h:form>
+                <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
+            </h:form>
+        </div>
+
+
+        <h1 class="center registertitle">Edit User Details</h1>
+
+
+
+        <div class="divEdit p-field p-grid ">
+
+            <h:form class="paddinginput2">
+
+
+                <h:outputLabel value = "Username:"/>
+                <div class="p-col paddinginput">
+                    <p:inputText id="UserNameInputText" required="true"
+                                 requiredMessage="Please enter a valid UserName"
+                                 value="#{userPage.userName}" maxlength="30">
+                    </p:inputText>
+                    <h:message for="userNameInputText" styleClass="error"/><br/>
+                </div>
+
+                <h:outputLabel value = "Password:"/>
+                <div class="p-col paddinginput">
+                    <p:inputText id="PasswordInputText" required="true"
+                                 requiredMessage="Please enter a valid Password"
+                                 value="#{userPage.password}" maxlength="30">
+                    </p:inputText>
+                    <h:message for="passwordInputText" styleClass="error"/><br/>
+                </div>
+
+                <h:outputLabel value = "First Name:"/>
+                <div class="p-col paddinginput">
+                    <p:inputText id="FirstNameInputText" required="true"
+                                 requiredMessage="Please enter a valid First Name"
+                                 value="#{userPage.firstName}" maxlength="30">
+                    </p:inputText>
+                    <h:message for="FirstNameInputText" styleClass="error"/><br/>
+                </div>
+
+                <h:outputLabel value = "Last Name:"/>
+                <div class="p-col paddinginput">
+                    <p:inputText id="LastNameInputText" required="true"
+                                 requiredMessage="Please enter a valid LastName"
+                                 value="#{userPage.lastName}" maxlength="30">
+                    </p:inputText>
+                    <h:message for="LastNameInputText" styleClass="error"/><br/>
+                </div>
+
+                <h:outputLabel value = "EmailAddress:"/>
+                <div class="p-col paddinginput">
+                    <p:inputText id="EmailAddressInputText" required="true"
+                                 requiredMessage="Please enter a valid EmailAddress"
+                                 value="#{userPage.emailAddress}" maxlength="30">
+                    </p:inputText>
+                    <h:message for="EmailAddressInputText" styleClass="error"/><br/>
+                </div>
+
+                <h:outputLabel value = "Admin Clearence:"/>
+                <div class="p-col paddinginput">
+                    <p:inputText id="AdminInputText" required="true"
+                                 requiredMessage="Please enter a valid Admin choice true or false"
+                                 value="#{userPage.adminAuthentication}" maxlength="30">
+                    </p:inputText>
+                    <h:message for="AdminInputText" styleClass="error"/><br/>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <h:commandButton class="Button registerbutton" value="Update"
+                                 action="#{userPage.updateUser()}"/>
+            </h:form>
+
+
+
+
+            <div id="errorblock1" class="errors1">
+
+                <h:outputText value="#{brandbean.error1}"/>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+    </h:body>
+</html>

@@ -37,6 +37,7 @@ public class CoffeeBrands implements Serializable {
 
     String searchResult;
     String searchResultEdit;
+    String editRedirect;
 
     int brand_id;
 
@@ -124,6 +125,26 @@ public class CoffeeBrands implements Serializable {
             DeleteUserInfo.executeUpdate();
             DeleteUser.executeUpdate();
 
+            connection.close();
+
+        } catch (SQLException e) {
+            System.out.println("bad boy sql");
+            System.out.println(e);
+        }
+        FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/adminpage.xhtml");
+    }
+
+    public void deleteUser(String user_Id_To_Delete) throws IOException {
+
+        try {
+            Connection connection = dataSource.getConnection();
+
+            PreparedStatement DeleteUser = connection.prepareStatement("DELETE FROM logindetails where user_Id = ? ");
+
+            DeleteUser.setString(1, user_Id_To_Delete);
+
+            DeleteUser.executeUpdate();
+
         } catch (SQLException e) {
             System.out.println("bad boy sql");
             System.out.println(e);
@@ -182,6 +203,20 @@ public class CoffeeBrands implements Serializable {
 
     }
 
+    public String redirectToEditUser(String newResult) {
+        setEditRedirect(newResult);
+        return "editUser.xhtml?username=#{\'thisbean.getEditRedirect()\'}";
+
+    }
+
+    public String getEditRedirect() {
+        return editRedirect;
+    }
+
+    public void setEditRedirect(String editRedirect) {
+        this.editRedirect = editRedirect;
+    }
+
     public List<CurrentUser> getUsers() {
         return users;
     }
@@ -189,7 +224,5 @@ public class CoffeeBrands implements Serializable {
     public void setUsers(List<CurrentUser> users) {
         this.users = users;
     }
-    
-    
 
 }

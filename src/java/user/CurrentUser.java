@@ -46,6 +46,7 @@ public class CurrentUser implements Serializable{
         this.firstName = Fname;
         this.lastName = Lname;
         this.emailAddress = Email;
+        this.AdminAuthentication = adminAuth;
     }
 
     @Resource(name = "jdbc/loginpool")
