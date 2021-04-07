@@ -37,6 +37,10 @@ public class userPage implements Serializable {
     boolean AdminAuthentication;
     String profilePic;
     
+    String link;
+    String bio;
+    
+    
     String origionalName;
 
     public userPage() {
@@ -64,7 +68,24 @@ public class userPage implements Serializable {
                 setAdminAuthentication(results2.getBoolean("admin"));
                 setProfilePic(results2.getString("profile_pic"));
             }
+
+
+            PreparedStatement compareUser3 = connection.prepareStatement("select * from user_info where USER_id = ? ");
+            compareUser3.setString(1, getUserId());
+            compareUser3.executeQuery();
+            ResultSet results3 = compareUser3.getResultSet();
+            while (results3.next()) {
+                setLink(results3.getString("link"));
+                setBio(results3.getString("bio"));
+            }
             connection.close();
+            
+            
+            
+            
+            
+            
+            
         } catch (SQLException e) {
             System.out.println("bad boy sql");
             System.out.println(e);
@@ -185,6 +206,22 @@ public class userPage implements Serializable {
 
     public void setProfilePic(String profilePic) {
         this.profilePic = profilePic;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
     }
     
     
