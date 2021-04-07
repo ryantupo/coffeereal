@@ -65,6 +65,7 @@ body{
     border-radius: 7px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
+
 }
 
 /* Style the links inside the navigation bar */
@@ -89,6 +90,11 @@ body{
 .topnav a.active {
     background-color: #7F5539;
     color: white;
+
+}
+
+a:active{
+    transform:scale(1.2,1.2);
 }
 
 
@@ -121,6 +127,13 @@ body{
     background: #DDB892;
     border-color: #7F5539 !important;
     transition: all 0.4s ease 0s;
+}
+
+.Button:active {
+    box-shadow: 0 5px #666;
+
+    transform: translateY(4px);
+    transform: rotate(20deg);
 }
 
 .errors1{
@@ -164,13 +177,12 @@ body{
 }
 
 .paddinginput{
-    padding-left:30px;
-    padding-right:30px;
-    margin-bottom: 30px;
+    margin-bottom: 30px;   
 }
 
 .paddinginput2{
     margin-top: 40px;
+
 }
 
 h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
@@ -312,8 +324,22 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 }
 
 .coffeetableadmin{
+    font-size:12px;
+    width:60%;
+    height:50%;
+    margin: auto;
     margin-left:20%;
     margin-right:20%;
+    
+    
+}
+
+.usertableadmin{
+    font-size:12px;
+    width:80%;
+    height:50%;
+    margin: auto;
+
 }
 
 
@@ -333,4 +359,7 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 
 }
 
+.icons{
+    width:30px;
+}
 

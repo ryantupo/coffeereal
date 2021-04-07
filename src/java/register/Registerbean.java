@@ -19,6 +19,7 @@ import java.util.regex.Pattern;
 import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.view.ViewScoped;
 import static javax.management.remote.JMXConnectorFactory.connect;
 import javax.sql.DataSource;

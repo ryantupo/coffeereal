@@ -37,84 +37,101 @@ and open the template in the editor.
 
         <br/>
 
-        <br/>
 
-        <h:form class="coffeetableadmin">
-            <div class="brandtable">
-
-                <p:dataTable var="Brand" value="#{thisbean.brands}">
-
-                    <p:column headerText="Update">
-                        <h:commandButton action="#{thisbean.redirectToEdit(Brand.brand_Name)}" value="update"/>
-                        <h:commandButton action="#{thisbean.deleteBrand(Brand.brand_Id)}" value="Delete"/>
-                    </p:column>
-
-                    <p:column headerText="Brand ID">
-                        <h:outputText value="#{Brand.brand_Id}" />
-                    </p:column>
-
-                    <p:column headerText="Brand Name">
-                        <h:outputText value="#{Brand.brand_Name}" />
-                    </p:column>
-
-                    <p:column headerText="Country">
-                        <h:outputText value="#{Brand.country}" />
-                    </p:column>
-
-                    <p:column headerText="est">
-                        <h:outputText value="#{Brand.established}" />
-                    </p:column>
-
-                </p:dataTable>
-            </div>
-        </h:form>
 
 
         <br/>
+        
+            <h:form>
 
-        <h:form>
-            <div class="brandtable coffeetableadmin">
-                <p:dataTable var="user" value="#{thisbean.users}">
+                <div>
 
-                    <p:column headerText="Update">
-                        <h:commandButton action="#{thisbean.redirectToEditUser(user.userName)}" value="update"/>
-                        <h:commandButton action="#{thisbean.deleteUser(user.userId)}" value="Delete"/>
-                    </p:column>
-                    <p:column headerText="User Id">
-                        <h:outputText value="#{user.userId}" />
-                    </p:column>
+                    <p:dataTable class="coffeetableadmin" var="Brand" value="#{thisbean.brands}">
 
-                    <p:column headerText="Username">
-                        <h:outputText value="#{user.userName}" />
-                    </p:column>
+                        <p:column headerText="Update/Delete">
 
-                    <p:column headerText="Password">
-                        <h:outputText value="#{user.password}" />
-                    </p:column>
+                            <h:commandLink action="#{thisbean.redirectToEdit(Brand.brand_Name)}">
+                                <h:graphicImage class="icons" value="resources\images\icons\icons8-compose-64.png" />
+                            </h:commandLink>
 
-                    <p:column headerText="Firstname">
-                        <h:outputText value="#{user.firstName}" />
-                    </p:column>
+                            <h:commandLink action="#{thisbean.deleteBrand(Brand.brand_Id)}">
+                                <h:graphicImage class="icons" value="resources\images\icons\icons8-delete-64.png" />
+                            </h:commandLink> 
+                        </p:column>
 
-                    <p:column headerText="Lastname">
-                        <h:outputText value="#{user.lastName}" />
-                    </p:column>
+                        <p:column headerText="Brand ID">
+                            <h:outputText value="#{Brand.brand_Id}" />
+                        </p:column>
 
-                    <p:column headerText="EmailAddress">
-                        <h:outputText value="#{user.emailAddress}" />
-                    </p:column>
+                        <p:column headerText="Brand Name">
+                            <h:outputText value="#{Brand.brand_Name}" />
+                        </p:column>
 
-                    <p:column headerText="AdminClearence">
-                        <h:outputText value="#{user.adminAuthentication}" />
-                    </p:column>
+                        <p:column headerText="Country">
+                            <h:outputText value="#{Brand.country}" />
+                        </p:column>
 
-                    <p:column headerText="Profile Pic">
-                        <h:outputText value="#{user.profilePic}" />
-                    </p:column>
+                        <p:column headerText="est">
+                            <h:outputText value="#{Brand.established}" />
+                        </p:column>
 
-                </p:dataTable>
-            </div>
-        </h:form>
+                    </p:dataTable>
+                </div>
+            </h:form>
+
+
+            <br/>
+
+            <h:form>
+                <div>
+                    <p:dataTable class="usertableadmin" var="user" value="#{thisbean.users}">
+
+                        <p:column headerText="Update/Delete">
+                            <h:commandLink action="#{thisbean.redirectToEdit(Brand.brand_Name)}">
+                                <h:graphicImage class="icons" value="resources\images\icons\icons8-compose-64.png" />
+                            </h:commandLink>
+
+                            <h:commandLink action="#{thisbean.deleteBrand(Brand.brand_Id)}">
+                                <h:graphicImage class="icons" value="resources\images\icons\icons8-delete-64.png" />
+                            </h:commandLink> 
+                        </p:column>
+                        <p:column headerText="User Id">
+                            <h:outputText value="#{user.userId}" />
+                        </p:column>
+
+                        <p:column headerText="Username">
+                            <h:outputText value="#{user.userName}" />
+                        </p:column>
+
+                        <p:column headerText="Password">
+                            <h:outputText value="#{user.password}" />
+                        </p:column>
+
+                        <p:column headerText="Firstname">
+                            <h:outputText value="#{user.firstName}" />
+                        </p:column>
+
+                        <p:column headerText="Lastname">
+                            <h:outputText value="#{user.lastName}" />
+                        </p:column>
+
+                        <p:column headerText="EmailAddress">
+                            <h:outputText value="#{user.emailAddress}" />
+                        </p:column>
+
+                        <p:column headerText="AdminClearence">
+                            <h:outputText value="#{user.adminAuthentication}" />
+                        </p:column>
+
+                        <p:column headerText="Profile Pic">
+                            <h:outputText value="#{user.profilePic}" />
+                        </p:column>
+
+                    </p:dataTable>
+                </div>
+            </h:form>
+
+ 
 
 
 

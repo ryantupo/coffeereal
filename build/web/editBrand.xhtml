@@ -16,7 +16,7 @@
         </f:metadata>
 
 
-    #{brandpage.dothething(thisbean.searchResultEdit)}
+        #{brandpage.dothething(thisbean.searchResultEdit)}
 
 
         <div class="topnav">
@@ -30,8 +30,8 @@
 
 
         <h1 class="center registertitle">Edit Brand</h1>
-        
-        
+
+
 
         <div class="divEdit p-field p-grid ">
 
@@ -75,10 +75,10 @@
                 <h:outputLabel value = "Brand Information:"/>
                 <div class="p-col paddinginput">
                     <p:inputTextarea id="BrandInfoInputText" required="true"
-                                 class="inputTextarea"
-                                 autoResize="false"
-                                 requiredMessage="Please enter some Brand Info"
-                                 value="#{brandpage.brand_Info}" maxlength="400">
+                                     class="inputTextarea"
+                                     autoResize="false"
+                                     requiredMessage="Please enter some Brand Info"
+                                     value="#{brandpage.brand_Info}" maxlength="400">
                     </p:inputTextarea>
                     <h:message for="BrandInfoInputText" styleClass="error"/><br/>
                 </div>
@@ -88,10 +88,10 @@
                 <h:outputLabel value = "Brand Origins Information"/>
                 <div class="p-col paddinginput">
                     <p:inputTextarea id="OriginsInputText" required="true"
-                                 class="inputTextarea"
-                                 autoResize="false"
-                                 requiredMessage="Please enter some Brand Origins Info"
-                                 value="#{brandpage.brand_Origin}" maxlength="320">
+                                     class="inputTextarea"
+                                     autoResize="false"
+                                     requiredMessage="Please enter some Brand Origins Info"
+                                     value="#{brandpage.brand_Origin}" maxlength="320">
                     </p:inputTextarea>
                     <h:message for="OriginsInputText" styleClass="error"/><br/>
                 </div>
@@ -99,41 +99,42 @@
                 <h:outputLabel value = "Logo Link"/>
                 <div class="p-col paddinginput">
                     <p:inputTextarea id="LogoInputText" required="true"
-                                 class="inputTextarea"
-                                 autoResize="false"
-                                 requiredMessage="Please enter a Logo Link"
-                                 value="#{brandpage.brand_Logo_file_Name}" maxlength="320">
+                                     class="inputTextarea"
+                                     autoResize="false"
+                                     requiredMessage="Please enter a Logo Link"
+                                     value="#{brandpage.brand_Logo_file_Name}" maxlength="320">
                     </p:inputTextarea>
                     <h:message for="LogoInputText" styleClass="error"/><br/>
-                    
+
                 </div>
 
 
 
-                    
-                    
+
+
                 <h:commandButton class="Button registerbutton" value="Update"
                                  action="#{brandpage.updateBrand()}"/>
-                </div>
 
 
-
-
-
-
-
-
-
-                <div id="errorblock1" class="errors1">
-
-                    <h:outputText value="#{brandbean.error1}"/>
-                </div>
-                
 
             </h:form>
 
-
         </div>
+
+
+
+
+
+
+
+
+
+        <div id="errorblock1" class="errors1">
+
+            <h:outputText value="#{brandbean.error1}"/>
+        </div>
+
+
 
 
 

@@ -75,7 +75,7 @@ public class CoffeeBrands implements Serializable {
             ///////// initiate a list here /////////
             while (results.next()) {
 
-                users.add(new CurrentUser(results.getString("user_id"), results.getString("username"), results.getString("password"), results.getString("firstname"), results.getString("lastname"), results.getString("emailaddress"), results.getBoolean("admin"),results.getString("profile_pic")));
+                users.add(new CurrentUser(results.getString("user_id"), results.getString("username"), results.getString("password"), results.getString("firstname"), results.getString("lastname"), results.getString("emailaddress"), results.getBoolean("admin"), results.getString("profile_pic")));
 
             }
 
@@ -180,8 +180,12 @@ public class CoffeeBrands implements Serializable {
     }
 
     public String setSearchResult(String newResult) {
-        this.searchResult = newResult;
-        return redirectToShow();
+        if (newResult == "") {
+        return "";
+        } else {
+            this.searchResult = newResult;
+            return redirectToShow();
+        }
     }
 
     public String getSearchResultEdit() {
