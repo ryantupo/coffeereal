@@ -21,7 +21,7 @@ and open the template in the editor.
             <f:viewParam name="playernameparam" value="#{brandpage.bname}"/>           
         </f:metadata>
 
-
+        #{userPage.dothething(loginbean.userName)}
 
 
         <div class="topnav">
@@ -60,11 +60,13 @@ and open the template in the editor.
             <h:outputText class="title center" value="#{loginbean.userName}"/> 
             <br/>
 
-            <div class="center infoDiv subtitlesdiv">
+            <div class="center infoDiv2">
 
-                <h:outputText class="subtitles" value="Country Of Origin : #{brandpage.bcountry}"/> 
+                <h:outputText value="@#{userPage.firstName}#{userPage.lastName} #{userPage.emailAddress}"/> <br/>
 
-                <h:outputText class="subtitles" value="Established : #{brandpage.bEst}"/> 
+
+                
+
 
             </div>
 

@@ -264,6 +264,19 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 
 }
 
+.infoDiv2{
+    margin: auto;
+    height:100%;
+    width:500px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-style: solid;
+    border-width: 1px 1px;
+    background-color:#B08968;
+
+
+    height:50px;
+
+}
 
 
 .LogoImage{
@@ -302,8 +315,10 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 
 
 .infotext{
+    padding-bottom:30px
     margin:auto;
-    width:65%;
+    width:85%;
+    
 }
 
 
@@ -330,8 +345,8 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
     margin: auto;
     margin-left:20%;
     margin-right:20%;
-    
-    
+
+
 }
 
 .usertableadmin{
