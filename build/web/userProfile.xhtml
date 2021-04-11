@@ -51,7 +51,7 @@ and open the template in the editor.
         <div class="infoDiv">
             <br/>
 
-            <h:outputText value="#{loginbean.srcProfilePicGetter()}" escape="false" />
+            <h:outputText value="#{userPage.srcProfilePicGetter()}" escape="false" />
                         
 
 
@@ -61,7 +61,8 @@ and open the template in the editor.
             <br/>
 
             <div class="center infoDiv2">
-
+                <a class="editbutton" href="/login/faces/editUserBio.xhtml">Edit</a>
+                <h:outputText value="|       "/>
                 <h:outputText value="@#{userPage.firstName}#{userPage.lastName} #{userPage.emailAddress}"/> <br/>
 
 
@@ -73,9 +74,9 @@ and open the template in the editor.
 
             <div>
                 <br/>
-                <h:outputText class="center infotext" value="#{userPage.link}"/> 
+                <h:outputText class="center widthtext" value="#{userPage.link}"/> 
                 <br/>
-                <h:outputText class="center infotext" value="#{userPage.bio}"/> 
+                <h:outputText class="center widthtext" value="#{userPage.bio}"/> 
 
             </div>
 

@@ -109,8 +109,9 @@ public class BrandPage implements Serializable {
             EditBrandInfo.setString(4, getBrand_Logo_file_Name());
             EditBrandInfo.setInt(5, getBrand_id());
 
-            EditBrandInfo.executeUpdate();
+            
             EditBrand.executeUpdate();
+            EditBrandInfo.executeUpdate();
 
             connection.close();
         } catch (SQLException e) {

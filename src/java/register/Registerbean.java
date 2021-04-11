@@ -28,11 +28,15 @@ import javax.sql.rowset.CachedRowSet;
 @ManagedBean(name = "Registerbean")
 public class Registerbean {
 
+    public String user_Id;
     public String userName;
     public String password;
     public String firstName;
     public String lastName;
     public String emailAddress;
+
+    public String link;
+    public String bio;
 
     private String error1;
 
@@ -85,6 +89,30 @@ public class Registerbean {
 
     public void setError1(String newError) {
         this.error1 = newError;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getUser_Id() {
+        return user_Id;
+    }
+
+    public void setUser_Id(String user_Id) {
+        this.user_Id = user_Id;
     }
 
     public boolean checkInputs(String uname, String fname, String lname, String pword, String Email) {
@@ -232,6 +260,27 @@ public class Registerbean {
                 addEntry.setString(5, getEmailAddress());
 
                 addEntry.executeUpdate(); // insert the entry
+
+                PreparedStatement compareUser2 = connection.prepareStatement("select * from logindetails where USERNAME = ? ");
+                compareUser2.setString(1, getUserName());
+                compareUser2.executeQuery();
+
+                ResultSet results2 = compareUser2.getResultSet();
+                while (results2.next()) {
+                    setUser_Id(results2.getString("User_ID"));
+
+                }
+
+                PreparedStatement addEntry2
+                        = connection.prepareStatement("INSERT INTO APP.USER_INFO"
+                                + "(USER_ID,LINK,BIO)"
+                                + "VALUES ( ?, ?, ? )");
+                
+                addEntry2.setString(1, getUser_Id());
+                addEntry2.setString(2, "");
+                addEntry2.setString(3, "");
+
+                addEntry2.executeUpdate(); // insert the entry
 
             }// end try
         }

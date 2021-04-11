@@ -143,7 +143,33 @@ a:active{
 
 }
 
+.editbutton{
+    margin-left:-60px;
+    margin-right:10px;
 
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    border: 4px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+}
+
+.editbutton:hover {
+
+    color: #ffffff !important;
+    background: #DDB892;
+    border-color: #7F5539 !important;
+    transition: all 0.4s ease 0s;
+}
+
+.editbutton:active {
+    box-shadow: 0 5px #666;
+
+    transform: translateY(4px);
+    transform: rotate(20deg);
+}
 
 
 .logoutbutton{
@@ -265,7 +291,9 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 }
 
 .infoDiv2{
-    margin: auto;
+    margin-top:-150px;
+    margin-left:auto;
+    margin-right:auto;
     height:100%;
     width:500px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -316,9 +344,9 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 
 .infotext{
     padding-bottom:30px
-    margin:auto;
+        margin:auto;
     width:85%;
-    
+
 }
 
 
@@ -378,3 +406,18 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
     width:30px;
 }
 
+
+.widthtext{
+    margin-left:10%;
+    width:80%;
+}
+
+img{
+    border-radius: 50%;
+    border: solid 10px #00000;
+    background-color: #D3D3D3;
+    box-shadow:  0 0 10px 5px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0 0 10px  5px rgba(0,0,0,0.6);
+    -webkit-box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
+    -o-box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
+}

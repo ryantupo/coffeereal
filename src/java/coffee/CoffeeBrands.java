@@ -38,6 +38,7 @@ public class CoffeeBrands implements Serializable {
     String searchResult;
     String searchResultEdit;
     String editRedirect;
+    String editRedirectBio;
 
     int brand_id;
 
@@ -181,7 +182,7 @@ public class CoffeeBrands implements Serializable {
 
     public String setSearchResult(String newResult) {
         if (newResult == "") {
-        return "";
+            return "";
         } else {
             this.searchResult = newResult;
             return redirectToShow();
@@ -213,6 +214,12 @@ public class CoffeeBrands implements Serializable {
 
     }
 
+    public String redirectToEditUserBio(String newResult) {
+        setEditRedirectBio(newResult);
+        return "editUserBio.xhtml?username=#{\'thisbean.getEditRedirect()\'}";
+
+    }
+
     public String getEditRedirect() {
         return editRedirect;
     }
@@ -228,5 +235,15 @@ public class CoffeeBrands implements Serializable {
     public void setUsers(List<CurrentUser> users) {
         this.users = users;
     }
+
+    public String getEditRedirectBio() {
+        return editRedirectBio;
+    }
+
+    public void setEditRedirectBio(String editRedirectBio) {
+        this.editRedirectBio = editRedirectBio;
+    }
+    
+    
 
 }
