@@ -1,0 +1,229 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f = "http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Edit Form</title>
+        <link rel="stylesheet" href="resources/css/homepagestylesheet.css"/>
+    </h:head>
+    <h:body>
+
+        <f:metadata>
+            <f:viewParam name="playernameparam" value="#{brandpage.bname}"/>           
+        </f:metadata>
+
+
+
+
+        #{userPage.dothething(thisbean.editRedirect)}
+
+
+        <div class="topnav">
+            <h:outputText value="#{navbar.navBar}" escape="false" />
+
+
+            <h:form>
+                <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
+            </h:form>
+        </div>
+
+
+        <h1 class="center registertitle">Quiz</h1>
+
+
+
+        <div class="divEdit p-field p-grid ">
+            <table class="center">
+                <td>
+                    <tr>
+                        <h:form>
+                            <h:selectOneRadio value = "#{userData.data}"> 
+                                <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                                <f:selectItem itemValue = "2" itemLabel = "2" />
+                                <f:selectItem itemValue = "3" itemLabel = "3" />
+                                <f:selectItem itemValue = "4" itemLabel = "4" />
+                                <f:selectItem itemValue = "5" itemLabel = "5" />
+                                <f:selectItem itemValue = "6" itemLabel = "6" />
+                                <f:selectItem itemValue = "7" itemLabel = "7" />
+                                <f:selectItem itemValue = "8" itemLabel = "8" />
+                                <f:selectItem itemValue = "9" itemLabel = "9" />
+                                <f:selectItem itemValue = "10" itemLabel = "10" />                            
+                            </h:selectOneRadio>
+                        </h:form>
+                    </tr>
+                    <br/>
+                    <tr>
+                        <h:form>
+                            <h:selectOneRadio value = "#{userData.data}"> 
+                                <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                                <f:selectItem itemValue = "2" itemLabel = "2" />
+                                <f:selectItem itemValue = "3" itemLabel = "3" />
+                                <f:selectItem itemValue = "4" itemLabel = "4" />
+                                <f:selectItem itemValue = "5" itemLabel = "5" />
+                                <f:selectItem itemValue = "6" itemLabel = "6" />
+                                <f:selectItem itemValue = "7" itemLabel = "7" />
+                                <f:selectItem itemValue = "8" itemLabel = "8" />
+                                <f:selectItem itemValue = "9" itemLabel = "9" />
+                                <f:selectItem itemValue = "10" itemLabel = "10" />                            
+                            </h:selectOneRadio>
+                        </h:form>
+                    </tr>
+                    <br/>
+                    <tr>
+                        <h:form>
+                            <h:selectOneRadio value = "#{userData.data}"> 
+                                <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                                <f:selectItem itemValue = "2" itemLabel = "2" />
+                                <f:selectItem itemValue = "3" itemLabel = "3" />
+                                <f:selectItem itemValue = "4" itemLabel = "4" />
+                                <f:selectItem itemValue = "5" itemLabel = "5" />
+                                <f:selectItem itemValue = "6" itemLabel = "6" />
+                                <f:selectItem itemValue = "7" itemLabel = "7" />
+                                <f:selectItem itemValue = "8" itemLabel = "8" />
+                                <f:selectItem itemValue = "9" itemLabel = "9" />
+                                <f:selectItem itemValue = "10" itemLabel = "10" />                            
+                            </h:selectOneRadio>
+                        </h:form>
+                    </tr>
+                    <br/>
+                    <tr>
+                        <h:form>
+                            <h:selectOneRadio value = "#{userData.data}"> 
+                                <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                                <f:selectItem itemValue = "2" itemLabel = "2" />
+                                <f:selectItem itemValue = "3" itemLabel = "3" />
+                                <f:selectItem itemValue = "4" itemLabel = "4" />
+                                <f:selectItem itemValue = "5" itemLabel = "5" />
+                                <f:selectItem itemValue = "6" itemLabel = "6" />
+                                <f:selectItem itemValue = "7" itemLabel = "7" />
+                                <f:selectItem itemValue = "8" itemLabel = "8" />
+                                <f:selectItem itemValue = "9" itemLabel = "9" />
+                                <f:selectItem itemValue = "10" itemLabel = "10" />                            
+                            </h:selectOneRadio>
+                        </h:form> 
+                    </tr>
+                    <br/>
+                    <tr>
+                        <h:form>
+                            <h:selectOneRadio value = "#{userData.data}"> 
+                                <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                                <f:selectItem itemValue = "2" itemLabel = "2" />
+                                <f:selectItem itemValue = "3" itemLabel = "3" />
+                                <f:selectItem itemValue = "4" itemLabel = "4" />
+                                <f:selectItem itemValue = "5" itemLabel = "5" />
+                                <f:selectItem itemValue = "6" itemLabel = "6" />
+                                <f:selectItem itemValue = "7" itemLabel = "7" />
+                                <f:selectItem itemValue = "8" itemLabel = "8" />
+                                <f:selectItem itemValue = "9" itemLabel = "9" />
+                                <f:selectItem itemValue = "10" itemLabel = "10" />                            
+                            </h:selectOneRadio>
+                        </h:form>
+                    </tr>
+                    <br/>
+                    <tr>
+                        <h:form>
+                            <h:selectOneRadio value = "#{userData.data}"> 
+                                <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                                <f:selectItem itemValue = "2" itemLabel = "2" />
+                                <f:selectItem itemValue = "3" itemLabel = "3" />
+                                <f:selectItem itemValue = "4" itemLabel = "4" />
+                                <f:selectItem itemValue = "5" itemLabel = "5" />
+                                <f:selectItem itemValue = "6" itemLabel = "6" />
+                                <f:selectItem itemValue = "7" itemLabel = "7" />
+                                <f:selectItem itemValue = "8" itemLabel = "8" />
+                                <f:selectItem itemValue = "9" itemLabel = "9" />
+                                <f:selectItem itemValue = "10" itemLabel = "10" />                            
+                            </h:selectOneRadio>
+                        </h:form>  
+                    </tr>
+                    <br/>
+                    <tr>
+                        <h:form>
+                            <h:selectOneRadio value = "#{userData.data}"> 
+                                <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                                <f:selectItem itemValue = "2" itemLabel = "2" />
+                                <f:selectItem itemValue = "3" itemLabel = "3" />
+                                <f:selectItem itemValue = "4" itemLabel = "4" />
+                                <f:selectItem itemValue = "5" itemLabel = "5" />
+                                <f:selectItem itemValue = "6" itemLabel = "6" />
+                                <f:selectItem itemValue = "7" itemLabel = "7" />
+                                <f:selectItem itemValue = "8" itemLabel = "8" />
+                                <f:selectItem itemValue = "9" itemLabel = "9" />
+                                <f:selectItem itemValue = "10" itemLabel = "10" />                            
+                            </h:selectOneRadio>
+                        </h:form> 
+                    </tr>
+                    <br/>
+                    <tr>
+                        <h:form>
+                            <h:selectOneRadio value = "#{userData.data}"> 
+                                <f:selectItem itemValue = "1" itemLabel = "1" /> 
+                                <f:selectItem itemValue = "2" itemLabel = "2" />
+                                <f:selectItem itemValue = "3" itemLabel = "3" />
+                                <f:selectItem itemValue = "4" itemLabel = "4" />
+                                <f:selectItem itemValue = "5" itemLabel = "5" />
+                                <f:selectItem itemValue = "6" itemLabel = "6" />
+                                <f:selectItem itemValue = "7" itemLabel = "7" />
+                                <f:selectItem itemValue = "8" itemLabel = "8" />
+                                <f:selectItem itemValue = "9" itemLabel = "9" />
+                                <f:selectItem itemValue = "10" itemLabel = "10" />                            
+                            </h:selectOneRadio>
+                        </h:form> 
+                    </tr>
+                    <br/>
+                </td>
+
+                <h:outputText value="do you like coffes with hints of?"/><br/><br/><br/>
+
+                <tr>
+
+
+                    <div class="card">
+                        <h:form>
+                            <p:growl id="msg"/>
+                            <p:selectBooleanCheckbox value="#{mainalg.likes_flowery}" itemLabel="Flowery">
+                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_flowery,' Flowery')}"/>
+                            </p:selectBooleanCheckbox>
+                            <p:selectBooleanCheckbox value="#{mainalg.likes_fruity}" itemLabel="Fruity">
+                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_fruity,' Fruity')}"/>
+                            </p:selectBooleanCheckbox>
+                            <p:selectBooleanCheckbox value="#{mainalg.likes_herby}" itemLabel="Herby">
+                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_herby,' Herby')}"/>
+                            </p:selectBooleanCheckbox>
+                            <p:selectBooleanCheckbox value="#{mainalg.likes_nutty}" itemLabel="Nutty">
+                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_nutty, ' Nutty')}"/>
+                            </p:selectBooleanCheckbox>
+                            <p:selectBooleanCheckbox value="#{mainalg.likes_caramelly}" itemLabel="Caramelly">
+                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_caramelly, ' Caramelly')}"/>
+                            </p:selectBooleanCheckbox>
+                            <p:selectBooleanCheckbox value="#{mainalg.likes_chocolatey}" itemLabel="Chocolatey">
+                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_chocolatey, ' Chocolatey')}"/>
+                            </p:selectBooleanCheckbox>
+                            <p:selectBooleanCheckbox value="#{mainalg.likes_resinous}" itemLabel="Resinous">
+                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_resinous, ' Resinous')}"/>
+                            </p:selectBooleanCheckbox>
+                            <p:selectBooleanCheckbox value="#{mainalg.likes_spicy}" itemLabel="Spicy">
+                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_spicy, ' Spicy')}"/>
+                            </p:selectBooleanCheckbox>
+                            <p:selectBooleanCheckbox value="#{mainalg.likes_carbony}" itemLabel="Carbony">
+                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_carbony, ' Carbony')}"/>
+                            </p:selectBooleanCheckbox>
+                        </h:form>
+                    </div>
+
+
+                </tr>
+                <br/>
+
+            </table>
+
+        </div>
+
+
+
+
+    </h:body>
+</html>

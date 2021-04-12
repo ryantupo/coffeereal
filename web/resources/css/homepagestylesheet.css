@@ -19,6 +19,7 @@ and open the template in the editor.
 //#7F5539
 //#9C6644
 
+
 html{
     background-color: black;
 }
@@ -282,29 +283,46 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 
 
 .infoDiv{
+    transform: scale(0.8);
     margin-bottom:-130px;
     margin-left:auto;
     margin-right:auto;
     height:100%;
-    width:90%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width:70%;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color:#7F5539;
 
 }
 
 .infoDiv3{
+    transform: scale(0.8);
     margin-bottom:50px;
     margin-left:auto;
     margin-right:auto;
     height:100%;
-    width:90%;
+    width:70%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color:#7F5539;
-    margin-top:-50px;
+    margin-top:-200px;
+
+}
+
+.infoDiv4{
+    transform: scale(0.8);
+    margin-bottom:50px;
+    margin-left:auto;
+    margin-right:auto;
+    height:100%;
+    width:70%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color:#7F5539;
+    margin-top:50px;
 
 }
 
 .infoDiv2{
+    overflow-wrap:auto;
+    transform: scale(0.8);
     margin-top:-150px;
     margin-left:auto;
     margin-right:auto;
