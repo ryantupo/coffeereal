@@ -36,113 +36,130 @@
 
 
         <div class="divEdit2 p-field p-grid ">
-            <table class="quiztable center">
-                <td>
+            <h:form>
+                <table class="quiztable center">
+                    <td>
+                        <tr>
+                            <div class="question">
+                                <h:outputText class="centerquiz" value="do you like Sour? [1-10]  "/>
+                                <p:inputText id="txt1" style="width:25px;text-align: center;margin-bottom: 10px;margin-top: 10px;float:right;margin-right: 30px;" value="#{mainalg.likes_sour}"/>
+                                <p:slider for="txt1" step="1" style="margin-top:20px;margin-left:100px;margin-right: 100px;" minValue="1" maxValue="10"/>
+                            </div>
+                        </tr>
+                        <br/>
+                        <tr>
+                            <div class="question">
+                                <h:outputText class="centerquiz" value="do you like Sour? [1-10]  "/>
+                                <p:inputText id="txt2" style="width:25px;text-align: center;margin-bottom: 10px;margin-top: 10px;float:right;margin-right: 30px;" value="#{mainalg.likes_winey}"/>
+                                <p:slider for="txt2" step="1" style="margin-top:20px;margin-left:100px;margin-right: 100px;" minValue="1" maxValue="10"/>
+                            </div>
+                        </tr>
+                        <br/>
+                        <tr>
+                            <div class="question">
+                                <h:outputText class="centerquiz" value="do you like Sour? [1-10]  "/>
+                                <p:inputText id="txt3" style="width:25px;text-align: center;margin-bottom: 10px;margin-top: 10px;float:right;margin-right: 30px;" value="#{mainalg.likes_adicic}"/>
+                                <p:slider for="txt3" step="1" style="margin-top:20px;margin-left:100px;margin-right: 100px;" minValue="1" maxValue="10"/>
+                            </div>
+                        </tr>
+                        <br/>
+                        <tr>
+                            <div class="question">
+                                <h:outputText class="centerquiz" value="do you like Sour? [1-10]  "/>
+                                <p:inputText id="txt4" style="width:25px;text-align: center;margin-bottom: 10px;margin-top: 10px;float:right;margin-right: 30px;" value="#{mainalg.likes_mellow}"/>
+                                <p:slider for="txt4" step="1" style="margin-top:20px;margin-left:100px;margin-right: 100px;" minValue="1" maxValue="10"/>
+                            </div>
+                        </tr>
+                        <br/>
+                        <tr>
+                            <div class="question">
+                                <h:outputText class="centerquiz" value="do you like Sour? [1-10]  "/>
+                                <p:inputText id="txt5" style="width:25px;text-align: center;margin-bottom: 10px;margin-top: 10px;float:right;margin-right: 30px;" value="#{mainalg.likes_bland}"/>
+                                <p:slider for="txt5" step="1" style="margin-top:20px;margin-left:100px;margin-right: 100px;" minValue="1" maxValue="10"/>
+                            </div>
+                        </tr>
+                        <br/>
+                        <tr>
+                            <div class="question">
+                                <h:outputText class="centerquiz" value="do you like Sour? [1-10]  "/>
+                                <p:inputText id="txt6" style="width:25px;text-align: center;margin-bottom: 10px;margin-top: 10px;float:right;margin-right: 30px;" value="#{mainalg.likes_sharp}"/>
+                                <p:slider for="txt6" step="1" style="margin-top:20px;margin-left:100px;margin-right: 100px;" minValue="1" maxValue="10"/>
+                            </div>
+                        </tr>
+                        <br/>
+                        <tr>
+                            <div class="question">
+                                <h:outputText class="centerquiz" value="do you like Sour? [1-10]  "/>
+                                <p:inputText id="txt7" style="width:25px;text-align: center;margin-bottom: 10px;margin-top: 10px;float:right;margin-right: 30px;" value="#{mainalg.likes_harsh}"/>
+                                <p:slider for="txt7" step="1" style="margin-top:20px;margin-left:100px;margin-right: 100px;" minValue="1" maxValue="10"/>
+                            </div>
+                        </tr>
+                        <br/>
+                        <tr>
+
+                            <div class="question">
+                                <h:outputText class="centerquiz" value="do you like Sour? [1-10]  "/>
+                                <p:inputText id="txt8" style="width:25px;text-align: center;margin-bottom: 10px;margin-top: 10px;float:right;margin-right: 30px;" value="#{mainalg.likes_pungent}"/>
+                                <p:slider for="txt8" step="1" style="margin-top:20px;margin-left:100px;margin-right: 100px;" minValue="1" maxValue="10"/>
+                            </div>
+                        </tr>
+                        <br/>
+                    </td>
+                    <br/><br/>
+
+                    <h:outputText value="do you like coffes with hints of?"/><br/><br/><br/>
+
                     <tr>
-                        <h:form>                     
-                            <h:outputText value="do you like Sour? [1-10]"/><br/>
-                            <input class="slider" step="1" value = "#{userData.data}" type="range" min="0" max="10"/>
-                        </h:form>
-                    </tr>
-                    <br/>
-                    <tr>
-                        <h:form>                     
-                            <h:outputText value="do you like Winey? [1-10]"/><br/>
-                            <input class="slider" step="1" value = "#{userData.data}" type="range" min="0" max="10"/>
-                        </h:form>
-                    </tr>
-                    <br/>
-                    <tr>
-                        <h:form>                     
-                            <h:outputText value="do you like Adicic? [1-10]"/><br/>
-                            <input class="slider" step="1" value = "#{userData.data}" type="range" min="0" max="10"/>
-                        </h:form>
-                    </tr>
-                    <br/>
-                    <tr>
-                        <h:form>                     
-                            <h:outputText value="do you like Mellow? [1-10]"/><br/>
-                            <input class="slider" step="1" value = "#{userData.data}" type="range" min="0" max="10"/>
-                        </h:form>
-                    </tr>
-                    <br/>
-                    <tr>
-                        <h:form>                     
-                            <h:outputText value="do you like Bland? [1-10]"/><br/>
-                            <input class="slider" step="1" value = "#{userData.data}" type="range" min="0" max="10"/>
-                        </h:form>
-                    </tr>
-                    <br/>
-                    <tr>
-                        <h:form>                     
-                            <h:outputText value="do you like Sharp? [1-10]"/><br/>
-                            <input class="slider" step="1" value = "#{userData.data}" type="range" min="0" max="10"/>
-                        </h:form>
-                    </tr>
-                    <br/>
-                    <tr>
-                        <h:form>                     
-                            <h:outputText value="do you like Harsh? [1-10]"/><br/>
-                            <input class="slider" step="1" value = "#{userData.data}" type="range" min="0" max="10"/>
-                        </h:form>
-                    </tr>
-                    <br/>
-                    <tr>
-                        <h:form>                     
-                            <h:outputText value="do you like Pungent? [1-10]"/><br/>
-                            <input class="slider" step="1" value = "#{userData.data}" type="range" min="0" max="10"/>
-                        </h:form>
+
+
+                        <div class="card">
+                            <h:form>
+                                <p:growl id="msg"/>
+                                <p:selectBooleanCheckbox value="#{mainalg.likes_flowery}" itemLabel="Flowery">
+                                    <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_flowery,' Flowery')}"/>
+                                </p:selectBooleanCheckbox>
+                                <p:selectBooleanCheckbox value="#{mainalg.likes_fruity}" itemLabel="Fruity">
+                                    <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_fruity,' Fruity')}"/>
+                                </p:selectBooleanCheckbox>
+                                <p:selectBooleanCheckbox value="#{mainalg.likes_herby}" itemLabel="Herby">
+                                    <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_herby,' Herby')}"/>
+                                </p:selectBooleanCheckbox>
+                                <p:selectBooleanCheckbox value="#{mainalg.likes_nutty}" itemLabel="Nutty">
+                                    <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_nutty, ' Nutty')}"/>
+                                </p:selectBooleanCheckbox>
+                                <p:selectBooleanCheckbox value="#{mainalg.likes_caramelly}" itemLabel="Caramelly">
+                                    <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_caramelly, ' Caramelly')}"/>
+                                </p:selectBooleanCheckbox>
+                                <p:selectBooleanCheckbox value="#{mainalg.likes_chocolatey}" itemLabel="Chocolatey">
+                                    <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_chocolatey, ' Chocolatey')}"/>
+                                </p:selectBooleanCheckbox>
+                                <p:selectBooleanCheckbox value="#{mainalg.likes_resinous}" itemLabel="Resinous">
+                                    <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_resinous, ' Resinous')}"/>
+                                </p:selectBooleanCheckbox>
+                                <p:selectBooleanCheckbox value="#{mainalg.likes_spicy}" itemLabel="Spicy">
+                                    <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_spicy, ' Spicy')}"/>
+                                </p:selectBooleanCheckbox>
+                                <p:selectBooleanCheckbox value="#{mainalg.likes_carbony}" itemLabel="Carbony">
+                                    <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_carbony, ' Carbony')}"/>
+                                </p:selectBooleanCheckbox>
+                            </h:form>
+                        </div>
+
+
                     </tr>
                     <br/>
 
-                </td>
-                <br/><br/>
-
-                <h:outputText value="do you like coffes with hints of?"/><br/><br/><br/>
-
-                <tr>
+                </table>
 
 
-                    <div class="card">
-                        <h:form>
-                            <p:growl id="msg"/>
-                            <p:selectBooleanCheckbox value="#{mainalg.likes_flowery}" itemLabel="Flowery">
-                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_flowery,' Flowery')}"/>
-                            </p:selectBooleanCheckbox>
-                            <p:selectBooleanCheckbox value="#{mainalg.likes_fruity}" itemLabel="Fruity">
-                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_fruity,' Fruity')}"/>
-                            </p:selectBooleanCheckbox>
-                            <p:selectBooleanCheckbox value="#{mainalg.likes_herby}" itemLabel="Herby">
-                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_herby,' Herby')}"/>
-                            </p:selectBooleanCheckbox>
-                            <p:selectBooleanCheckbox value="#{mainalg.likes_nutty}" itemLabel="Nutty">
-                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_nutty, ' Nutty')}"/>
-                            </p:selectBooleanCheckbox>
-                            <p:selectBooleanCheckbox value="#{mainalg.likes_caramelly}" itemLabel="Caramelly">
-                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_caramelly, ' Caramelly')}"/>
-                            </p:selectBooleanCheckbox>
-                            <p:selectBooleanCheckbox value="#{mainalg.likes_chocolatey}" itemLabel="Chocolatey">
-                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_chocolatey, ' Chocolatey')}"/>
-                            </p:selectBooleanCheckbox>
-                            <p:selectBooleanCheckbox value="#{mainalg.likes_resinous}" itemLabel="Resinous">
-                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_resinous, ' Resinous')}"/>
-                            </p:selectBooleanCheckbox>
-                            <p:selectBooleanCheckbox value="#{mainalg.likes_spicy}" itemLabel="Spicy">
-                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_spicy, ' Spicy')}"/>
-                            </p:selectBooleanCheckbox>
-                            <p:selectBooleanCheckbox value="#{mainalg.likes_carbony}" itemLabel="Carbony">
-                                <p:ajax update="msg" listener="#{mainalg.addMessage(mainalg.likes_carbony, ' Carbony')}"/>
-                            </p:selectBooleanCheckbox>
-                        </h:form>
-                    </div>
-
-
-                </tr>
-                <br/>
-
-            </table>
+                <!--<h:commandButton class="Button" value="Finish Test" action="{mainalg.submitTest()}"/>-->
+                <p:growl id="growl" life="3000" />  
+                <p:commandButton class="Button" value="Click here" id="ajax" update="growl" actionListener="#{mainalg.submitTest()}" styleClass="ui-priority-primary" />  
+            </h:form>
 
         </div>
+
+        <div style="height: 1700px"> </div>
 
 
 

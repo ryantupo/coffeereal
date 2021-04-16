@@ -12,6 +12,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import javax.annotation.Resource;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -28,18 +31,20 @@ import register.loginbean;
 @ViewScoped
 public class mainalg implements Serializable {
 
+    Integer[] tastesList = {1, 1, 1, 1, 1, 1, 1, 1};
+    Boolean[] aromasList = {false, false, false, false, false, false, false, false, false};
+
     @Resource(name = "jdbc/loginpool")
     DataSource dataSource;
-    
-    private int likes_sour;
-    private int likes_winey;
-    private int likes_adicic;
-    private int likes_mellow;
-    private int likes_bland;
-    private int likes_sharp;
-    private int likes_harsh;
-    private int likes_pungent;
 
+    private int likes_sour = 1;
+    private int likes_winey = 1;
+    private int likes_adicic = 1;
+    private int likes_mellow = 1;
+    private int likes_bland = 1;
+    private int likes_sharp = 1;
+    private int likes_harsh = 1;
+    private int likes_pungent = 1;
 
     private boolean likes_flowery;
     private boolean likes_fruity;
@@ -50,11 +55,6 @@ public class mainalg implements Serializable {
     private boolean likes_resinous;
     private boolean likes_spicy;
     private boolean likes_carbony;
-    
-    
-       
-    
-
 
 //(old man : bitter, harsh , sour | resinous , carbony , herby)
 //
@@ -87,8 +87,6 @@ public class mainalg implements Serializable {
 //    just show rows of the table catogories with its top 5 coffees
 //       
 //    
-
-
     public boolean isLikes_flowery() {
         return likes_flowery;
     }
@@ -165,7 +163,7 @@ public class mainalg implements Serializable {
         String summary = typeofaroma ? "You like" + nameofaroma : "Unchecked";
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
     }
- 
+
     public int getLikes_sour() {
         return likes_sour;
     }
@@ -229,4 +227,39 @@ public class mainalg implements Serializable {
     public void setLikes_pungent(int likes_pungent) {
         this.likes_pungent = likes_pungent;
     }
+
+    public void submitTest() {
+
+        tastesList[0] = (getLikes_sour());
+        tastesList[1] = (getLikes_winey());
+        tastesList[2] = (getLikes_adicic());
+        tastesList[3] = (getLikes_mellow());
+        tastesList[4] = (getLikes_bland());
+        tastesList[5] = (getLikes_sharp());
+        tastesList[6] = (getLikes_harsh());
+        tastesList[7] = (getLikes_pungent());
+
+        aromasList[0] = (isLikes_flowery());
+        aromasList[1] = (isLikes_fruity());
+        aromasList[2] = (isLikes_herby());
+        aromasList[3] = (isLikes_nutty());
+        aromasList[4] = (isLikes_caramelly());
+        aromasList[5] = (isLikes_chocolatey());
+        aromasList[6] = (isLikes_resinous());
+        aromasList[7] = (isLikes_spicy());
+        aromasList[8] = (isLikes_carbony());
+
+        for (int taste : tastesList) {
+            System.out.println(": " + taste);
+        }
+
+        for (boolean likes : aromasList) {
+            System.out.println(": " + likes);
+        }
+
+        System.out.println(tastesList.toString());
+        System.out.println(aromasList.toString());
+
+    }
+
 }
