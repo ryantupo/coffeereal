@@ -37,6 +37,8 @@ public class mainalg implements Serializable {
     @Resource(name = "jdbc/loginpool")
     DataSource dataSource;
 
+    private int brand_id;
+
     private int likes_sour = 1;
     private int likes_winey = 1;
     private int likes_adicic = 1;
@@ -87,6 +89,35 @@ public class mainalg implements Serializable {
 //    just show rows of the table catogories with its top 5 coffees
 //       
 //    
+    public mainalg(int brand_id,int likes_sour, int likes_winey, int likes_adicic, int likes_mellow, int likes_bland, int likes_sharp, int likes_harsh, int likes_pungent, boolean likes_flowery, boolean likes_fruity, boolean likes_herby, boolean likes_nutty, boolean likes_caramelly, boolean likes_chocolatey, boolean likes_resinous, boolean likes_spicy, boolean likes_carbony) {
+        this.brand_id = brand_id;
+        this.likes_sour = likes_sour;
+        this.likes_winey = likes_winey;
+        this.likes_adicic = likes_adicic;
+        this.likes_mellow = likes_mellow;
+        this.likes_bland = likes_bland;
+        this.likes_sharp = likes_sharp;
+        this.likes_harsh = likes_harsh;
+        this.likes_pungent = likes_pungent;
+        this.likes_flowery = likes_flowery;
+        this.likes_fruity = likes_fruity;
+        this.likes_herby = likes_herby;
+        this.likes_nutty = likes_nutty;
+        this.likes_caramelly = likes_caramelly;
+        this.likes_chocolatey = likes_chocolatey;
+        this.likes_resinous = likes_resinous;
+        this.likes_spicy = likes_spicy;
+        this.likes_carbony = likes_carbony;
+    }
+
+    public int getBrand_id() {
+        return brand_id;
+    }
+
+    public void setBrand_id(int brand_id) {
+        this.brand_id = brand_id;
+    }
+
     public boolean isLikes_flowery() {
         return likes_flowery;
     }
