@@ -235,6 +235,12 @@ public class flavourProfile implements Serializable {
         }
 
         //populate all tables
+        cleartables();
+        populate_tables_old();
+        populate_tables_old_woman();
+        populate_tables_basic();
+        populate_tables_adventure();
+        
     }
 
     public void cleartables() {
@@ -242,9 +248,15 @@ public class flavourProfile implements Serializable {
         try {
             Connection connection = dataSource.getConnection();
 
-            PreparedStatement addEntry
-                    = connection.prepareStatement("DELETE COFFEE_OLDMAN , COFFEE_OLDWOMAN_DRINKER , COFFEE_BASIC_DRINKER , COFFEE_ADVENTURIST_DRINKER FROM COFFEE_OLDMAN INNNER JOIN COFFEE_OLDWOMAN_DRINKER , COFFEE_BASIC_DRINKER , COFFEE_ADVENTURIST_DRINKER ");
-            addEntry.executeUpdate(); // insert the entry
+            PreparedStatement del_old = connection.prepareStatement("DELETE FROM COFFEE_OLDMAN ");
+            PreparedStatement del_old_w = connection.prepareStatement("DELETE FROM COFFEE_OLDWOMAN_DRINKER ");
+            PreparedStatement del_basic = connection.prepareStatement("DELETE FROM COFFEE_BASIC_DRINKER ");
+            PreparedStatement del_advent = connection.prepareStatement("DELETE FROM COFFEE_ADVENTURIST_DRINKER ");
+
+            del_old.executeUpdate();
+            del_old_w.executeUpdate();
+            del_basic.executeUpdate();
+            del_advent.executeUpdate();
         } catch (SQLException e) {
             System.out.println("bad boy sql");
             System.out.println(e);
