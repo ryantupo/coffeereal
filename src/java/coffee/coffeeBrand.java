@@ -14,6 +14,8 @@ import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.sql.DataSource;
+import user.flavourProfile;
+import user.mainalg;
 
 /**
  *
@@ -21,7 +23,7 @@ import javax.sql.DataSource;
  */
 @ManagedBean(name = "brandbean")
 @RequestScoped
-public class coffeeBrand {
+public class coffeeBrand{
 
     int brand_Id;
     String brand_name;
@@ -186,6 +188,8 @@ public class coffeeBrand {
     //database stuff
     // save a new address book entry
     public void save() throws SQLException {
+          
+        
         // check whether dataSource was injected by the server
         if (dataSource == null) {
             throw new SQLException("Unable to obtain DataSource");
@@ -254,7 +258,7 @@ public class coffeeBrand {
         }
         connection.close(); // return this connection to pool
         clear();
-        // end finally
+        // end finally     
     } // end method save
 
 }

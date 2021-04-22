@@ -27,6 +27,7 @@ import register.loginbean;
  *
  * @author Ryan
  */
+
 @Named("mainalg")
 @ViewScoped
 public class mainalg implements Serializable {
@@ -280,17 +281,8 @@ public class mainalg implements Serializable {
         aromasList[7] = (isLikes_spicy());
         aromasList[8] = (isLikes_carbony());
 
-        for (int taste : tastesList) {
-            System.out.println(": " + taste);
-        }
-
-        for (boolean likes : aromasList) {
-            System.out.println(": " + likes);
-        }
-
-        System.out.println(tastesList.toString());
-        System.out.println(aromasList.toString());
-
     }
 
 }
+
+

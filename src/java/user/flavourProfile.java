@@ -221,18 +221,18 @@ public class flavourProfile implements Serializable {
 
         }
 
-        for (int brand1 : oldman_coffee_brands) {
-            System.out.println("old - " + brand1);
-        }
-        for (int brand2 : oldwoman_coffee_brands) {
-            System.out.println("oldwoman - " + brand2);
-        }
-        for (int brand3 : basic_coffee_brands) {
-            System.out.println("basic - " + brand3);
-        }
-        for (int brand4 : adventurer_coffee_brands) {
-            System.out.println("adventurer - " + brand4);
-        }
+//        for (int brand1 : oldman_coffee_brands) {
+//            System.out.println("old - " + brand1);
+//        }
+//        for (int brand2 : oldwoman_coffee_brands) {
+//            System.out.println("oldwoman - " + brand2);
+//        }
+//        for (int brand3 : basic_coffee_brands) {
+//            System.out.println("basic - " + brand3);
+//        }
+//        for (int brand4 : adventurer_coffee_brands) {
+//            System.out.println("adventurer - " + brand4);
+//        }
 
         //populate all tables
         cleartables();

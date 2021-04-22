@@ -102,13 +102,9 @@ public class CoffeeBrands implements Serializable {
             brandname.add(brand.getBrand_Name());
         }
         //return brandname;
-        System.out.println("here!!!vvvvvvvvvvvvvvvvvvvvvvvv");
-        System.out.println(txt1);
 
         setTxt1(query);
-        System.out.println("second try");
-        System.out.println(txt1);
-        System.out.println(printTxt1());
+
         return brandname.stream().filter(t -> t.toLowerCase().startsWith(queryLowerCase)).collect(Collectors.toList());
     }
 
