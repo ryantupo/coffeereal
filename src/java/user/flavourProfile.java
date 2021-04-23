@@ -213,26 +213,26 @@ public class flavourProfile implements Serializable {
 
             // alot of ifs 
             // make a list with the with info loop through that and check against a case thingy 
-//            System.out.println("old man " + getOld_m_points());
-//            System.out.println("old woman " + getOld_w_points());
-//            System.out.println("basic " + getBasic_points());
-//            System.out.println("adventure " + getAdventure_points());
+            System.out.println("old man " + getOld_m_points());
+            System.out.println("old woman " + getOld_w_points());
+            System.out.println("basic " + getBasic_points());
+            System.out.println("adventure " + getAdventure_points());
             pickGroup(brand.getBrand_id(), getOld_m_points(), getOld_w_points(), getBasic_points(), getAdventure_points());
 
         }
 
-//        for (int brand1 : oldman_coffee_brands) {
-//            System.out.println("old - " + brand1);
-//        }
-//        for (int brand2 : oldwoman_coffee_brands) {
-//            System.out.println("oldwoman - " + brand2);
-//        }
-//        for (int brand3 : basic_coffee_brands) {
-//            System.out.println("basic - " + brand3);
-//        }
-//        for (int brand4 : adventurer_coffee_brands) {
-//            System.out.println("adventurer - " + brand4);
-//        }
+        for (int brand1 : oldman_coffee_brands) {
+            System.out.println("old - " + brand1);
+        }
+        for (int brand2 : oldwoman_coffee_brands) {
+            System.out.println("oldwoman - " + brand2);
+        }
+        for (int brand3 : basic_coffee_brands) {
+            System.out.println("basic - " + brand3);
+        }
+        for (int brand4 : adventurer_coffee_brands) {
+            System.out.println("adventurer - " + brand4);
+        }
 
         //populate all tables
         cleartables();
@@ -240,8 +240,9 @@ public class flavourProfile implements Serializable {
         populate_tables_old_woman();
         populate_tables_basic();
         populate_tables_adventure();
-        
+
     }
+
 
     public void cleartables() {
 
@@ -402,7 +403,9 @@ public class flavourProfile implements Serializable {
         }
     }
 
-    public int points_bool(boolean like) {
+
+
+    public static int points_bool(boolean like) {
         if (like) {
             return 3;
         } else {
@@ -410,7 +413,7 @@ public class flavourProfile implements Serializable {
         }
     }
 
-    public int points_calc(int num) {
+    public static int points_calc(int num) {
 
         if (num < 5) {
             return ((5 - num) * -1);

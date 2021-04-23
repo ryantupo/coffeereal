@@ -83,10 +83,10 @@
                     </p:inputText>
                     <h:message for="OriginsInputText" styleClass="error"/><br/>
                 </div>
-                
-                
+
+
                 <!--// logo not required needs url link or to be saved in resources/images/logo and the dir entered-->
-                                <h:outputLabel value = "Logo Link"/>
+                <h:outputLabel value = "Logo Link"/>
                 <div class="p-col paddinginput">
                     <p:inputText id="LogoInputText" required="false"
                                  requiredMessage="Please enter some Brand Origins Info"
@@ -101,9 +101,7 @@
 
 
 
-                                <h:commandButton class="Button registerbutton" value="Register" action="#{brandbean.save()}">
-                                    <f:actionListener binding="#{flavourbean.make_top_5s()}"/>
-                                </h:commandButton>
+
 
                 <div id="errorblock1" class="errors1">
 
@@ -116,7 +114,7 @@
         </div>
 
 
-<br/>
+        <br/>
 
 
         <div class="p-field p-grid brandquiz">
@@ -237,13 +235,21 @@
 
 
                 <!--<h:commandButton class="Button" value="Finish Test" action="{mainalg.submitTest()}"/>-->
-                <p:growl id="growl" life="3000" />  
-                <p:commandButton class="Button" value="Click here" id="ajax" update="growl" actionListener="#{mainalg.submitTest()}" styleClass="ui-priority-primary" />  
+<!--                <p:growl id="growl" life="3000" />  
+                <p:commandButton class="Button" value="Click here" id="ajax" update="growl" actionListener="{mainalg.submitTest()}" styleClass="ui-priority-primary" />  -->
+
+
+                <h:commandButton class="Button registerbutton" value="do top 5" action="#{brandbean.save()}">
+                    <f:actionListener binding="#{flavourbean.make_top_5s()}"/>
+                    <f:actionListener binding="#{mainalg.submitTest()}"/>
+                </h:commandButton>
             </h:form>
+
+
 
         </div>
 
-<div style="height: 2600px"> </div>
+        <div style="height: 2600px"> </div>
 
 
     </h:body>

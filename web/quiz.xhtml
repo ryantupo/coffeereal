@@ -152,10 +152,10 @@
                 </table>
 
 
-                <!--<h:commandButton class="Button" value="Finish Test" action="{mainalg.submitTest()}"/>-->
-                <p:growl id="growl" life="3000" />  
-                <p:commandButton class="Button" value="Click here" id="ajax" update="growl" actionListener="#{mainalg.submitTest()}" styleClass="ui-priority-primary" />  
-            </h:form>
+                <h:commandButton class="Button" value="Finish Test" action="#{mainalg.place_into_catogory(loginbean.userName)}"/>
+<!--                <p:growl id="growl" life="3000" />  
+                <p:commandButton class="Button" value="Click here" id="ajax" update="growl" actionListener="{mainalg.place_into_catogory(loginbean.userName)}" styleClass="ui-priority-primary" />  
+-->            </h:form>
 
         </div>
 

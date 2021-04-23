@@ -30,7 +30,7 @@ public class userPage implements Serializable {
     @Resource(name = "jdbc/loginpool")
     DataSource dataSource;
 
-    String userId;
+    static String userId;
     String userName;
     String password;
     String firstName;
@@ -177,7 +177,7 @@ public class userPage implements Serializable {
         this.dataSource = dataSource;
     }
 
-    public String getUserId() {
+    public static String getUserId() {
         return userId;
     }
 

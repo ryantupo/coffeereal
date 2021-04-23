@@ -72,7 +72,6 @@ public class navbar implements Serializable {
 
                 navBar = "<a class=\"active\" href=\"/login/faces/index.xhtml\">Home</a>"
                         + "<a href=\"/login/faces/register.xhtml\">Register</a>"
-                            + "<a href=\"/login/faces/quiz.xhtml\">Quiz</a>"
                         + "<a href=\"/login/faces/loginpage.xhtml\">Log in</a>";
 
                 System.out.println(username);
@@ -94,7 +93,6 @@ public class navbar implements Serializable {
 
                 navBar = "<a class=\"active\" href=\"/login/faces/index.xhtml\">Home</a>"
                         + "<a href=\"/login/faces/register.xhtml\">Register</a>"
-                        + "<a href=\"/login/faces/quiz.xhtml\">Quiz</a>"
                         + "<a href=\"/login/faces/loginpage.xhtml\">Log in</a>";
 
                 System.out.println(username);
