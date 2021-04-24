@@ -126,7 +126,7 @@ public class mainalg implements Serializable {
     public void setUsername(String username) {
         this.username = username;
     }
-    
+
     public int getOld_m_points() {
         return old_m_points;
     }
@@ -166,7 +166,6 @@ public class mainalg implements Serializable {
     public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
-
 
     public int getBrand_id() {
         return brand_id;
@@ -351,9 +350,6 @@ public class mainalg implements Serializable {
 //(adventurist : winey , tart , sharp | spicey , flowery , fruity)
 //
 //(old woman : mellow , bland , winey | herby , flowery , resinous)
-
-
-
         setAdventure_points(0);
         setBasic_points(0);
         setOld_m_points(0);
@@ -441,8 +437,31 @@ public class mainalg implements Serializable {
         System.out.println("old woman " + getOld_w_points());
         System.out.println("basic " + getBasic_points());
         System.out.println("adventure " + getAdventure_points());
+        System.out.println("BITCH DID YOU GET HERE");
+
+        try {
+            Connection connection = dataSource.getConnection();
+
+            PreparedStatement compareUser2 = connection.prepareStatement("select * from LOGINDETAILS where USERNAME = ? ");
+            compareUser2.setString(1, userName);
+            compareUser2.executeQuery();
+            ResultSet results2 = compareUser2.getResultSet();
+            while (results2.next()) {
+                setUser_id(results2.getInt("USER_ID"));
+            }
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("bad boy sql");
+            System.out.println(e);
+        }
+
+        System.out.println(userPage.getUserId());
+
+        System.out.println("BITCH DID YOU GET HERE 2 ");
+        System.out.println(getUser_id());
         
-        setUser_id(Integer.parseInt(userPage.getUserId()));
+        fillQuizTables();
+        System.out.println("tables filled--------------");
         pickGroupUser(getUser_id(), getOld_m_points(), getOld_w_points(), getBasic_points(), getAdventure_points());
 
     }
@@ -450,8 +469,6 @@ public class mainalg implements Serializable {
     public void pickGroupUser(int user_Id, int old, int oldw, int basic, int advent) throws SQLException {
         ArrayList<Integer> points = new ArrayList<>();
         ArrayList<String> pointsNames = new ArrayList<>();
-
-        
 
         points.add(old);
         points.add(oldw);
@@ -497,14 +514,22 @@ public class mainalg implements Serializable {
                 // specify the PreparedStatement's arguments
                 addEntry.setInt(1, getUser_id());
                 addEntry.setString(2, groupname);
+                
+                System.out.println("bitch your an ");
+                System.out.println(groupname);
 
                 addEntry.executeUpdate(); // insert the entry
 
             } else {
 
-                PreparedStatement EditBrand = connection.prepareStatement("UPDATE COFFEE_TEST_USER_ANSWERS_CATEGORY SET TYPE_OF_COFFEE_DRINKER = ? ");
-
+                PreparedStatement EditBrand = connection.prepareStatement("UPDATE COFFEE_TEST_USER_ANSWERS_CATEGORY SET TYPE_OF_COFFEE_DRINKER = ? WHERE USER_ID = ? ");
+                
+                
                 EditBrand.setString(1, groupname);
+                EditBrand.setInt(2, getUser_id());
+                
+                System.out.println("bitch your an ");
+                System.out.println(groupname);
 
                 EditBrand.executeUpdate();
 
@@ -532,6 +557,86 @@ public class mainalg implements Serializable {
             return false;
         }
         return true;
+    }
+
+    public void fillQuizTables() {
+        
+        System.out.println("start fill");
+
+        try {
+
+            Connection connection = dataSource.getConnection();
+
+            if (compareUser(user_id) == true) {
+
+                PreparedStatement addEntry
+                        = connection.prepareStatement("INSERT INTO APP.COFFEE_TEST_USER_ANSWERS"
+                                + "(USER_ID,FLOWERY_QUESTION,FRUITY_QUESTION,HERBY_QUESTION,NUTTY_QUESTION,CARAMELLY_QUESTION,"
+                                + "CHOCOLATEY_QUESTION,RESINOUS_QUESTION,SPICY_QUESTION,CARBONY_QUESTION,"
+                                + "SOUR_QUESTION,WINEY_QUESTION,ADICIC_QUESTION,MELLOW_QUESTION,BLAND_QUESTION,SHARP_QUESTION,"
+                                + "HARSH_QUESTION,PUNGENT_QUESTION)"
+                                + "VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? )");
+                
+                // specify the PreparedStatement's arguments
+                addEntry.setInt(1, getUser_id());
+                addEntry.setBoolean(2, isLikes_flowery());
+                addEntry.setBoolean(3, isLikes_fruity());
+                addEntry.setBoolean(4, isLikes_herby());
+                addEntry.setBoolean(5, isLikes_nutty());
+                addEntry.setBoolean(6, isLikes_caramelly());
+                addEntry.setBoolean(7, isLikes_chocolatey());
+                addEntry.setBoolean(8, isLikes_resinous());
+                addEntry.setBoolean(9, isLikes_spicy());
+                addEntry.setBoolean(10, isLikes_carbony());
+
+                addEntry.setInt(11, getLikes_sour());
+                addEntry.setInt(12, getLikes_winey());
+                addEntry.setInt(13, getLikes_adicic());
+                addEntry.setInt(14, getLikes_mellow());
+                addEntry.setInt(15, getLikes_bland());
+                addEntry.setInt(16, getLikes_sharp());
+                addEntry.setInt(17, getLikes_harsh());
+                addEntry.setInt(18, getLikes_pungent());
+
+                addEntry.executeUpdate(); // insert the entry
+
+            } else {
+
+                PreparedStatement addEntry = connection.prepareStatement("UPDATE COFFEE_TEST_USER_ANSWERS SET FLOWERY_QUESTION = ? ,"
+                        + "FRUITY_QUESTION = ? ,HERBY_QUESTION = ? ,NUTTY_QUESTION = ? ,CARAMELLY_QUESTION = ? ,"
+                        + "CHOCOLATEY_QUESTION = ? ,RESINOUS_QUESTION = ? ,SPICY_QUESTION = ? ,CARBONY_QUESTION = ? ,"
+                        + "SOUR_QUESTION = ? ,WINEY_QUESTION = ? ,ADICIC_QUESTION = ? ,MELLOW_QUESTION = ? ,BLAND_QUESTION = ? ,SHARP_QUESTION = ? ,"
+                        + "HARSH_QUESTION = ? ,PUNGENT_QUESTION = ? ");
+
+                addEntry.setBoolean(1, isLikes_flowery());
+                addEntry.setBoolean(2, isLikes_fruity());
+                addEntry.setBoolean(3, isLikes_herby());
+                addEntry.setBoolean(4, isLikes_nutty());
+                addEntry.setBoolean(5, isLikes_caramelly());
+                addEntry.setBoolean(6, isLikes_chocolatey());
+                addEntry.setBoolean(7, isLikes_resinous());
+                addEntry.setBoolean(8, isLikes_spicy());
+                addEntry.setBoolean(9, isLikes_carbony());
+
+                addEntry.setInt(10, getLikes_sour());
+                addEntry.setInt(11, getLikes_winey());
+                addEntry.setInt(12, getLikes_adicic());
+                addEntry.setInt(13, getLikes_mellow());
+                addEntry.setInt(14, getLikes_bland());
+                addEntry.setInt(15, getLikes_sharp());
+                addEntry.setInt(16, getLikes_harsh());
+                addEntry.setInt(17, getLikes_pungent());
+
+                addEntry.executeUpdate();
+
+            }
+            connection.close();
+
+        } catch (SQLException e) {
+            System.out.println("bad boy sql");
+            System.out.println(e);
+        }
+
     }
 
 }
