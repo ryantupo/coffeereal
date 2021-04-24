@@ -29,9 +29,6 @@ import javax.sql.DataSource;
 @ViewScoped
 public class mainalg implements Serializable {
 
-    Integer[] tastesList = {1, 1, 1, 1, 1, 1, 1, 1};
-    Boolean[] aromasList = {false, false, false, false, false, false, false, false, false};
-
     int old_m_points;
     int old_w_points;
     int basic_points;
@@ -314,31 +311,6 @@ public class mainalg implements Serializable {
 
     public void setLikes_pungent(int likes_pungent) {
         this.likes_pungent = likes_pungent;
-    }
-
-    public void submitTest() {
-
-        System.out.println("wag11111111111111111111");
-
-        tastesList[0] = (getLikes_sour());
-        tastesList[1] = (getLikes_winey());
-        tastesList[2] = (getLikes_adicic());
-        tastesList[3] = (getLikes_mellow());
-        tastesList[4] = (getLikes_bland());
-        tastesList[5] = (getLikes_sharp());
-        tastesList[6] = (getLikes_harsh());
-        tastesList[7] = (getLikes_pungent());
-
-        aromasList[0] = (isLikes_flowery());
-        aromasList[1] = (isLikes_fruity());
-        aromasList[2] = (isLikes_herby());
-        aromasList[3] = (isLikes_nutty());
-        aromasList[4] = (isLikes_caramelly());
-        aromasList[5] = (isLikes_chocolatey());
-        aromasList[6] = (isLikes_resinous());
-        aromasList[7] = (isLikes_spicy());
-        aromasList[8] = (isLikes_carbony());
-
     }
 
     public void place_into_catogory(String userName) throws SQLException {
