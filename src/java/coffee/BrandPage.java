@@ -67,10 +67,7 @@ public class BrandPage implements Serializable {
             while (results3.next()) {
                 setBrand_Info(results3.getString("BRAND_INFO"));
                 setBrand_Origin(results3.getString("ORIGIN_INFO"));
-                setBrand_Logo_file_Name(results3.getString("BRAND_LOGO_FILE_NAME"));
-                
-                System.out.println("DO YOU HAVE A LOGO!!");
-                System.out.println(results3.getString("BRAND_LOGO_FILE_NAME"));
+                setBrand_Logo_file_Name(results3.getString("BRAND_LOGO_FILE_NAME"));                
 
             }
             connection.close();

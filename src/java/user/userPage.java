@@ -6,12 +6,15 @@
 package user;
 
 import coffee.BrandPage;
+import coffee.coffeeBrand;
 import java.io.IOException;
 import java.io.Serializable;
+import static java.lang.Integer.parseInt;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.annotation.Resource;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
@@ -44,6 +47,17 @@ public class userPage implements Serializable {
 
     String origionalName;
 
+    //---------------------
+    //category of user
+    String category;
+    String choice;
+
+    //holds id's for top5
+    ArrayList<Integer> brand_Ids = new ArrayList<>();
+
+    //holds the top 5 objects
+    ArrayList<coffeeBrand> top5Brands = new ArrayList<>();
+
     public userPage() {
 
     }
@@ -52,12 +66,6 @@ public class userPage implements Serializable {
 
         setUserName(url);
         setOrigionalName(url);
-        System.out.println("MUMUMMUMUMMUMUMUMMUMUMU");
-        System.out.println(url);
-        System.out.println("MUMUMMUMUMMUMUMUMMUMUMU");
-        System.out.println(getOrigionalName());
-        System.out.println("MUMUMMUMUMMUMUMUMMUMUMU");
-
         try {
             Connection connection = dataSource.getConnection();
 
@@ -85,6 +93,123 @@ public class userPage implements Serializable {
             }
             connection.close();
 
+        } catch (SQLException e) {
+            System.out.println("bad boy sql");
+            System.out.println(e);
+        }
+
+        getTop5();
+
+    }
+
+    public void getTop5() {
+
+        getUserCategory();
+
+        try {
+            Connection connection = dataSource.getConnection();
+
+//            switch (category) {
+//                case "oldman":
+//                    choice = "COFFEE_OLDMAN";
+//                case "oldwoman":
+//                    choice = "COFFEE_OLDWOMAN_DRINKER";
+//                case "advent":
+//                    choice = "COFFEE_ADVENTURIST_DRINKER";
+//                case "basic":
+//                    choice = "COFFEE_BASIC_DRINKER";
+//            }
+
+                
+            PreparedStatement compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDMAN ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
+            switch (category) {
+                case "oldman":
+                    compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDMAN ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
+       
+                case "oldwoman":
+                    compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDWOMAN_DRINKER ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
+                
+                case "advent":
+                    compareUser = connection.prepareStatement("SELECT * FROM COFFEE_ADVENTURIST_DRINKER ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
+                  
+                case "basic":
+                    compareUser = connection.prepareStatement("SELECT * FROM COFFEE_BASIC_DRINKER ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
+                 
+            }
+
+            
+
+            compareUser.executeQuery();
+            ResultSet results = compareUser.getResultSet();
+            ///////// initiate a list here /////////
+            while (results.next()) {
+
+                brand_Ids.add(results.getInt("brand_id"));
+            }
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("bad boy sql");
+            System.out.println(e);
+        }
+
+        for (int brand : brand_Ids) {
+
+            try {
+                Connection connection = dataSource.getConnection();
+
+                PreparedStatement compareUser = connection.prepareStatement("SELECT * FROM coffeebrands INNER JOIN brandinfo ON coffeebrands.brand_id = brandinfo.brand_id where coffeebrands.brand_id = ? ");
+
+                compareUser.setInt(1, brand);
+                compareUser.executeQuery();
+                ResultSet results = compareUser.getResultSet();
+                ///////// initiate a list here /////////
+                while (results.next()) {
+
+                    //(int b_Id, String bName, String cName, Integer estab,String logo)
+                    coffeeBrand brand1 = new coffeeBrand(brand, results.getString("brand_name"), results.getString("country_name"), results.getInt("est"), results.getString("brand_logo_file_name"));
+
+                    top5Brands.add(brand1);
+                }
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("bad boy sql");
+                System.out.println(e);
+            }
+
+        }
+        
+        
+        for (coffeeBrand bid : top5Brands){
+            System.out.println("here is your brands");
+            System.out.println(bid.getBrand_Id());
+            System.out.println(bid.getLogoLink());
+        }
+        
+        
+        
+        
+        
+        
+        
+
+    }
+
+    //sets the category for drinker of the current user locally
+    public void getUserCategory() {
+
+        //get catorgory for user
+        try {
+            Connection connection = dataSource.getConnection();
+            PreparedStatement compareUser = connection.prepareStatement("select * from COFFEE_TEST_USER_ANSWERS_CATEGORY WHERE USER_ID = ? ");
+            compareUser.setInt(1, Integer.parseInt(userId));
+            compareUser.executeQuery();
+            ResultSet results = compareUser.getResultSet();
+            ///////// initiate a list here /////////
+            while (results.next()) {
+
+                setCategory(results.getString("TYPE_OF_COFFEE_DRINKER"));
+            }
+            connection.close();
         } catch (SQLException e) {
             System.out.println("bad boy sql");
             System.out.println(e);
@@ -120,11 +245,6 @@ public class userPage implements Serializable {
 
     public void updateUserbio() throws IOException {
 
-        System.out.println("DADADDADADADADADADDA");
-        System.out.println(getOrigionalName());
-        System.out.println(getUserName());
-        System.out.println("DADADADADADDADADADAD");
-
         try {
             Connection connection = dataSource.getConnection();
 
@@ -135,10 +255,6 @@ public class userPage implements Serializable {
             while (results2.next()) {
                 setUserId(results2.getString("user_ID"));
             }
-            
-            System.out.println("IDIDIIDIIDIDIDIDIIDID");
-            System.out.println(getUserId());
-            System.out.println("IDIDIIDIIDIDIDIDIIDID");
 
             PreparedStatement EditBrand = connection.prepareStatement("UPDATE logindetails SET username = ? , password = ? , firstname = ? , lastname = ? , emailaddress = ? , profile_pic = ? WHERE username = ? ");
             PreparedStatement EditBio = connection.prepareStatement("UPDATE user_info SET link = ? , bio = ? WHERE user_id = ? ");
@@ -158,15 +274,44 @@ public class userPage implements Serializable {
             EditBio.executeUpdate();
             EditBrand.executeUpdate();
 
-            
-            
-            
             connection.close();
         } catch (SQLException e) {
             System.out.println("bad boy sql");
             System.out.println(e);
         }
         FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/userProfile.xhtml");
+    }
+
+    public String getChoice() {
+        return choice;
+    }
+
+    public void setChoice(String choice) {
+        this.choice = choice;
+    }
+
+    public ArrayList<Integer> getBrand_Ids() {
+        return brand_Ids;
+    }
+
+    public void setBrand_Ids(ArrayList<Integer> brand_Ids) {
+        this.brand_Ids = brand_Ids;
+    }
+
+    public ArrayList<coffeeBrand> getTop5Brands() {
+        return top5Brands;
+    }
+
+    public void setTop5Brands(ArrayList<coffeeBrand> top5Brands) {
+        this.top5Brands = top5Brands;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public DataSource getDataSource() {
@@ -264,18 +409,12 @@ public class userPage implements Serializable {
     public void setBio(String bio) {
         this.bio = bio;
     }
-    
-    
-    
-        public String srcProfilePicGetter() {
-        
-        System.out.println("HEREEEE");
-        System.out.println(getProfilePic());
-        
-        
-        if (profilePic==null){
-         return "<img class=\"LogoImage\" src=\"" + "https://associatestimes.com/wp-content/uploads/2021/01/202002020449273339_Frantic-search-on-for-3-Chinese-missing-in-Vellore_SECVPF.jpg" + "\" alt= \"Logo\" />";
-        }else if (profilePic.contains("https")) {
+
+    public String srcProfilePicGetter() {
+
+        if (profilePic == null) {
+            return "<img class=\"LogoImage\" src=\"" + "https://associatestimes.com/wp-content/uploads/2021/01/202002020449273339_Frantic-search-on-for-3-Chinese-missing-in-Vellore_SECVPF.jpg" + "\" alt= \"Logo\" />";
+        } else if (profilePic.contains("https")) {
             return "<img class=\"LogoImage\" src=\"" + profilePic + "\" alt= \"Logo\" />";
         } else {
             return "<img class=\"LogoImage\" src=\"" + "/login/faces/resources/images/logos/" + profilePic + "\" alt=\"Logo\" />";

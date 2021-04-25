@@ -405,12 +405,6 @@ public class mainalg implements Serializable {
 
         // alot of ifs 
         // make a list with the with info loop through that and check against a case thingy 
-        System.out.println("old man " + getOld_m_points());
-        System.out.println("old woman " + getOld_w_points());
-        System.out.println("basic " + getBasic_points());
-        System.out.println("adventure " + getAdventure_points());
-        System.out.println("BITCH DID YOU GET HERE");
-
         try {
             Connection connection = dataSource.getConnection();
 
@@ -425,15 +419,8 @@ public class mainalg implements Serializable {
         } catch (SQLException e) {
             System.out.println("bad boy sql");
             System.out.println(e);
-        }
-
-        System.out.println(userPage.getUserId());
-
-        System.out.println("BITCH DID YOU GET HERE 2 ");
-        System.out.println(getUser_id());
-        
+        }    
         fillQuizTables();
-        System.out.println("tables filled--------------");
         pickGroupUser(getUser_id(), getOld_m_points(), getOld_w_points(), getBasic_points(), getAdventure_points());
 
     }
