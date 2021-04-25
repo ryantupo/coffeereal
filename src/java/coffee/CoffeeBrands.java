@@ -47,7 +47,9 @@ public class CoffeeBrands implements Serializable {
 
         try {
             Connection connection = dataSource.getConnection();
-            PreparedStatement compareUser = connection.prepareStatement("select * from coffeebrands ");
+            PreparedStatement compareUser = connection.prepareStatement("SELECT * FROM coffeebrands INNER JOIN brandinfo ON coffeebrands.brand_id = brandinfo.brand_id ");
+//            SELECT * FROM coffeebrands
+//INNER JOIN brandinfo ON coffeebrands.brand_id = brandinfo.brand_id
             compareUser.executeQuery();
             ResultSet results = compareUser.getResultSet();
             brands = new ArrayList<>();
@@ -55,7 +57,7 @@ public class CoffeeBrands implements Serializable {
             ///////// initiate a list here /////////
             while (results.next()) {
 
-                brands.add(new coffeeBrand(results.getInt("brand_id"), results.getString("brand_name"), results.getString("country_name"), results.getInt("est")));
+                brands.add(new coffeeBrand(results.getInt("brand_id"), results.getString("brand_name"), results.getString("country_name"), results.getInt("est"), results.getString("BRAND_LOGO_FILE_NAME")));
 
             }
 

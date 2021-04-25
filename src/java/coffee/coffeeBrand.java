@@ -62,11 +62,22 @@ public class coffeeBrand {
 
     }
 
-    public coffeeBrand(int b_Id, String bName, String cName, Integer estab) {
+    public coffeeBrand(int b_Id, String bName, String cName, Integer estab,String logo) {
         this.brand_Id = b_Id;
         this.brand_name = bName;
         this.country = cName;
         this.established = estab;
+        this.logoLink = logo;
+
+    }
+
+    public String srcLogoGetter() {
+
+        if (getLogoLink().contains("https")) {
+            return "<img class=\"LogoImage\" src=\"" + logoLink + "\" alt= \"Logo\" />";
+        } else {
+            return "<img class=\"LogoImage\" src=\"" + "/login/faces/resources/images/logos/" + logoLink + "\" alt=\"Logo\" />";
+        }
 
     }
 
