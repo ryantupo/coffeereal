@@ -93,10 +93,14 @@ and open the template in the editor.
 
             <ui:repeat value="#{userPage.top5Brands}" var="brand" varStatus="metadata">
 
-                <div class="brandrepeat">
-                    <h:outputText value="#{brand.srcLogoGetter()}" escape="false" />
-                    <h:outputText value="#{brand.brand_Name}"/>
-                    <h:outputText value="#{brand.established}"/>
+                <div class="">
+                    <div class="center">
+                        <h:outputText value="#{brand.srcLogoGetter()}" escape="false" />
+                    </div>
+                    <div class="center">
+                        <h:outputText value="#{brand.brand_Name}"/>
+                        <h:outputText value="#{brand.established}"/>
+                    </div>
                 </div>
 
 

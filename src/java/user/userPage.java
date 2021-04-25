@@ -50,7 +50,7 @@ public class userPage implements Serializable {
 
     //---------------------
     //category of user
-    String category;
+    String category = "";
     String choice;
 
     //holds id's for top5
@@ -160,6 +160,7 @@ public class userPage implements Serializable {
 //                    choice = "COFFEE_BASIC_DRINKER";
 //            }
             PreparedStatement compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDMAN ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
+           
             switch (category) {
                 case "oldman":
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDMAN ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
@@ -172,7 +173,9 @@ public class userPage implements Serializable {
 
                 case "basic":
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_BASIC_DRINKER ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
-
+                    
+                default:
+                    System.out.println("bad boy no logged in");
             }
 
             compareUser.executeQuery();
