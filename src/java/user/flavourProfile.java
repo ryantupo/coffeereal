@@ -129,6 +129,9 @@ public class flavourProfile implements Serializable {
 //
 //(old woman : mellow , bland , winey | herby , flowery , resinous)
         for (mainalg brand : coffeebrands) {
+            
+            System.out.println("thewse are the flavourf flavs with brand id");
+            System.out.println(brand.getBrand_id());
 
             setAdventure_points(0);
             setBasic_points(0);
