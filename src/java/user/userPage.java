@@ -33,6 +33,7 @@ public class userPage implements Serializable {
     @Resource(name = "jdbc/loginpool")
     DataSource dataSource;
 
+    int userID;
     static String userId;
     String userName;
     String password;
@@ -98,6 +99,45 @@ public class userPage implements Serializable {
             System.out.println(e);
         }
 
+
+    }
+    
+        public void dothething2(String url) {
+
+        setUserName(url);
+        setOrigionalName(url);
+        try {
+            Connection connection = dataSource.getConnection();
+
+            PreparedStatement compareUser2 = connection.prepareStatement("select * from logindetails where USERNAME = ? ");
+            compareUser2.setString(1, getUserName());
+            compareUser2.executeQuery();
+            ResultSet results2 = compareUser2.getResultSet();
+            while (results2.next()) {
+                setUserId(results2.getString("user_ID"));
+                setPassword(results2.getString("password"));
+                setFirstName(results2.getString("firstname"));
+                setLastName(results2.getString("lastname"));
+                setEmailAddress(results2.getString("emailaddress"));
+                setAdminAuthentication(results2.getBoolean("admin"));
+                setProfilePic(results2.getString("profile_pic"));
+            }
+
+            PreparedStatement compareUser3 = connection.prepareStatement("select * from user_info where USER_id = ? ");
+            compareUser3.setString(1, getUserId());
+            compareUser3.executeQuery();
+            ResultSet results3 = compareUser3.getResultSet();
+            while (results3.next()) {
+                setLink(results3.getString("link"));
+                setBio(results3.getString("bio"));
+            }
+            connection.close();
+
+        } catch (SQLException e) {
+            System.out.println("bad boy sql");
+            System.out.println(e);
+        }
+
         getTop5();
 
     }
@@ -119,25 +159,21 @@ public class userPage implements Serializable {
 //                case "basic":
 //                    choice = "COFFEE_BASIC_DRINKER";
 //            }
-
-                
             PreparedStatement compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDMAN ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
             switch (category) {
                 case "oldman":
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDMAN ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
-       
+
                 case "oldwoman":
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDWOMAN_DRINKER ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
-                
+
                 case "advent":
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_ADVENTURIST_DRINKER ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
-                  
+
                 case "basic":
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_BASIC_DRINKER ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
-                 
-            }
 
-            
+            }
 
             compareUser.executeQuery();
             ResultSet results = compareUser.getResultSet();
@@ -177,31 +213,44 @@ public class userPage implements Serializable {
             }
 
         }
-        
-        
-        for (coffeeBrand bid : top5Brands){
+
+        for (coffeeBrand bid : top5Brands) {
             System.out.println("here is your brands");
             System.out.println(bid.getBrand_Id());
             System.out.println(bid.getLogoLink());
         }
-        
-        
-        
-        
-        
-        
-        
 
     }
 
     //sets the category for drinker of the current user locally
     public void getUserCategory() {
 
+        try {
+            Connection connection = dataSource.getConnection();
+
+            PreparedStatement compareUser2 = connection.prepareStatement("select * from logindetails where USERNAME = ? ");
+            compareUser2.setString(1, getOrigionalName());
+            compareUser2.executeQuery();
+
+            
+            ResultSet results = compareUser2.getResultSet();
+            ///////// initiate a list here /////////
+            while (results.next()) {
+
+                setUserID(results.getInt("user_ID"));
+            }
+
+            connection.close();
+        } catch (SQLException e) {
+            System.out.println("bad boy sql");
+            System.out.println(e);
+        }
+
         //get catorgory for user
         try {
             Connection connection = dataSource.getConnection();
             PreparedStatement compareUser = connection.prepareStatement("select * from COFFEE_TEST_USER_ANSWERS_CATEGORY WHERE USER_ID = ? ");
-            compareUser.setInt(1, Integer.parseInt(userId));
+            compareUser.setInt(1, userID);
             compareUser.executeQuery();
             ResultSet results = compareUser.getResultSet();
             ///////// initiate a list here /////////
@@ -280,6 +329,14 @@ public class userPage implements Serializable {
             System.out.println(e);
         }
         FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/userProfile.xhtml");
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getChoice() {
