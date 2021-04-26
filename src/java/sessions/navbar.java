@@ -43,9 +43,6 @@ public class navbar implements Serializable {
     }
 
     public String getNavBar() {
-        System.out.println("HERE IS USERNAME");
-        System.out.println(username);
-
         try {
             Connection connection = dataSource.getConnection();
 
@@ -55,14 +52,12 @@ public class navbar implements Serializable {
             ResultSet results2 = compareUser2.getResultSet();
             while (results2.next()) {
                 setAdminClearence(results2.getBoolean("ADMIN"));
-                System.out.println("HEREEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
-                System.out.println(results2.getBoolean("ADMIN"));
 
             }
 
             connection.close();
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL error occured");
             System.out.println(e);
         }
 
@@ -73,8 +68,6 @@ public class navbar implements Serializable {
                 navBar = "<a class=\"active\" href=\"/login/faces/index.xhtml\">Home</a>"
                         + "<a href=\"/login/faces/register.xhtml\">Register</a>"
                         + "<a href=\"/login/faces/loginpage.xhtml\">Log in</a>";
-
-                System.out.println(username);
                 return navBar;
             } else {
                 navBar = "<a class=\"active\" href=\"/login/faces/index.xhtml\">Home</a>"
@@ -83,9 +76,6 @@ public class navbar implements Serializable {
                         + "<a href=\"/login/faces/userProfile.xhtml\">Profile</a>"
                         + "<a href=\"/login/faces/quiz.xhtml\">Quiz</a>"
                         + "<div class=\"welcomemessage\"><p>Welcome, " + navbar() + "</p></div>";
-
-                System.out.println(username);
-
                 return navBar;
             }
         } else {
@@ -94,17 +84,12 @@ public class navbar implements Serializable {
                 navBar = "<a class=\"active\" href=\"/login/faces/index.xhtml\">Home</a>"
                         + "<a href=\"/login/faces/register.xhtml\">Register</a>"
                         + "<a href=\"/login/faces/loginpage.xhtml\">Log in</a>";
-
-                System.out.println(username);
                 return navBar;
             } else {
                 navBar = "<a class=\"active\" href=\"/login/faces/index.xhtml\">Home</a>"
                         + "<a href=\"/login/faces/userProfile.xhtml\">Profile</a>"
                         + "<a href=\"/login/faces/quiz.xhtml\">Quiz</a>"
                         + "<div class=\"welcomemessage\"><p>Welcome, " + navbar() + "</p></div>";
-
-                System.out.println(username);
-
                 return navBar;
             }
 

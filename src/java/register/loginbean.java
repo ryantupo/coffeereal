@@ -59,7 +59,6 @@ public class loginbean implements Serializable {
         this.userPassword = inputPassword;
     }
 
-
     public void clear() {
         setUserName("");
         setUserPassword("");
@@ -69,25 +68,15 @@ public class loginbean implements Serializable {
     public boolean AttemptLogin(String Uname, String Pword) throws SQLException {
 
         Connection connection = dataSource.getConnection();
-        System.out.println("connection :" + connection);
         PreparedStatement compareUser = connection.prepareStatement("select count(*) as total from LOGINDETAILS where UserName = '" + Uname + "' and Password = '" + Pword + "' ");
-        System.out.println("compare User tables : " + compareUser);
-
         int rows;
         try (ResultSet results = compareUser.executeQuery()) {
-            System.out.println("result1 : " + results);
             results.next();
-            System.out.println("resultnext : " + results);
             rows = results.getInt("total");
-            System.out.println("rows : " + rows);
-
         }
-
         if (rows > 0) {
-
             return true;
         }
-
         return false;
     }
 
@@ -114,9 +103,7 @@ public class loginbean implements Serializable {
                 CurrentUser currentUser = new CurrentUser(set.getString("USER_ID"), set.getString("USERNAME"), set.getString("PASSWORD"), set.getString("FIRSTNAME"), set.getString("LASTNAME"), set.getString("EMAILADDRESS"), set.getBoolean("admin"), set.getString("profile_pic"));
                 setUserName(((String) session.getAttribute("USERNAME")));
                 FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
-
             }
-
 //            }
         } else {
             session.invalidate();
@@ -128,7 +115,6 @@ public class loginbean implements Serializable {
 
     //log out function / end session
     public void logout() {
-
         //session code
         HttpSession session = GetSession.getSession();
         session.invalidate();

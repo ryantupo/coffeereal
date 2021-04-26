@@ -162,44 +162,27 @@ public class Registerbean {
 
         int rows;
         try (ResultSet results = compareUser.executeQuery()) {
-            System.out.println("result1 : " + results);
             results.next();
-            System.out.println("resultnext : " + results);
             rows = results.getInt("total");
-            System.out.println("rows : " + rows);
-
         }
-
         if (rows > 0) {
-
             return false;
         }
-
         return true;
     }
 
     public boolean compareEmail(String Uname, String Email) throws SQLException {
 
         Connection connection = dataSource.getConnection();
-        System.out.println("connection :" + connection);
         PreparedStatement compareUser = connection.prepareStatement("select count(*) as total from LOGINDETAILS where EMAILADDRESS = '" + Email + "' ");
-        System.out.println("compare User tables : " + compareUser);
-
         int rows;
         try (ResultSet results = compareUser.executeQuery()) {
-            System.out.println("result1 : " + results);
             results.next();
-            System.out.println("resultnext : " + results);
             rows = results.getInt("total");
-            System.out.println("rows : " + rows);
-
         }
-
         if (rows > 0) {
-
             return false;
         }
-
         return true;
     }
 
@@ -275,7 +258,7 @@ public class Registerbean {
                         = connection.prepareStatement("INSERT INTO APP.USER_INFO"
                                 + "(USER_ID,LINK,BIO)"
                                 + "VALUES ( ?, ?, ? )");
-                
+
                 addEntry2.setString(1, getUser_Id());
                 addEntry2.setString(2, "");
                 addEntry2.setString(3, "");

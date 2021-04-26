@@ -132,15 +132,7 @@ public class BrandPage implements Serializable {
         }
        
         
-    }
-    
-    
-    
-    
-    
-    
-    
-    
+    }  
 
     public DataSource getDataSource() {
         return dataSource;

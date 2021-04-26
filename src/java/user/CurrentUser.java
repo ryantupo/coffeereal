@@ -117,9 +117,5 @@ public class CurrentUser implements Serializable{
     public void setProfilePic(String ProfilePic) {
         this.ProfilePic = ProfilePic;
     }
-    
-    
-    
-     
 
 }

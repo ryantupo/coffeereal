@@ -5,6 +5,15 @@ package user;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+//(old man : bitter, harsh , sour | resinous , carbony , herby)
+//
+//(basic drinker : mellow , adicic , bland | nutty , caramelly , chocolatey)
+//
+//(adventurist : winey , tart , sharp | spicey , flowery , fruity)
+//
+//(old woman : mellow , bland , winey | herby , flowery , resinous)
+//^^^^^this is what tastes and aromas the categories prefer^^^^^^^
 /**
  *
  * @author Ryan
@@ -68,9 +77,6 @@ public class flavourProfile implements Serializable {
     //use point system of 4 below == false 6+ is true if 0 dont show if 10 deffinitly show
     //
     public void getAllCoffeeBrands() {
-
-        System.out.println("did i get here?");
-
         try {
 
             //get list of coffeebrand by there ID's
@@ -80,38 +86,28 @@ public class flavourProfile implements Serializable {
             compareUser2.executeQuery();
             ResultSet results2 = compareUser2.getResultSet();
             while (results2.next()) {
-
                 brand_Ids.add(results2.getInt("Brand_Id"));
-
             }
             connection.close();
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL error occured");
             System.out.println(e);
         }
 
-        //do an inner join of aromos and tastes to make mainalgs
         try {
-//int likes_sour,int likes_winey,int likes_adicic,int likes_mellow ,int likes_bland,int likes_sharp,int likes_harsh,int likes_pungent, boolean likes_flowery, boolean likes_fruity, boolean likes_herby, boolean likes_nutty, boolean likes_caramelly, boolean likes_chocolatey, boolean likes_resinous, boolean likes_spicy, boolean likes_carbony
             Connection connection = dataSource.getConnection();
 
-//                SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
-//                
-//                SELECT * FROM COFFEE_BRAND_AROMAS INNER JOIN COFFEE_BRAND_TASTES ON COFFEE_BRAND_AROMAS.BRAND_ID = COFFEE_BRAND_TASTES.BRAND_ID
-//                
             PreparedStatement compareUser2 = connection.prepareStatement("SELECT * FROM COFFEE_BRAND_AROMAS INNER JOIN COFFEE_BRAND_TASTES ON COFFEE_BRAND_AROMAS.BRAND_ID = COFFEE_BRAND_TASTES.BRAND_ID");
             compareUser2.executeQuery();
             ResultSet results2 = compareUser2.getResultSet();
             while (results2.next()) {
                 mainalg coffee1 = new mainalg(results2.getInt("BRAND_ID"), results2.getInt("SOUR"), results2.getInt("WINEY"), results2.getInt("ADICIC"), results2.getInt("MELLOW"), results2.getInt("BLAND"), results2.getInt("SHARP"), results2.getInt("HARSH"), results2.getInt("PUNGENT"), results2.getBoolean("FLOWERY"), results2.getBoolean("FRUITY"), results2.getBoolean("HERBY"), results2.getBoolean("NUTTY"), results2.getBoolean("CARAMELLY"), results2.getBoolean("CHOCOLATEY"), results2.getBoolean("RESINOUS"), results2.getBoolean("SPICY"), results2.getBoolean("CARBONY"));
-
-                //int brand_id,int likes_sour, int likes_winey, int likes_adicic, int likes_mellow, int likes_bland, int likes_sharp, int likes_harsh, int likes_pungent, boolean likes_flowery, boolean likes_fruity, boolean likes_herby, boolean likes_nutty, boolean likes_caramelly, boolean likes_chocolatey, boolean likes_resinous, boolean likes_spicy, boolean likes_carbony
                 coffeebrands.add(coffee1);
 
             }
             connection.close();
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL error occured");
             System.out.println(e);
         }
 
@@ -121,13 +117,6 @@ public class flavourProfile implements Serializable {
 
         getAllCoffeeBrands();
 
-//(old man : bitter, harsh , sour | resinous , carbony , herby)
-//
-//(basic drinker : mellow , adicic , bland | nutty , caramelly , chocolatey)
-//
-//(adventurist : winey , tart , sharp | spicey , flowery , fruity)
-//
-//(old woman : mellow , bland , winey | herby , flowery , resinous)
         for (mainalg brand : coffeebrands) {
 
             setAdventure_points(0);
@@ -210,29 +199,9 @@ public class flavourProfile implements Serializable {
 
                 }
             }
-
-            // alot of ifs 
-            // make a list with the with info loop through that and check against a case thingy 
-//            System.out.println("old man " + getOld_m_points());
-//            System.out.println("old woman " + getOld_w_points());
-//            System.out.println("basic " + getBasic_points());
-//            System.out.println("adventure " + getAdventure_points());
             pickGroup(brand.getBrand_id(), getOld_m_points(), getOld_w_points(), getBasic_points(), getAdventure_points());
 
         }
-
-//        for (int brand1 : oldman_coffee_brands) {
-//            System.out.println("old - " + brand1);
-//        }
-//        for (int brand2 : oldwoman_coffee_brands) {
-//            System.out.println("oldwoman - " + brand2);
-//        }
-//        for (int brand3 : basic_coffee_brands) {
-//            System.out.println("basic - " + brand3);
-//        }
-//        for (int brand4 : adventurer_coffee_brands) {
-//            System.out.println("adventurer - " + brand4);
-//        }
         //populate all tables
         cleartables();
         populate_tables_old();
@@ -258,7 +227,7 @@ public class flavourProfile implements Serializable {
             del_advent.executeUpdate();
             connection.close();
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL error occured");
             System.out.println(e);
         }
     }
@@ -284,7 +253,7 @@ public class flavourProfile implements Serializable {
 
                 connection.close();
             } catch (SQLException e) {
-                System.out.println("bad boy sql");
+                System.out.println("SQL error occured");
                 System.out.println(e);
             }
 
@@ -312,7 +281,7 @@ public class flavourProfile implements Serializable {
                 addEntry.executeUpdate(); // insert the entry
                 connection.close();
             } catch (SQLException e) {
-                System.out.println("bad boy sql");
+                System.out.println("SQL error occured");
                 System.out.println(e);
             }
 
@@ -340,7 +309,7 @@ public class flavourProfile implements Serializable {
                 addEntry.executeUpdate(); // insert the entry
                 connection.close();
             } catch (SQLException e) {
-                System.out.println("bad boy sql");
+                System.out.println("SQL error occured");
                 System.out.println(e);
             }
 
@@ -368,7 +337,7 @@ public class flavourProfile implements Serializable {
                 addEntry.executeUpdate(); // insert the entry
                 connection.close();
             } catch (SQLException e) {
-                System.out.println("bad boy sql");
+                System.out.println("SQL error occured");
                 System.out.println(e);
             }
 

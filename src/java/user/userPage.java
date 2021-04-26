@@ -95,7 +95,7 @@ public class userPage implements Serializable {
             connection.close();
 
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL Error Occured");
             System.out.println(e);
         }
 
@@ -103,7 +103,6 @@ public class userPage implements Serializable {
 
     public void dothething2(String url) {
 
-//        flavourProfile.make_top_5s();
         setUserName(url);
         setOrigionalName(url);
         try {
@@ -134,7 +133,7 @@ public class userPage implements Serializable {
             connection.close();
 
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL Error Occured");
             System.out.println(e);
         }
 
@@ -148,21 +147,8 @@ public class userPage implements Serializable {
 
         try {
             Connection connection = dataSource.getConnection();
-
-//            switch (category) {
-//                case "oldman":
-//                    choice = "COFFEE_OLDMAN";
-//                case "oldwoman":
-//                    choice = "COFFEE_OLDWOMAN_DRINKER";
-//                case "advent":
-//                    choice = "COFFEE_ADVENTURIST_DRINKER";
-//                case "basic":
-//                    choice = "COFFEE_BASIC_DRINKER";
-//            }
             PreparedStatement compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDMAN ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
 
-            System.out.println("LETS CHECK THIS MNOTHGER FUCKER");
-            System.out.println(getCategory());
             switch (category) {
                 case "oldman":
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDMAN ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
@@ -191,7 +177,7 @@ public class userPage implements Serializable {
             }
             connection.close();
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL Error Occured");
             System.out.println(e);
         }
 
@@ -207,26 +193,17 @@ public class userPage implements Serializable {
                 compareUser.setInt(1, brand);
                 compareUser.executeQuery();
                 ResultSet results = compareUser.getResultSet();
-                ///////// initiate a list here /////////
                 while (results.next()) {
-
-                    //(int b_Id, String bName, String cName, Integer estab,String logo)
                     coffeeBrand brand1 = new coffeeBrand(brand, results.getString("brand_name"), results.getString("country_name"), results.getInt("est"), results.getString("brand_logo_file_name"));
 
                     top5Brands.add(brand1);
                 }
                 connection.close();
             } catch (SQLException e) {
-                System.out.println("bad boy sql");
+                System.out.println("SQL Error Occured");
                 System.out.println(e);
             }
 
-        }
-
-        for (coffeeBrand bid : top5Brands) {
-            System.out.println("here is your brands");
-            System.out.println(bid.getBrand_Id());
-            System.out.println(bid.getLogoLink());
         }
 
     }
@@ -242,15 +219,12 @@ public class userPage implements Serializable {
             compareUser2.executeQuery();
 
             ResultSet results = compareUser2.getResultSet();
-            ///////// initiate a list here /////////
             while (results.next()) {
-
                 setUserID(results.getInt("user_ID"));
             }
-
             connection.close();
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL Error Occured");
             System.out.println(e);
         }
 
@@ -261,16 +235,14 @@ public class userPage implements Serializable {
             compareUser.setInt(1, userID);
             compareUser.executeQuery();
             ResultSet results = compareUser.getResultSet();
-            ///////// initiate a list here /////////
             while (results.next()) {
 
                 setCategory(results.getString("TYPE_OF_COFFEE_DRINKER"));
-                System.out.println("YOU ARE A ");
-                System.out.println(getCategory());
+
             }
             connection.close();
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL Error Occured");
             System.out.println(e);
         }
 
@@ -296,7 +268,7 @@ public class userPage implements Serializable {
 
             connection.close();
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL Error Occured");
             System.out.println(e);
         }
         FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/adminpage.xhtml");
@@ -335,7 +307,7 @@ public class userPage implements Serializable {
 
             connection.close();
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL Error Occured");
             System.out.println(e);
         }
         FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/userProfile.xhtml");

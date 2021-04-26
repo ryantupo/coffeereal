@@ -48,8 +48,6 @@ public class CoffeeBrands implements Serializable {
         try {
             Connection connection = dataSource.getConnection();
             PreparedStatement compareUser = connection.prepareStatement("SELECT * FROM coffeebrands INNER JOIN brandinfo ON coffeebrands.brand_id = brandinfo.brand_id ");
-//            SELECT * FROM coffeebrands
-//INNER JOIN brandinfo ON coffeebrands.brand_id = brandinfo.brand_id
             compareUser.executeQuery();
             ResultSet results = compareUser.getResultSet();
             brands = new ArrayList<>();
@@ -85,7 +83,7 @@ public class CoffeeBrands implements Serializable {
             connection.close();
 
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL error occured");
             System.out.println(e);
         }
 
@@ -103,10 +101,7 @@ public class CoffeeBrands implements Serializable {
         for (coffeeBrand brand : brandNames) {
             brandname.add(brand.getBrand_Name());
         }
-        //return brandname;
-
         setTxt1(query);
-
         return brandname.stream().filter(t -> t.toLowerCase().startsWith(queryLowerCase)).collect(Collectors.toList());
     }
 
@@ -127,7 +122,7 @@ public class CoffeeBrands implements Serializable {
             connection.close();
 
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL error occured");
             System.out.println(e);
         }
         FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/adminpage.xhtml");
@@ -145,12 +140,11 @@ public class CoffeeBrands implements Serializable {
             DeleteUser.executeUpdate();
 
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL error occured");
             System.out.println(e);
         }
         FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/adminpage.xhtml");
     }
-
 //   
     String txt1;
 
@@ -241,7 +235,5 @@ public class CoffeeBrands implements Serializable {
     public void setEditRedirectBio(String editRedirectBio) {
         this.editRedirectBio = editRedirectBio;
     }
-    
-    
 
 }

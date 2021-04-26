@@ -62,7 +62,7 @@ public class coffeeBrand {
 
     }
 
-    public coffeeBrand(int b_Id, String bName, String cName, Integer estab,String logo) {
+    public coffeeBrand(int b_Id, String bName, String cName, Integer estab, String logo) {
         this.brand_Id = b_Id;
         this.brand_name = bName;
         this.country = cName;
@@ -340,19 +340,12 @@ public class coffeeBrand {
 
         int rows;
         try (ResultSet results = compareBrand.executeQuery()) {
-            System.out.println("result1 : " + results);
             results.next();
-            System.out.println("resultnext : " + results);
             rows = results.getInt("total");
-            System.out.println("rows : " + rows);
-
         }
-
         if (rows > 0) {
-
             return false;
         }
-
         return true;
     }
 
@@ -454,7 +447,7 @@ public class coffeeBrand {
                     addEntry2.executeUpdate(); // insert the entry
 
                 } catch (SQLException e) {
-                    System.out.println("bad boy sql");
+                    System.out.println("SQL error occured");
                     System.out.println(e);
                 }
 
@@ -479,7 +472,7 @@ public class coffeeBrand {
                     addEntry3.executeUpdate(); // insert the entry
 
                 } catch (SQLException e) {
-                    System.out.println("bad boy sql");
+                    System.out.println("SQL error occured");
                     System.out.println(e);
                 }
 

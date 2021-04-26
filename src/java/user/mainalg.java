@@ -60,13 +60,6 @@ public class mainalg implements Serializable {
     private boolean likes_spicy;
     private boolean likes_carbony;
 
-//(old man : bitter, harsh , sour | resinous , carbony , herby)
-//
-//(basic drinker : mellow , adicic , bland | nutty , caramelly , chocolatey)
-//
-//(adventurist : winey , tart , sharp | spicey , flowery , fruity)
-//
-//(old woman : mellow , bland , winey | herby , flowery , resinous)
 //    
 //    plan of action!!!!
 //    
@@ -417,9 +410,9 @@ public class mainalg implements Serializable {
             }
             connection.close();
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL Error Occured");
             System.out.println(e);
-        }    
+        }
         fillQuizTables();
         pickGroupUser(getUser_id(), getOld_m_points(), getOld_w_points(), getBasic_points(), getAdventure_points());
 
@@ -452,7 +445,7 @@ public class mainalg implements Serializable {
                 System.out.println("something went wrong");
             }
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL Error Occured");
             System.out.println(e);
         }
     }
@@ -473,30 +466,22 @@ public class mainalg implements Serializable {
                 // specify the PreparedStatement's arguments
                 addEntry.setInt(1, getUser_id());
                 addEntry.setString(2, groupname);
-                
-                System.out.println("bitch your an ");
-                System.out.println(groupname);
 
                 addEntry.executeUpdate(); // insert the entry
 
             } else {
 
                 PreparedStatement EditBrand = connection.prepareStatement("UPDATE COFFEE_TEST_USER_ANSWERS_CATEGORY SET TYPE_OF_COFFEE_DRINKER = ? WHERE USER_ID = ? ");
-                
-                
-                EditBrand.setString(1, groupname);
-                EditBrand.setInt(2, getUser_id());
-                
-                System.out.println("bitch your an ");
-                System.out.println(groupname);
 
+                EditBrand.setString(1, groupname);
+                EditBrand.setInt(2, getUser_id());;
                 EditBrand.executeUpdate();
 
             }
             connection.close();
 
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL Error Occured");
             System.out.println(e);
         }
 
@@ -519,9 +504,6 @@ public class mainalg implements Serializable {
     }
 
     public void fillQuizTables() {
-        
-        System.out.println("start fill");
-
         try {
 
             Connection connection = dataSource.getConnection();
@@ -535,7 +517,7 @@ public class mainalg implements Serializable {
                                 + "SOUR_QUESTION,WINEY_QUESTION,ADICIC_QUESTION,MELLOW_QUESTION,BLAND_QUESTION,SHARP_QUESTION,"
                                 + "HARSH_QUESTION,PUNGENT_QUESTION)"
                                 + "VALUES ( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? )");
-                
+
                 // specify the PreparedStatement's arguments
                 addEntry.setInt(1, getUser_id());
                 addEntry.setBoolean(2, isLikes_flowery());
@@ -592,7 +574,7 @@ public class mainalg implements Serializable {
             connection.close();
 
         } catch (SQLException e) {
-            System.out.println("bad boy sql");
+            System.out.println("SQL Error Occured");
             System.out.println(e);
         }
 
