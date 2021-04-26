@@ -10,12 +10,13 @@
         <link rel="stylesheet" href="resources/css/homepagestylesheet.css"/>
     </h:head>
     <h:body>
+        #{getsession.checkadmin()}
 
         <f:metadata>
             <f:viewParam name="playernameparam" value="#{brandpage.bname}"/>           
         </f:metadata>
 
-
+        
         #{brandpage.dothething(thisbean.searchResultEdit)}
 
 
