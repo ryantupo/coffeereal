@@ -39,7 +39,7 @@ public class navbar implements Serializable {
     String username = (String) session.getAttribute("USERNAME");
 
     public String navbar() {
-        return loginbean.userName;
+        return ((String) session.getAttribute("USERNAME"));
     }
 
     public String getNavBar() {
@@ -99,7 +99,7 @@ public class navbar implements Serializable {
 
     public boolean checkSession() throws NullPointerException {
 
-        if (loginbean.userName == null) {
+        if (((String) session.getAttribute("USERNAME")) == null) {
             return false;
         } else {
             return true;

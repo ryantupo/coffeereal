@@ -39,9 +39,9 @@ public class loginbean implements Serializable {
     @Resource(name = "jdbc/loginpool")
     DataSource dataSource;
 
-    public static String userName;
+    public String userName;
     public String userPassword;
-    public static ArrayList<String> currentData = new ArrayList<String>();
+    public ArrayList<String> currentData = new ArrayList<String>();
 
     public String getUserName() {
         return userName;
