@@ -21,7 +21,10 @@ and open the template in the editor.
         <f:metadata>
             <f:viewParam name="playernameparam" value="#{brandpage.bname}"/>           
         </f:metadata>
-
+        
+              
+        #{flavourbean.make_top_5s()}
+        
         #{userPage.dothething2(loginbean.userName)}
 
 

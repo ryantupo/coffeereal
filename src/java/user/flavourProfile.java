@@ -84,7 +84,7 @@ public class flavourProfile implements Serializable {
                 brand_Ids.add(results2.getInt("Brand_Id"));
 
             }
-
+            connection.close();
         } catch (SQLException e) {
             System.out.println("bad boy sql");
             System.out.println(e);
@@ -129,9 +129,6 @@ public class flavourProfile implements Serializable {
 //
 //(old woman : mellow , bland , winey | herby , flowery , resinous)
         for (mainalg brand : coffeebrands) {
-            
-            System.out.println("thewse are the flavourf flavs with brand id");
-            System.out.println(brand.getBrand_id());
 
             setAdventure_points(0);
             setBasic_points(0);
@@ -216,27 +213,26 @@ public class flavourProfile implements Serializable {
 
             // alot of ifs 
             // make a list with the with info loop through that and check against a case thingy 
-            System.out.println("old man " + getOld_m_points());
-            System.out.println("old woman " + getOld_w_points());
-            System.out.println("basic " + getBasic_points());
-            System.out.println("adventure " + getAdventure_points());
+//            System.out.println("old man " + getOld_m_points());
+//            System.out.println("old woman " + getOld_w_points());
+//            System.out.println("basic " + getBasic_points());
+//            System.out.println("adventure " + getAdventure_points());
             pickGroup(brand.getBrand_id(), getOld_m_points(), getOld_w_points(), getBasic_points(), getAdventure_points());
 
         }
 
-        for (int brand1 : oldman_coffee_brands) {
-            System.out.println("old - " + brand1);
-        }
-        for (int brand2 : oldwoman_coffee_brands) {
-            System.out.println("oldwoman - " + brand2);
-        }
-        for (int brand3 : basic_coffee_brands) {
-            System.out.println("basic - " + brand3);
-        }
-        for (int brand4 : adventurer_coffee_brands) {
-            System.out.println("adventurer - " + brand4);
-        }
-
+//        for (int brand1 : oldman_coffee_brands) {
+//            System.out.println("old - " + brand1);
+//        }
+//        for (int brand2 : oldwoman_coffee_brands) {
+//            System.out.println("oldwoman - " + brand2);
+//        }
+//        for (int brand3 : basic_coffee_brands) {
+//            System.out.println("basic - " + brand3);
+//        }
+//        for (int brand4 : adventurer_coffee_brands) {
+//            System.out.println("adventurer - " + brand4);
+//        }
         //populate all tables
         cleartables();
         populate_tables_old();
@@ -245,7 +241,6 @@ public class flavourProfile implements Serializable {
         populate_tables_adventure();
 
     }
-
 
     public void cleartables() {
 
@@ -261,6 +256,7 @@ public class flavourProfile implements Serializable {
             del_old_w.executeUpdate();
             del_basic.executeUpdate();
             del_advent.executeUpdate();
+            connection.close();
         } catch (SQLException e) {
             System.out.println("bad boy sql");
             System.out.println(e);
@@ -285,6 +281,8 @@ public class flavourProfile implements Serializable {
                 addEntry.setInt(2, oldman_coffee_brands_points.get(oldman_coffee_brands.indexOf(oldbrand)));
 
                 addEntry.executeUpdate(); // insert the entry
+
+                connection.close();
             } catch (SQLException e) {
                 System.out.println("bad boy sql");
                 System.out.println(e);
@@ -312,6 +310,7 @@ public class flavourProfile implements Serializable {
                 addEntry.setInt(2, oldwoman_coffee_brands_points.get(oldwoman_coffee_brands.indexOf(oldbrand)));
 
                 addEntry.executeUpdate(); // insert the entry
+                connection.close();
             } catch (SQLException e) {
                 System.out.println("bad boy sql");
                 System.out.println(e);
@@ -339,6 +338,7 @@ public class flavourProfile implements Serializable {
                 addEntry.setInt(2, basic_coffee_brands_points.get(basic_coffee_brands.indexOf(oldbrand)));
 
                 addEntry.executeUpdate(); // insert the entry
+                connection.close();
             } catch (SQLException e) {
                 System.out.println("bad boy sql");
                 System.out.println(e);
@@ -366,6 +366,7 @@ public class flavourProfile implements Serializable {
                 addEntry.setInt(2, adventurer_coffee_brands_points.get(adventurer_coffee_brands.indexOf(oldbrand)));
 
                 addEntry.executeUpdate(); // insert the entry
+                connection.close();
             } catch (SQLException e) {
                 System.out.println("bad boy sql");
                 System.out.println(e);
@@ -405,8 +406,6 @@ public class flavourProfile implements Serializable {
             System.out.println("something went wrong");
         }
     }
-
-
 
     public static int points_bool(boolean like) {
         if (like) {

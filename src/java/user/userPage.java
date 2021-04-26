@@ -99,11 +99,11 @@ public class userPage implements Serializable {
             System.out.println(e);
         }
 
-
     }
-    
-        public void dothething2(String url) {
 
+    public void dothething2(String url) {
+
+//        flavourProfile.make_top_5s();
         setUserName(url);
         setOrigionalName(url);
         try {
@@ -160,20 +160,24 @@ public class userPage implements Serializable {
 //                    choice = "COFFEE_BASIC_DRINKER";
 //            }
             PreparedStatement compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDMAN ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
-           
+
+            System.out.println("LETS CHECK THIS MNOTHGER FUCKER");
+            System.out.println(getCategory());
             switch (category) {
                 case "oldman":
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDMAN ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
-
+                    break;
                 case "oldwoman":
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDWOMAN_DRINKER ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
-
+                    break;
                 case "advent":
+                    System.out.println("did the bitch get here");
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_ADVENTURIST_DRINKER ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
-
+                    break;
                 case "basic":
+                    System.out.println("did the fucking how get here");
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_BASIC_DRINKER ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
-                    
+                    break;
                 default:
                     System.out.println("bad boy no logged in");
             }
@@ -190,6 +194,8 @@ public class userPage implements Serializable {
             System.out.println("bad boy sql");
             System.out.println(e);
         }
+
+        top5Brands.clear();
 
         for (int brand : brand_Ids) {
 
@@ -235,7 +241,6 @@ public class userPage implements Serializable {
             compareUser2.setString(1, getOrigionalName());
             compareUser2.executeQuery();
 
-            
             ResultSet results = compareUser2.getResultSet();
             ///////// initiate a list here /////////
             while (results.next()) {
@@ -260,6 +265,8 @@ public class userPage implements Serializable {
             while (results.next()) {
 
                 setCategory(results.getString("TYPE_OF_COFFEE_DRINKER"));
+                System.out.println("YOU ARE A ");
+                System.out.println(getCategory());
             }
             connection.close();
         } catch (SQLException e) {
