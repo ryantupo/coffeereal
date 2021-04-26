@@ -5,6 +5,7 @@
  */
 package user;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +17,7 @@ import java.util.Collections;
 import java.util.List;
 import javax.annotation.Resource;
 import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
@@ -306,7 +308,7 @@ public class mainalg implements Serializable {
         this.likes_pungent = likes_pungent;
     }
 
-    public void place_into_catogory(String userName) throws SQLException {
+    public void place_into_catogory(String userName) throws SQLException, IOException {
 
 //(old man : bitter, harsh , sour | resinous , carbony , herby)
 //
@@ -415,6 +417,10 @@ public class mainalg implements Serializable {
         }
         fillQuizTables();
         pickGroupUser(getUser_id(), getOld_m_points(), getOld_w_points(), getBasic_points(), getAdventure_points());
+    
+        //redirect
+        FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/index.xhtml");
+        
 
     }
 
