@@ -29,7 +29,7 @@ public class GetSession implements Serializable {
         
     }
     
-    public static String getUsername() {
+    public String getUsername() {
         
         return "Welcome, " + getSession().getAttribute("USERNAME").toString();
         
@@ -37,7 +37,7 @@ public class GetSession implements Serializable {
     
     
     //return true or false wether online or not
-    public static boolean isLoggedIn() throws IOException {
+    public boolean isLoggedIn() throws IOException {
         
         HttpSession session = GetSession.getSession();
         String currentuser = (String) session.getAttribute("USERNAME");
@@ -52,7 +52,7 @@ public class GetSession implements Serializable {
     
     
     //redirect if logged in
-    public static void doLoginRedirect() throws IOException {
+    public void doLoginRedirect() throws IOException {
         
         if(isLoggedIn() == true) {
             FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");

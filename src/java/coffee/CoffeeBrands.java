@@ -124,13 +124,13 @@ public class CoffeeBrands implements Serializable {
             DeleteUser.setString(1, Brand_Id_To_Delete);
             DeleteUserInfo.setString(1, Brand_Id_To_Delete);
             
-            DeleteBrand1.setString(1, Brand_Id_To_Delete);
-            DeleteBrand2.setString(1, Brand_Id_To_Delete);
-            DeleteBrand3.setString(1, Brand_Id_To_Delete);
-            DeleteBrand4.setString(1, Brand_Id_To_Delete);
-            DeleteBrand5.setString(1, Brand_Id_To_Delete);
-            DeleteBrand6.setString(1, Brand_Id_To_Delete);
-            DeleteBrand7.setString(1, Brand_Id_To_Delete);
+            DeleteBrand1.setInt(1, Integer.parseInt(Brand_Id_To_Delete));
+            DeleteBrand2.setInt(1, Integer.parseInt(Brand_Id_To_Delete));
+            DeleteBrand3.setInt(1, Integer.parseInt(Brand_Id_To_Delete));
+            DeleteBrand4.setInt(1, Integer.parseInt(Brand_Id_To_Delete));
+            DeleteBrand5.setInt(1, Integer.parseInt(Brand_Id_To_Delete));
+            DeleteBrand6.setInt(1, Integer.parseInt(Brand_Id_To_Delete));
+            DeleteBrand7.setInt(1, Integer.parseInt(Brand_Id_To_Delete));
             
             
             DeleteBrand1.executeUpdate();
