@@ -157,11 +157,9 @@ public class userPage implements Serializable {
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_OLDWOMAN_DRINKER ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
                     break;
                 case "advent":
-                    System.out.println("did the bitch get here");
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_ADVENTURIST_DRINKER ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
                     break;
                 case "basic":
-                    System.out.println("did the fucking how get here");
                     compareUser = connection.prepareStatement("SELECT * FROM COFFEE_BASIC_DRINKER ORDER BY points desc FETCH NEXT 5 ROWS ONLY");
                     break;
                 default:
