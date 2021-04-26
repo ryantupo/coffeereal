@@ -112,9 +112,34 @@ public class CoffeeBrands implements Serializable {
 
             PreparedStatement DeleteUser = connection.prepareStatement("DELETE FROM coffeebrands where Brand_Id = ? ");
             PreparedStatement DeleteUserInfo = connection.prepareStatement("DELETE FROM brandinfo where Brand_Id = ? ");
-
+            
+            PreparedStatement DeleteBrand1 = connection.prepareStatement("DELETE FROM COFFEE_BRAND_AROMAS where Brand_Id = ? ");
+            PreparedStatement DeleteBrand2 = connection.prepareStatement("DELETE FROM COFFEE_BRAND_TASTES where Brand_Id = ? ");
+            PreparedStatement DeleteBrand3 = connection.prepareStatement("DELETE FROM COFFEE_OLDMAN where Brand_Id = ? ");
+            PreparedStatement DeleteBrand4 = connection.prepareStatement("DELETE FROM COFFEE_OLDMAN where Brand_Id = ? ");
+            PreparedStatement DeleteBrand5 = connection.prepareStatement("DELETE FROM COFFEE_OLDWOMAN_DRINKER where Brand_Id = ? ");
+            PreparedStatement DeleteBrand6 = connection.prepareStatement("DELETE FROM COFFEE_BASIC_DRINKER where Brand_Id = ? ");
+            PreparedStatement DeleteBrand7 = connection.prepareStatement("DELETE FROM COFFEE_ADVENTURIST_DRINKER where Brand_Id = ? ");
+            
             DeleteUser.setString(1, Brand_Id_To_Delete);
             DeleteUserInfo.setString(1, Brand_Id_To_Delete);
+            
+            DeleteBrand1.setString(1, Brand_Id_To_Delete);
+            DeleteBrand2.setString(1, Brand_Id_To_Delete);
+            DeleteBrand3.setString(1, Brand_Id_To_Delete);
+            DeleteBrand4.setString(1, Brand_Id_To_Delete);
+            DeleteBrand5.setString(1, Brand_Id_To_Delete);
+            DeleteBrand6.setString(1, Brand_Id_To_Delete);
+            DeleteBrand7.setString(1, Brand_Id_To_Delete);
+            
+            
+            DeleteBrand1.executeUpdate();
+            DeleteBrand2.executeUpdate();
+            DeleteBrand3.executeUpdate();
+            DeleteBrand4.executeUpdate();
+            DeleteBrand5.executeUpdate();
+            DeleteBrand6.executeUpdate();
+            DeleteBrand7.executeUpdate();
 
             DeleteUserInfo.executeUpdate();
             DeleteUser.executeUpdate();
