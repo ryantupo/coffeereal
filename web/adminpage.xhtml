@@ -23,6 +23,8 @@ and open the template in the editor.
     </h:head>
     <body>
 
+        #{getsession.checkadmin()}
+
         <div class="topnav">
             <h:outputText value="#{navbar.navBar}" escape="false" />
 
