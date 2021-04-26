@@ -45,10 +45,7 @@ and open the template in the editor.
 
                     <h:outputLabel value = "Password:"/>
                     <div class="p-col paddinginput">
-                    <p:inputText id="passwordInputText" required="true"
-                                 requiredMessage="Please enter your password"
-                                 value="#{loginbean.userPassword}" maxlength="150">
-                    </p:inputText>
+                        <p:password id="nonFeedback" value="#{loginbean.userPassword}"/>
                     <h:message for="passwordInputText" styleClass="error"/><br/>
                     </div>
 

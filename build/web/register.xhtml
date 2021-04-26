@@ -41,10 +41,7 @@
                 <h:outputLabel value = "Password:"/>
 
                 <div class="p-col paddinginput">
-                    <p:inputText id="passwordInputText" required="true"
-                                 requiredMessage="Please enter your password"
-                                 value="#{Registerbean.password}" maxlength="150">
-                    </p:inputText>
+                    <p:password id="inlineFeedback" value="#{Registerbean.password}" feedback="true" inline="true"/>
                     <h:message for="passwordInputText" styleClass="error"/><br/>
 
                 </div>
