@@ -29,6 +29,8 @@ body{
     color: white;
 }
 
+
+
 .titletext{
     background-color: lightslategrey;
     text-align: center;
@@ -512,6 +514,19 @@ img{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+.question2{
+    padding-top:20px;
+    padding-bottom:20px;
+    margin-bottom:5%;
+    margin-left:5%;
+    width:450px;;
+    background-color: #B08968;
+    overflow: hidden;
+    white-space:nowrap;
+    border-radius: 7px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 .centerquiz{
     text-align: center;
     display: flex;
@@ -521,15 +536,31 @@ img{
 }
 
 .brandquiz{
-    padding-top:2000px;
     padding-top:50px;
     width: 500px;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%);
     max-width: 500px;
-    margin-top:1300px;
+    margin-top:-200px;
+    margin-bottom:200px;
+    padding-bottom:50px;
+    text-align: center;
+    min-height: 400px;
+    height:auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+.brandquiz2{
+    padding-top:50px;
+    width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 500px;
+    margin-top:500px;
     margin-bottom:200px;
     padding-bottom:50px;
     text-align: center;
