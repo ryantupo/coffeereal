@@ -587,3 +587,10 @@ img{
 .title2{
     font-size:64px;
 }
+
+
+.homepageimg{
+    border-radius: 100% !important;
+    width:250px !important;
+
+}
