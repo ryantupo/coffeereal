@@ -107,21 +107,21 @@ public class loginbean implements Serializable {
 //            }
         } else {
             session.invalidate();
+            System.out.println(userName);
             System.out.println("Login Error Detected");
             //enternet invalid data
         }
 
-        //redirect
-        FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/index.xhtml");
-
     }
 
     //log out function / end session
-    public void logout() {
+    public void logout() throws IOException {
         //session code
         HttpSession session = GetSession.getSession();
         session.invalidate();
         setUserName(null);
+        FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+        
     }
 
 }

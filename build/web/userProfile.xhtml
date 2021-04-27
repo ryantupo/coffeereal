@@ -21,10 +21,10 @@ and open the template in the editor.
         <f:metadata>
             <f:viewParam name="playernameparam" value="#{brandpage.bname}"/>           
         </f:metadata>
-        
-              
+
+
         #{flavourbean.make_top_5s()}
-        
+
         #{userPage.dothething2(loginbean.userName)}
 
 
@@ -76,7 +76,9 @@ and open the template in the editor.
 
             </div>
 
-            <h:outputText class="center widthtext" value="#{userPage.link}"/> 
+            <h:outputLink class="center hyperlink widthtext" value="#{userPage.link}">
+                #{userPage.link}
+            </h:outputLink>
             <div> 
 
                 <h:outputText class="center widthtext" value="#{userPage.bio}"/> 
