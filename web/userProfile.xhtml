@@ -88,10 +88,10 @@ and open the template in the editor.
 
 
         </div>
-        <br/>
+        <br/><br/><br/><br/><br/><br/><br/>
         <div class="infoDiv3">
 
-            <h:outputText class="title center" value="Coffee Feed"/> 
+            <h:outputText class="title2 center" value="Coffee Feed"/> 
 
 
 
@@ -99,12 +99,12 @@ and open the template in the editor.
             <ui:repeat value="#{userPage.top5Brands}" var="brand" varStatus="metadata">
 
                 <div class="">
-                    <div class="center question">
+                    <div class="center">
                         <h:outputText value="#{brand.srcLogoGetter()}" escape="false" />
                     </div>
                     <div class="center">
-                        <h:outputText value="#{brand.brand_Name}"/>
-                        <h:outputText value="#{brand.established}"/>
+                        <h:outputText class="subtitle2" value="#{brand.brand_Name}"/>
+                        <h:outputText class="subtitle2" value="#{brand.established}"/>
                     </div>
                 </div>
 

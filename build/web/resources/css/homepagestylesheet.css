@@ -325,6 +325,7 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
     margin-left:auto;
     margin-right:auto;
     height:100%;
+    min-width:575px;
     width:70%;
     box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background-color:#7F5539;
@@ -332,6 +333,7 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 }
 
 .infoDiv3{
+    min-width:575px;
     transform: scale(0.8);
     margin-bottom:50px;
     margin-left:auto;
@@ -345,6 +347,7 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 }
 
 .infoDiv4{
+    min-width:575px;
     transform: scale(0.8);
     margin-bottom:50px;
     margin-left:auto;
@@ -358,6 +361,7 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 }
 
 .infoDiv2{
+    min-width:575px;
     overflow-wrap:auto;
     transform: scale(0.8);
     margin-top:-150px;
@@ -393,6 +397,7 @@ h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida
 
 .registertitle{
     font-size:40px;
+    margin:auto;
 }
 
 .subtitles{
@@ -573,4 +578,12 @@ img{
 
 .brandrepeat{
     margin-bottom:400px;
+}
+
+.subtitle2{
+    font-size:36px;
+}
+
+.title2{
+    font-size:64px;
 }
