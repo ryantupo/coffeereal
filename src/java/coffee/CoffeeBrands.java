@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 import javax.sql.DataSource;
@@ -94,6 +95,7 @@ public class CoffeeBrands implements Serializable {
     }
 
     public List<String> completeText(String query) {
+
         String queryLowerCase = query.toLowerCase();
         List<String> brandname = new ArrayList<>();
         List<coffeeBrand> brandNames = getBrands();
@@ -103,6 +105,7 @@ public class CoffeeBrands implements Serializable {
         }
         setTxt1(query);
         return brandname.stream().filter(t -> t.toLowerCase().startsWith(queryLowerCase)).collect(Collectors.toList());
+
     }
 
     public void deleteBrand(String Brand_Id_To_Delete) throws IOException {
@@ -112,7 +115,7 @@ public class CoffeeBrands implements Serializable {
 
             PreparedStatement DeleteUser = connection.prepareStatement("DELETE FROM coffeebrands where Brand_Id = ? ");
             PreparedStatement DeleteUserInfo = connection.prepareStatement("DELETE FROM brandinfo where Brand_Id = ? ");
-            
+
             PreparedStatement DeleteBrand1 = connection.prepareStatement("DELETE FROM COFFEE_BRAND_AROMAS where Brand_Id = ? ");
             PreparedStatement DeleteBrand2 = connection.prepareStatement("DELETE FROM COFFEE_BRAND_TASTES where Brand_Id = ? ");
             PreparedStatement DeleteBrand3 = connection.prepareStatement("DELETE FROM COFFEE_OLDMAN where Brand_Id = ? ");
@@ -120,10 +123,10 @@ public class CoffeeBrands implements Serializable {
             PreparedStatement DeleteBrand5 = connection.prepareStatement("DELETE FROM COFFEE_OLDWOMAN_DRINKER where Brand_Id = ? ");
             PreparedStatement DeleteBrand6 = connection.prepareStatement("DELETE FROM COFFEE_BASIC_DRINKER where Brand_Id = ? ");
             PreparedStatement DeleteBrand7 = connection.prepareStatement("DELETE FROM COFFEE_ADVENTURIST_DRINKER where Brand_Id = ? ");
-            
+
             DeleteUser.setString(1, Brand_Id_To_Delete);
             DeleteUserInfo.setString(1, Brand_Id_To_Delete);
-            
+
             DeleteBrand1.setInt(1, Integer.parseInt(Brand_Id_To_Delete));
             DeleteBrand2.setInt(1, Integer.parseInt(Brand_Id_To_Delete));
             DeleteBrand3.setInt(1, Integer.parseInt(Brand_Id_To_Delete));
@@ -131,8 +134,7 @@ public class CoffeeBrands implements Serializable {
             DeleteBrand5.setInt(1, Integer.parseInt(Brand_Id_To_Delete));
             DeleteBrand6.setInt(1, Integer.parseInt(Brand_Id_To_Delete));
             DeleteBrand7.setInt(1, Integer.parseInt(Brand_Id_To_Delete));
-            
-            
+
             DeleteBrand1.executeUpdate();
             DeleteBrand2.executeUpdate();
             DeleteBrand3.executeUpdate();
@@ -197,13 +199,46 @@ public class CoffeeBrands implements Serializable {
         return searchResult;
     }
 
-    public String setSearchResult(String newResult) {
+    public String setSearchResult(String newResult) throws SQLException {
+
         if (newResult == "") {
             return "";
         } else {
-            this.searchResult = newResult;
-            return redirectToShow();
+            if (checkifbrand(newResult)) {
+                this.searchResult = newResult;
+                return redirectToShow();
+            } else {
+                FacesMessage message = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid Brand Search Attempted", null);
+                FacesContext context = FacesContext.getCurrentInstance();
+                context.addMessage(null, message);
+                return "";
+
+            }
         }
+
+    }
+
+    public boolean checkifbrand(String bName) throws SQLException {
+
+        int rows = 0;
+        Connection connection = dataSource.getConnection();
+        PreparedStatement compareUser = connection.prepareStatement("select count(*) as total from COFFEEBRANDS where BRAND_NAME = '" + bName + "' ");
+
+        try (ResultSet results = compareUser.executeQuery()) {
+            results.next();
+            rows = results.getInt("total");
+        } catch (SQLException e) {
+            System.out.println("SQL Error Occured");
+            System.out.println(e);
+        }
+        connection.close();
+        if (rows > 0) {
+            return true;
+        } else {
+            return false;
+
+        }
+
     }
 
     public String getSearchResultEdit() {
