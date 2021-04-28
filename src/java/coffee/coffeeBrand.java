@@ -5,6 +5,7 @@
  */
 package coffee;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,6 +14,7 @@ import java.util.regex.Pattern;
 import javax.annotation.Resource;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import javax.sql.DataSource;
 import user.flavourProfile;
 import user.mainalg;
@@ -360,7 +362,7 @@ public class coffeeBrand {
 
     //database stuff
     // save a new address book entry
-    public void save() throws SQLException {
+    public void save() throws SQLException, IOException {
 
         // check whether dataSource was injected by the server
         if (dataSource == null) {
@@ -483,5 +485,8 @@ public class coffeeBrand {
             } // end method save
 
         }
+          //redirect
+        FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/index.xhtml");
+    
     }
 }
