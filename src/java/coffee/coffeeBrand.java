@@ -303,7 +303,7 @@ public class coffeeBrand {
 
         String errorOutput = "";
 
-        final Pattern noSpecialpattern = Pattern.compile("^[a-zA-Z0-9_.-]*$");
+        final Pattern noSpecialpattern = Pattern.compile("^[a-zA-Z0-9_ .-]*$");
         final Pattern noSpecialPattern2 = Pattern.compile("/^[0-9]*$/");
         if (!noSpecialpattern.matcher(Bname).matches()) {
             errorOutput += ("Error code 001 :Brand Name cannot contain special Characters\n");
