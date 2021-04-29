@@ -8,6 +8,23 @@ and open the template in the editor.
     Author     : Ryan
 */
 
+//new color scheme
+//https://coolors.co/ea8c55-c75146-ad2e24-81171b-540804
+
+
+//lightest to darkest
+//#EA8C55
+//#C75146
+//#AD2E24
+//#81171B
+//#540804
+
+
+//or basic color scheme
+
+//#F5EDF0
+//#886F68
+//#3D2C2E
 
 
 //color codes
@@ -19,14 +36,21 @@ and open the template in the editor.
 //#7F5539
 //#9C6644
 
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
 
 html{
     background-color: black;
+    
+}
+
+h1{
+    font-family: 'Abril Fatface', cursive;
 }
 
 body{
+    font-family: 'Abril Fatface', cursive;
     background-color: #9C6644;
-    color: white;
+    color: black;
 }
 
 .roundimg{
@@ -87,7 +111,7 @@ body{
 /* Style the links inside the navigation bar */
 .topnav a {
     float: left;
-    color: #f2f2f2;
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -105,7 +129,7 @@ body{
 /* Add a color to the active/current link */
 .topnav a.active {
     background-color: #7F5539;
-    color: white;
+    color: black;
 
 }
 
@@ -190,8 +214,8 @@ a:active{
 
 .logoutbutton{
     font-size: 18px;
-    color: white;
-    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+    color: black;
+    font-family: font-family: 'Abril Fatface', cursive;
     line-height: 25px;
     margin-left: 10px;
     white-space: nowrap;
@@ -227,7 +251,7 @@ a:active{
 
 }
 
-h1,body { font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+h1,body { font-family: font-family: 'Abril Fatface', cursive;
           font-size: 18px;
 }
 
