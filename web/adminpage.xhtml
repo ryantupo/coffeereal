@@ -89,7 +89,7 @@ and open the template in the editor.
                     <p:dataTable class="usertableadmin" var="user" value="#{thisbean.users}">
 
                         <p:column headerText="Update/Delete">
-                            <h:commandLink action="#{thisbean.redirectToEdit(Brand.brand_Name)}">
+                            <h:commandLink action="#{thisbean.redirectToEditUser(user.userName)}">
                                 <h:graphicImage class="icons" value="resources\images\icons\icons8-compose-64.png" />
                             </h:commandLink>
 
