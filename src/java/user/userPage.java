@@ -19,8 +19,10 @@ import javax.annotation.Resource;
 import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 import register.loginbean;
+import sessions.GetSession;
 
 /**
  *
@@ -247,6 +249,9 @@ public class userPage implements Serializable {
     }
 
     public void updateUser() throws IOException {
+        
+        //session code
+        HttpSession session = GetSession.getSession();
 
         try {
             Connection connection = dataSource.getConnection();
@@ -269,6 +274,8 @@ public class userPage implements Serializable {
             System.out.println("SQL Error Occured");
             System.out.println(e);
         }
+        
+        session.setAttribute("USERNAME", getUserName());
         FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/adminpage.xhtml");
     }
 
