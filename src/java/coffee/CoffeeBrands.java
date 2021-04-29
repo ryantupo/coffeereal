@@ -156,15 +156,29 @@ public class CoffeeBrands implements Serializable {
     }
 
     public void deleteUser(String user_Id_To_Delete) throws IOException {
+        
+        System.out.println("here is the user to delete");
+        System.out.println(user_Id_To_Delete);
 
         try {
             Connection connection = dataSource.getConnection();
 
-            PreparedStatement DeleteUser = connection.prepareStatement("DELETE FROM logindetails where user_Id = ? ");
+            PreparedStatement DeleteUser1 = connection.prepareStatement("DELETE FROM logindetails where user_Id = ? ");
+            PreparedStatement DeleteUser2 = connection.prepareStatement("DELETE FROM User_Info where user_Id = ? ");
+            PreparedStatement DeleteUser3 = connection.prepareStatement("DELETE FROM Coffee_Test_User_Answers where user_Id = ? ");
+            PreparedStatement DeleteUser4 = connection.prepareStatement("DELETE FROM Coffee_Test_User_Answers_Category where user_Id = ? ");
+            
+            
+            
+            DeleteUser1.setString(1, user_Id_To_Delete);
+            DeleteUser2.setString(1, user_Id_To_Delete);
+            DeleteUser3.setString(1, user_Id_To_Delete);
+            DeleteUser4.setString(1, user_Id_To_Delete);
 
-            DeleteUser.setString(1, user_Id_To_Delete);
-
-            DeleteUser.executeUpdate();
+            DeleteUser4.executeUpdate();
+            DeleteUser3.executeUpdate();
+            DeleteUser2.executeUpdate();
+            DeleteUser1.executeUpdate();
 
         } catch (SQLException e) {
             System.out.println("SQL error occured");
