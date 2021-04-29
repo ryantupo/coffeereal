@@ -457,11 +457,11 @@ public class userPage implements Serializable {
     public String srcProfilePicGetter() {
 
         if (profilePic == null) {
-            return "<img class=\"LogoImage\" src=\"" + "https://associatestimes.com/wp-content/uploads/2021/01/202002020449273339_Frantic-search-on-for-3-Chinese-missing-in-Vellore_SECVPF.jpg" + "\" alt= \"Logo\" />";
+            return "<img class=\"roundimg\" src=\"" + "https://associatestimes.com/wp-content/uploads/2021/01/202002020449273339_Frantic-search-on-for-3-Chinese-missing-in-Vellore_SECVPF.jpg" + "\" alt= \"Logo\" />";
         } else if (profilePic.contains("https")) {
-            return "<img class=\"LogoImage\" src=\"" + profilePic + "\" alt= \"Logo\" />";
+            return "<img class=\"roundimg\" src=\"" + profilePic + "\" alt= \"Logo\" />";
         } else {
-            return "<img class=\"LogoImage\" src=\"" + "/login/faces/resources/images/logos/" + profilePic + "\" alt=\"Logo\" />";
+            return "<img class=\"roundimg\" src=\"" + "/login/faces/resources/images/logos/" + profilePic + "\" alt=\"Logo\" />";
         }
 
     }

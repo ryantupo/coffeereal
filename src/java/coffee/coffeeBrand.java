@@ -76,9 +76,9 @@ public class coffeeBrand {
     public String srcLogoGetter() {
 
         if (getLogoLink().contains("https")) {
-            return "<img class=\"LogoImage\" src=\"" + logoLink + "\" alt= \"Logo\" />";
+            return "<img class=\"roundimg\" src=\"" + logoLink + "\" alt= \"Logo\" />";
         } else {
-            return "<img class=\"LogoImage\" src=\"" + "/login/faces/resources/images/logos/" + logoLink + "\" alt=\"Logo\" />";
+            return "<img class=\"roundimg\" src=\"" + "/login/faces/resources/images/logos/" + logoLink + "\" alt=\"Logo\" />";
         }
 
     }
