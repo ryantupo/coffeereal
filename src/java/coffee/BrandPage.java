@@ -126,9 +126,9 @@ public class BrandPage implements Serializable {
     public String srcLogoGetter(){
         
         if (getBrand_Logo_file_Name().contains("https") ){
-            return "<img class=\"LogoImage\" src=\"" + brand_Logo_file_Name + "\" alt= \"Logo\" />";
+            return "<img class=\"roundimg\" src=\"" + brand_Logo_file_Name + "\" alt= \"Logo\" />";
         }else{
-            return  "<img class=\"LogoImage\" src=\"" + "/login/faces/resources/images/logos/" + brand_Logo_file_Name + "\" alt=\"Logo\" />" ;
+            return  "<img class=\"roundimg\" src=\"" + "/login/faces/resources/images/logos/" + brand_Logo_file_Name + "\" alt=\"Logo\" />" ;
         }
        
         

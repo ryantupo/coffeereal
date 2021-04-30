@@ -55,7 +55,7 @@ and open the template in the editor.
         <div class="infoDiv">
             <br/>
 
-            <h:outputText class="roundimg" value="#{userPage.srcProfilePicGetter()}" escape="false" />
+            <h:outputText value="#{userPage.srcProfilePicGetter()}" escape="false" />
 
 
 
@@ -91,11 +91,11 @@ and open the template in the editor.
         <br/><br/><br/><br/><br/><br/><br/>
         <div class="infoDiv3">
 
-            <h:outputText class="title2 center" value="Coffee Feed"/> 
+            <h2 class="title2 center">Coffee Feed</h2> 
 
 
 
-
+            <div class="infodiv">
             <ui:repeat value="#{userPage.top5Brands}" var="brand" varStatus="metadata">
 
                 <div class="">
@@ -103,14 +103,19 @@ and open the template in the editor.
                         <h:outputText value="#{brand.srcLogoGetter()}" escape="false" />
                     </div>
                     <div class="center">
-                        <h:outputText class="subtitle2" value="#{brand.brand_Name}"/>
-                        <h:outputText class="subtitle2" value="#{brand.established}"/>
+                        <div>
+                            <h:outputText class="subtitle2" value="#{brand.brand_Name}"/></div>
+
+                        <br/>
+                        <div>
+                            <h:outputText class="subtitle2" value="#{brand.established}"/>
+                        </div>
                     </div>
                 </div>
 
 
             </ui:repeat>
-
+            </div>
             <br/><br/><br/><br/><br/><br/>
         </div>
 

@@ -40,18 +40,31 @@ and open the template in the editor.
 
 html{
     background-color: black;
-    
+    font-family: Lucida Sans Typewriter,Lucida Console,monaco,Bitstream Vera Sans Mono,monospace;
+    font-size: 18px;
+    font-weight: bold;
 }
 
-h1{
-    font-family: 'Abril Fatface', cursive;
+h1,h3{
+    font-family: Lucida Sans Typewriter,Lucida Console,monaco,Bitstream Vera Sans Mono,monospace;
+    font-weight: bold;
+    text-decoration: underline;
+
+
 }
 
 body{
-    font-family: 'Abril Fatface', cursive;
+    font-family: Lucida Sans Typewriter,Lucida Console,monaco,Bitstream Vera Sans Mono,monospace;
     background-color: #9C6644;
     color: black;
+    font-weight: bold;
+
 }
+
+body {
+    padding: 2rem;
+}
+
 
 .roundimg{
     position: absolute;
@@ -62,10 +75,10 @@ body{
     border-radius: 50%;
     border: solid 10px #00000;
     background-color: #D3D3D3;
-    box-shadow:  0 0 10px 5px rgba(0,0,0,0.6);
-    -moz-box-shadow: 0 0 10px  5px rgba(0,0,0,0.6);
-    -webkit-box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
-    -o-box-shadow: 0 0 10px 5px rgba(0,0,0,0.6);
+    box-shadow:  0 0 10px 5px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0 0 10px  5px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
+    -o-box-shadow: 0 0 10px 5px rgba(0,0,0,0.3);
 }
 
 .titletext{
@@ -197,7 +210,6 @@ a:active{
 }
 
 .editbutton:hover {
-
     color: #ffffff !important;
     background: #DDB892;
     border-color: #7F5539 !important;
@@ -206,16 +218,16 @@ a:active{
 
 .editbutton:active {
     box-shadow: 0 5px #666;
-
     transform: translateY(4px);
     transform: rotate(20deg);
 }
 
 
 .logoutbutton{
+    font-weight: bold;
     font-size: 18px;
     color: black;
-    font-family: font-family: 'Abril Fatface', cursive;
+    font-family: Lucida Sans Typewriter,Lucida Console,monaco,Bitstream Vera Sans Mono,monospace;
     line-height: 25px;
     margin-left: 10px;
     white-space: nowrap;
@@ -249,11 +261,9 @@ a:active{
 .paddinginput2{
     margin-top: 40px;
 
+
 }
 
-h1,body { font-family: font-family: 'Abril Fatface', cursive;
-          font-size: 18px;
-}
 
 
 .center{
@@ -263,23 +273,25 @@ h1,body { font-family: font-family: 'Abril Fatface', cursive;
 
 
 .divlogin{
+    background-color:#B08968;
     min-width: 300px;
     min-height:300px;
     height:auto;
     text-align: center;
     width: 20%;
 
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
 }
 
 .divregister{
+    background-color:#B08968;
     max-width: 300px;
     margin-top:80px;
     text-align: center;
     min-height: 520px;
     height:auto;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
 }
 
@@ -307,7 +319,7 @@ h1,body { font-family: font-family: 'Abril Fatface', cursive;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     max-width: 500px;
-    margin-top:600px;
+    margin-top:650px;
     margin-bottom:200px;
     padding-bottom:50px;
     text-align: center;
@@ -357,6 +369,7 @@ h1,body { font-family: font-family: 'Abril Fatface', cursive;
 
 
 .infoDiv{
+    border: 2px solid black;
     transform: scale(0.8);
     margin-bottom:-130px;
     margin-left:auto;
@@ -428,7 +441,6 @@ h1,body { font-family: font-family: 'Abril Fatface', cursive;
 .subtitles{
     font-size: clamp(8px, 4vw, 22px);
     margin:30px;
-
     text-align:center;
 }
 
