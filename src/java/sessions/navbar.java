@@ -74,8 +74,7 @@ public class navbar implements Serializable {
                         + "<a href=\"/login/faces/adminpage.xhtml\">admin page</a>"
                         + "<a href=\"/login/faces/registerBrand.xhtml\">register brand</a>"
                         + "<a href=\"/login/faces/userProfile.xhtml\">Profile</a>"
-                        + "<a href=\"/login/faces/quiz.xhtml\">Quiz</a>"
-                        + "<div class=\"welcomemessage\"><p>Welcome, " + navbar() + "</p></div>";
+                        + "<a href=\"/login/faces/quiz.xhtml\">Quiz</a></div>";
                 return navBar;
             }
         } else {
@@ -88,8 +87,7 @@ public class navbar implements Serializable {
             } else {
                 navBar = "<a class=\"active\" href=\"/login/faces/index.xhtml\">Home</a>"
                         + "<a href=\"/login/faces/userProfile.xhtml\">Profile</a>"
-                        + "<a href=\"/login/faces/quiz.xhtml\">Quiz</a>"
-                        + "<div class=\"welcomemessage\"><p>Welcome, " + navbar() + "</p></div>";
+                        + "<a href=\"/login/faces/quiz.xhtml\">Quiz</a></div>";
                 return navBar;
             }
 

@@ -33,6 +33,7 @@ and open the template in the editor.
 
 
             <h:form>
+                <h:outputText class="logoutbutton2" value="Welcome, #{navbar.navbar()}" escape="false" />
                 <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
             </h:form>
 

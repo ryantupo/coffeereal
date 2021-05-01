@@ -222,6 +222,24 @@ a:active{
     transform: rotate(20deg);
 }
 
+.logoutbutton2{
+    font-weight: bold;
+    font-size: 18px;
+    color: black;
+    font-family: Lucida Sans Typewriter,Lucida Console,monaco,Bitstream Vera Sans Mono,monospace;
+    line-height: 25px;
+    margin-left: 10px;
+    white-space: nowrap;
+    margin-top: -37px;
+    margin-right: 105px;
+    text-align: right;
+    float: right;
+    background:none;
+    border:none;
+    cursor: pointer;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+}
 
 .logoutbutton{
     font-weight: bold;
@@ -231,8 +249,8 @@ a:active{
     line-height: 25px;
     margin-left: 10px;
     white-space: nowrap;
-    margin-top: -35px;
-    margin-right: 5%;
+    margin-top: -37px;
+    margin-right: 20px;
     text-align: right;
     float: right;
     background:none;
@@ -241,6 +259,11 @@ a:active{
     margin-bottom: 0px;
     padding-bottom: 0px;
 }
+
+.logoutbutton:hover {
+    font-size: 120%;
+}
+
 
 
 .welcomemessage{
@@ -329,6 +352,7 @@ a:active{
     text-align: center;
 }
 
+
 .divEdit3{
     padding-top:50px;
     width: 500px;
@@ -383,6 +407,7 @@ a:active{
 }
 
 .infoDiv3{
+    border: 2px solid black;
     min-width:575px;
     transform: scale(0.8);
     margin-bottom:50px;
@@ -397,6 +422,7 @@ a:active{
 }
 
 .infoDiv4{
+    border: 2px solid black;
     min-width:575px;
     transform: scale(0.8);
     margin-bottom:50px;
@@ -411,6 +437,7 @@ a:active{
 }
 
 .infoDiv2{
+    border: 2px solid black;
     min-width:575px;
     overflow-wrap:auto;
     transform: scale(0.8);
