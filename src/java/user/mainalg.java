@@ -244,6 +244,7 @@ public class mainalg implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
     }
 
+
     public int getLikes_sour() {
         return likes_sour;
     }
@@ -417,10 +418,9 @@ public class mainalg implements Serializable {
         }
         fillQuizTables();
         pickGroupUser(getUser_id(), getOld_m_points(), getOld_w_points(), getBasic_points(), getAdventure_points());
-    
+
         //redirect
         FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/index.xhtml");
-        
 
     }
 

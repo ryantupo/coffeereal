@@ -115,6 +115,9 @@
 
 
                         <div class="card">
+                                <h:form>
+                                    <p:growl id="msg"/>
+                                </h:form>
                             <h:form>
                                 <p:growl id="msg"/>
                                 <p:selectBooleanCheckbox value="#{mainalg.likes_flowery}" itemLabel="Flowery">
@@ -155,9 +158,9 @@
 
 
                 <h:commandButton class="Button" value="Finish Test" action="#{mainalg.place_into_catogory(loginbean.userName)}"/>
-<!--                <p:growl id="growl" life="3000" />  
-                <p:commandButton class="Button" value="Click here" id="ajax" update="growl" actionListener="{mainalg.place_into_catogory(loginbean.userName)}" styleClass="ui-priority-primary" />  
--->            </h:form>
+                <!--                <p:growl id="growl" life="3000" />  
+                                <p:commandButton class="Button" value="Click here" id="ajax" update="growl" actionListener="{mainalg.place_into_catogory(loginbean.userName)}" styleClass="ui-priority-primary" />  
+                -->            </h:form>
 
         </div>
 
