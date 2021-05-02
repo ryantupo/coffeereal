@@ -249,7 +249,7 @@ public class userPage implements Serializable {
     }
 
     public void updateUser() throws IOException {
-        
+
         //session code
         HttpSession session = GetSession.getSession();
 
@@ -274,8 +274,12 @@ public class userPage implements Serializable {
             System.out.println("SQL Error Occured");
             System.out.println(e);
         }
-        
-        session.setAttribute("USERNAME", getUserName());
+
+        if (session.getAttribute("USERNAME") == getOrigionalName()) {
+
+            session.setAttribute("USERNAME", getUserName());
+        }
+
         FacesContext.getCurrentInstance().getExternalContext().redirect("/login/faces/adminpage.xhtml");
     }
 
