@@ -292,13 +292,6 @@ a:active{
 }
 
 
-
-.center{
-    text-align: center;
-}
-
-
-
 .divlogin{
     background-color:#B08968;
     min-width: 300px;
@@ -382,6 +375,7 @@ a:active{
 
 
 .center {
+    text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -704,6 +698,12 @@ a:active{
 
 
 .hometitle{
+    left:50%;
     margin-top:-70px;
     font-size:50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px; 
 }
