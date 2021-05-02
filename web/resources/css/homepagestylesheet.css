@@ -644,9 +644,28 @@ a:active{
     font-size:64px;
 }
 
+.homeimg{
+    width:350px !important;
+    margin-left:15%;
+}
 
-.homepageimg{
-    border-radius: 100% !important;
-    width:250px !important;
+
+
+.homepageimg1{
+    
+    border: 5px solid #7F5539;
+    width:550px !important;
+    margin-left:10%;
+    
 
 }
+
+.homepageimg2{
+    border: 5px solid #7F5539;
+    width:550px !important;
+    margin-left:60%;
+
+}
+
+
+
