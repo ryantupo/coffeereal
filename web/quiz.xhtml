@@ -33,6 +33,16 @@
         </div>
 
 
+        <div class="searchbar">
+            <h:form>
+                <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
+
+                <h:commandButton value="Search-4-Coffee" class="searchButton Button" action="#{thisbean.setSearchResult(thisbean.txt1)}" />
+
+            </h:form>
+        </div>
+
+
         <h1 class="center registertitle">Quiz</h1>
 
 
@@ -115,9 +125,9 @@
 
 
                         <div class="card">
-                                <h:form>
-                                    <p:growl id="msg"/>
-                                </h:form>
+                            <h:form>
+                                <p:growl id="msg"/>
+                            </h:form>
                             <h:form>
                                 <p:growl id="msg"/>
                                 <p:selectBooleanCheckbox value="#{mainalg.likes_flowery}" itemLabel="Flowery">

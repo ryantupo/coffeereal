@@ -25,80 +25,89 @@
             </h:form>
         </div>
 
+        <div class="searchbar">
+            <h:form>
+                <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
+
+                <h:commandButton value="Search-4-Coffee" class="searchButton Button" action="#{thisbean.setSearchResult(thisbean.txt1)}" />
+
+            </h:form>
+        </div>
+
 
         <h1 class="center registertitle">Register Brand</h1>
 
         <div class=" p-field p-grid brandquiz">
 
             <h:form class="paddinginput2">
-                
+
                 <div class="question2">
 
 
-                <h:outputLabel value = "Brand Name:"/>
-                <div class="p-col paddinginput">
-                    <p:inputText id="BrandNameInputText" required="true"
-                                 requiredMessage="Please enter a valid BrandName"
-                                 value="#{brandbean.brand_Name}" maxlength="30">
-                    </p:inputText>
-                    <h:message for="BrandNameInputText" styleClass="error"/><br/>
-                </div>
+                    <h:outputLabel value = "Brand Name:"/>
+                    <div class="p-col paddinginput">
+                        <p:inputText id="BrandNameInputText" required="true"
+                                     requiredMessage="Please enter a valid BrandName"
+                                     value="#{brandbean.brand_Name}" maxlength="30">
+                        </p:inputText>
+                        <h:message for="BrandNameInputText" styleClass="error"/><br/>
+                    </div>
 
-                <h:outputLabel value = "Country:"/>
+                    <h:outputLabel value = "Country:"/>
 
-                <div class="p-col paddinginput">
-                    <p:inputText id="CountryInputText" required="true"
-                                 requiredMessage="Please enter your Brands Country"
-                                 value="#{brandbean.country}" maxlength="150">
-                    </p:inputText>
-                    <h:message for="CountryInputText" styleClass="error"/><br/>
+                    <div class="p-col paddinginput">
+                        <p:inputText id="CountryInputText" required="true"
+                                     requiredMessage="Please enter your Brands Country"
+                                     value="#{brandbean.country}" maxlength="150">
+                        </p:inputText>
+                        <h:message for="CountryInputText" styleClass="error"/><br/>
 
-                </div> 
-                <!--//some error with country???-->
-
-
-                <h:outputLabel value = "Established Year:"/>
-                <div class="p-col paddinginput">
-                    <p:inputText id="EstablishedInputText" required="true"
-                                 converterMessage="Please enter digits only."
-                                 requiredMessage="Please enter the Brands Established Year"
-                                 value="#{brandbean.established}" maxlength="30">
-                    </p:inputText>
-                    <h:message for="EstablishedInputText" styleClass="error"/><br/>
-                </div>
+                    </div> 
+                    <!--//some error with country???-->
 
 
-
-                <h:outputLabel value = "Brand Information:"/>
-                <div class="p-col paddinginput">
-                    <p:inputText id="BrandInfoInputText" required="true"
-                                 requiredMessage="Please enter some Brand Info"
-                                 value="#{brandbean.brand_Info}" maxlength="400">
-                    </p:inputText>
-                    <h:message for="BrandInfoInputText" styleClass="error"/><br/>
-                </div>
+                    <h:outputLabel value = "Established Year:"/>
+                    <div class="p-col paddinginput">
+                        <p:inputText id="EstablishedInputText" required="true"
+                                     converterMessage="Please enter digits only."
+                                     requiredMessage="Please enter the Brands Established Year"
+                                     value="#{brandbean.established}" maxlength="30">
+                        </p:inputText>
+                        <h:message for="EstablishedInputText" styleClass="error"/><br/>
+                    </div>
 
 
 
-                <h:outputLabel value = "Brand Origins Information"/>
-                <div class="p-col paddinginput">
-                    <p:inputText id="OriginsInputText" required="true"
-                                 requiredMessage="Please enter some Brand Origins Info"
-                                 value="#{brandbean.origin_Info}" maxlength="320">
-                    </p:inputText>
-                    <h:message for="OriginsInputText" styleClass="error"/><br/>
-                </div>
+                    <h:outputLabel value = "Brand Information:"/>
+                    <div class="p-col paddinginput">
+                        <p:inputText id="BrandInfoInputText" required="true"
+                                     requiredMessage="Please enter some Brand Info"
+                                     value="#{brandbean.brand_Info}" maxlength="400">
+                        </p:inputText>
+                        <h:message for="BrandInfoInputText" styleClass="error"/><br/>
+                    </div>
 
 
-                <!--// logo not required needs url link or to be saved in resources/images/logo and the dir entered-->
-                <h:outputLabel value = "Logo Link"/>
-                <div class="p-col paddinginput">
-                    <p:inputText id="LogoInputText" required="false"
-                                 requiredMessage="Please enter some Brand Origins Info"
-                                 value="#{brandbean.logoLink}" maxlength="320">
-                    </p:inputText>
-                    <h:message for="OriginsInputText" styleClass="error"/><br/>
-                </div>
+
+                    <h:outputLabel value = "Brand Origins Information"/>
+                    <div class="p-col paddinginput">
+                        <p:inputText id="OriginsInputText" required="true"
+                                     requiredMessage="Please enter some Brand Origins Info"
+                                     value="#{brandbean.origin_Info}" maxlength="320">
+                        </p:inputText>
+                        <h:message for="OriginsInputText" styleClass="error"/><br/>
+                    </div>
+
+
+                    <!--// logo not required needs url link or to be saved in resources/images/logo and the dir entered-->
+                    <h:outputLabel value = "Logo Link"/>
+                    <div class="p-col paddinginput">
+                        <p:inputText id="LogoInputText" required="false"
+                                     requiredMessage="Please enter some Brand Origins Info"
+                                     value="#{brandbean.logoLink}" maxlength="320">
+                        </p:inputText>
+                        <h:message for="OriginsInputText" styleClass="error"/><br/>
+                    </div>
                 </div>
 
 

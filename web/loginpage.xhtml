@@ -18,43 +18,52 @@ and open the template in the editor.
 
         <div class="topnav">
             <h:outputText value="#{navbar.navBar}" escape="false" />
-            
+
 
             <h:form>
                 <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
             </h:form>
         </div>
 
+        <div class="searchbar">
+            <h:form>
+                <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
 
-        
-        
+                <h:commandButton value="Search-4-Coffee" class="searchButton Button" action="#{thisbean.setSearchResult(thisbean.txt1)}" />
+
+            </h:form>
+        </div>
+
+
+
+
         <h1 class="center registertitle" >LOG IN</h1>
-        
-        
+
+
         <div class="p-field p-grid divlogin registerblock center ">
 
             <h:form class="paddinginput2">
 
-                    <h:outputLabel value = "Username:"/>
-                    <div class="p-col paddinginput">
+                <h:outputLabel value = "Username:"/>
+                <div class="p-col paddinginput">
                     <p:inputText id="UserNameInputText" required="true"
                                  requiredMessage="Please enter a valid Username"
                                  value="#{loginbean.userName}" maxlength="30">
                     </p:inputText>
                     <h:message for="UserNameInputText" styleClass="error"/><br/>
-                    </div>
+                </div>
 
-                    <h:outputLabel value = "Password:"/>
-                    <div class="p-col paddinginput">
-                        <p:password id="nonFeedback" value="#{loginbean.userPassword}"/>
+                <h:outputLabel value = "Password:"/>
+                <div class="p-col paddinginput">
+                    <p:password id="nonFeedback" value="#{loginbean.userPassword}"/>
                     <h:message for="passwordInputText" styleClass="error"/><br/>
-                    </div>
+                </div>
 
 
 
 
                 <h:commandButton class="Button registerbutton" value="Log In" action="#{loginbean.SuccesfulLogin()}"/>
-                
+
 
 
 

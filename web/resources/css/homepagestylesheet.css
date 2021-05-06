@@ -528,10 +528,11 @@ a:active{
 }
 
 .inputTextarea{
+    margin-left:50px;
     overflow:scroll;
     height:150px;
     display: block;
-    width: 100%;
+    width: 80%;
     resize: none;
     min-height: 40px;
     line-height: 20px;
@@ -698,12 +699,8 @@ a:active{
 
 
 .hometitle{
-    left:50%;
-    margin-top:-70px;
+    margin-top:70px;
     font-size:50px;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 200px; 
 }

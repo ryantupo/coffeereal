@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
-    
+
     <h:head>
         <title>Register-User</title>
         <link rel="stylesheet" href="resources/css/homepagestylesheet.css"/>
@@ -15,16 +15,25 @@
 
         <div class="topnav">
             <h:outputText value="#{navbar.navBar}" escape="false" />
-            
+
 
             <h:form>
                 <h:commandButton value="Logout" class="logoutbutton" action="#{loginbean.logout()}"/>
             </h:form>
         </div>
 
+        <div class="searchbar">
+            <h:form>
+                <p:autoComplete id="acSimple" value="#{thisbean.txt1}" completeMethod="#{thisbean.completeText}" scrollHeight="250"/>
+
+                <h:commandButton value="Search-4-Coffee" class="searchButton Button" action="#{thisbean.setSearchResult(thisbean.txt1)}" />
+
+            </h:form>
+        </div>
+
 
         <h1 class="center registertitle">Register Account</h1>
-        
+
         <div class="divregister p-field p-grid registerblock">
 
             <h:form class="paddinginput2">
