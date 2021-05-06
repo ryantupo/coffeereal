@@ -25,7 +25,6 @@ import javax.sql.DataSource;
  *
  * @author Ryan
  */
-//@ManagedBean(name ="getsession")
 @Named("getsession")
 @ViewScoped
 public class GetSession implements Serializable {
