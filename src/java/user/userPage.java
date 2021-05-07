@@ -36,7 +36,7 @@ public class userPage implements Serializable {
     DataSource dataSource;
 
     int userID;
-    static String userId;
+    String userId;
     String userName;
     String password;
     String firstName;
@@ -370,7 +370,7 @@ public class userPage implements Serializable {
         this.dataSource = dataSource;
     }
 
-    public static String getUserId() {
+    public String getUserId() {
         return userId;
     }
 

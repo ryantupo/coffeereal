@@ -262,8 +262,8 @@ public class Registerbean {
                                 + "VALUES ( ?, ?, ? )");
 
                 addEntry2.setString(1, getUser_Id());
-                addEntry2.setString(2, "");
-                addEntry2.setString(3, "");
+                addEntry2.setString(2, "SOCIAL LINK HERE");
+                addEntry2.setString(3, "USER BIO HERE");
 
                 addEntry2.executeUpdate(); // insert the entry
 
