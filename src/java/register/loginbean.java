@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.*;
 import javax.annotation.Resource;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -106,6 +107,8 @@ public class loginbean implements Serializable {
             }
 //            }
         } else {
+            String summary = "Invalid Username / Password";
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(summary));
             session.invalidate();
             System.out.println(userName);
             System.out.println("Login Error Detected");
@@ -121,7 +124,7 @@ public class loginbean implements Serializable {
         session.invalidate();
         setUserName(null);
         FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
-        
+
     }
 
 }

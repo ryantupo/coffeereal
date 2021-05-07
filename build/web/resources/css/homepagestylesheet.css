@@ -1,17 +1,7 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
 /* 
     Created on : 28-Feb-2021, 16:47:49
     Author     : Ryan
 */
-
-//new color scheme
-//https://coolors.co/ea8c55-c75146-ad2e24-81171b-540804
-
-
 //lightest to darkest
 //#EA8C55
 //#C75146
@@ -58,12 +48,9 @@ body{
     background-color: #9C6644;
     color: black;
     font-weight: bold;
-
-}
-
-body {
     padding: 2rem;
 }
+
 
 h2{
     text-align:center;
